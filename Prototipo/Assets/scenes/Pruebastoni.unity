@@ -184,7 +184,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: .0500000007
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
@@ -336,7 +336,6 @@ GameObject:
   - 33: {fileID: 184988543}
   - 65: {fileID: 184988542}
   - 23: {fileID: 184988541}
-  - 114: {fileID: 184988540}
   - 54: {fileID: 184988545}
   m_Layer: 0
   m_Name: Player2
@@ -345,18 +344,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &184988540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 184988539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbe3946cc3fae384087e6e02c591095a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
 --- !u!23 &184988541
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -423,11 +410,11 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 184988539}
   serializedVersion: 2
-  m_Mass: 1000
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: .0500000007
-  m_UseGravity: 1
-  m_IsKinematic: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
@@ -884,11 +871,11 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1020981270}
   serializedVersion: 2
-  m_Mass: 1000
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: .0500000007
-  m_UseGravity: 1
-  m_IsKinematic: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
@@ -1053,7 +1040,6 @@ GameObject:
   - 33: {fileID: 1159563877}
   - 65: {fileID: 1159563876}
   - 23: {fileID: 1159563875}
-  - 114: {fileID: 1159563874}
   - 54: {fileID: 1159563878}
   m_Layer: 0
   m_Name: Player4
@@ -1076,18 +1062,6 @@ Transform:
   - {fileID: 2015447689}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &1159563874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1159563872}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbe3946cc3fae384087e6e02c591095a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
 --- !u!23 &1159563875
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1140,7 +1114,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1159563872}
   serializedVersion: 2
-  m_Mass: 1000
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: .0500000007
   m_UseGravity: 1
@@ -1159,7 +1133,6 @@ GameObject:
   - 33: {fileID: 1481564540}
   - 65: {fileID: 1481564539}
   - 23: {fileID: 1481564538}
-  - 114: {fileID: 1481564537}
   - 54: {fileID: 1481564541}
   m_Layer: 0
   m_Name: Player3
@@ -1182,18 +1155,6 @@ Transform:
   - {fileID: 154110394}
   m_Father: {fileID: 0}
   m_RootOrder: 1
---- !u!114 &1481564537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1481564535}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbe3946cc3fae384087e6e02c591095a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
 --- !u!23 &1481564538
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1246,10 +1207,10 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1481564535}
   serializedVersion: 2
-  m_Mass: 1000
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: .0500000007
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
