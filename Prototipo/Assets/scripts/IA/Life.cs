@@ -14,13 +14,19 @@ public class Life : MonoBehaviour {
 	void Update () {
 	
 	}
-    void OnDamage(float damage)
+    public bool OnDamage(float damage)
     {
         m_currentLife -= damage;
         if (m_currentLife < 0.0f)
         {
             gameObject.SendMessage("OnDead");
             m_currentLife = 0.0f;
+            return true;
         }
+        return false;
+    }
+    public bool isAlive()
+    {
+        return m_currentLife > 0.0f;
     }
 }
