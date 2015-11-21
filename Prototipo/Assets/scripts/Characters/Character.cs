@@ -7,6 +7,7 @@ using System.Collections;
 public class Character : MonoBehaviour {
 
     public Axe axe;
+    public float delayToNextTool = 0.5f;
     private DualStickMovement m_dualStickMovement;
     private States m_states;
     private Renderer m_renderer;
@@ -39,7 +40,7 @@ public class Character : MonoBehaviour {
     }
     IEnumerator dissableAxe()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(delayToNextTool);
         axe.enabled = false;
     }
     public void OnFire()
