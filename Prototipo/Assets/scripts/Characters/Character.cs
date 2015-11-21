@@ -5,6 +5,8 @@ using System.Collections;
 [RequireComponent(typeof(States))]
 [RequireComponent(typeof(Renderer))]
 public class Character : MonoBehaviour {
+    private string m_SuitType = null;
+    private int m_DeathTime = 10;
 
     public Axe axe;
     public float delayToNextTool = 0.5f;
@@ -27,9 +29,25 @@ public class Character : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	}
 
-    public void useTool()
+	}
+    //Las opciones de traje son 2: Ignifugo y Normal.
+    void setSuitType(string suit){
+        m_SuitType = suit;
+        if (m_SuitType == "Ignifugo")
+        {
+            m_DeathTime += 10;
+        }
+    }
+
+    void isDead()
+    {
+        if (m_DeathTime < 0)
+        {
+            this.SendMessage(this.name);
+        }
+    }
+public void useTool()
     {
         if ( !axe.enabled)
         { 
