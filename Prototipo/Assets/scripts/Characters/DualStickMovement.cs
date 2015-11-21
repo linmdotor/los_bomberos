@@ -25,7 +25,7 @@ public class DualStickMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.velocity = vector
+        rb.velocity = Vector3.zero;
     }
 
     // Update is called once per frame
