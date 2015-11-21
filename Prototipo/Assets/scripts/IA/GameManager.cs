@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour {
         for (uint i = 0; i < m_NumPlayers; ++i)
         {
             GameObject player = Instantiate<GameObject>(m_Player);
-            player.SendMessage("setSuitType", options[i]);
+            player.SendMessage("setOption", options[i]);
             player.name = i.ToString();
         }
     }
