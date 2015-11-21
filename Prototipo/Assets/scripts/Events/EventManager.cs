@@ -21,7 +21,7 @@ public class EventManager {
 	 */
 	public static void newEvent(GameEvent hEvent)
 	{
-		switch( hEvent.type )
+		/*switch( hEvent.type )
 		{
             case EVENTS.EVENT_FIREFIGHTER_ON_FIRE:
 		{
@@ -30,7 +30,7 @@ public class EventManager {
 			break;
 		}
 
-		}
+		}*/
 		//avisar a la red
 		/*if ( bReplicable )
 		{
