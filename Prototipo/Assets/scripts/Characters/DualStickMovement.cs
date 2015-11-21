@@ -48,7 +48,7 @@ public class DualStickMovement : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(lookDir, Vector3.up);
             gameObject.BroadcastMessage("startShooting");
         } else {
-            gameObject.BroadcastMessage("startShooting");
+            gameObject.BroadcastMessage("stopShooting");
         }
         
     }
