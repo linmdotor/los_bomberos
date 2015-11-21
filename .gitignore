@@ -31,3 +31,5 @@ Prototipo/Library/
 Prototipo/Temp/
 *.sln
 *.csproj
+*.suo
+*.htm
