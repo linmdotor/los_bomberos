@@ -55,15 +55,15 @@ public class FireManager : MonoBehaviour {
             increment = 1;
         }
 
-        int xMax = xMin + increment;
-        int zMax = zMin + increment;
+        int xMax = ((int)(position.x / m_map.m_xSize) + 1);
+        int zMax = ((int)(position.z / m_map.m_zSize) + 1);
         if (xMax >= m_map.m_xCell) xMax = m_map.m_xCell - 1;
         if (zMax >= m_map.m_zCell) zMax = m_map.m_zCell - 1;
         List<Vector2> possibleCell = new List<Vector2>();
 
-        for (int x = xMin; x < xMax; ++x)
+        for (int x = xMin; x <= xMax; ++x)
         {
-            for (int z = zMin; z < zMax; ++z)
+            for (int z = zMin; z <= zMax; ++z)
             {
                 if (m_map.m_ObjectsMap[x][z] != null)
                 {
@@ -79,6 +79,7 @@ public class FireManager : MonoBehaviour {
             }
         }
 
+        if (possibleCell.Count < 1) return;
         int cell = Random.Range(0, possibleCell.Count);
         int xCell = (int)possibleCell[cell].x;
         int zCell = (int)possibleCell[cell].y;
