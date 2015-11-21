@@ -5,13 +5,15 @@ using GamepadInput;
 
 public class DualStickMovement : MonoBehaviour
 {
+    static int nController = 1;
     GamePad.Index mIndice;
 
-    public float speed = 2.0f;
+    public float speed = 5.0f;
 
     void Start()
-    {
-        mIndice = GamePad.Index.One;
+    {      
+        mIndice = (GamePad.Index)nController;
+        ++nController;
     }
 
     // Update is called once per frame
