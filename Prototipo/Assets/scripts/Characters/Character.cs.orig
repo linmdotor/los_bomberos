@@ -5,9 +5,8 @@ using System.Collections;
 [RequireComponent(typeof(States))]
 [RequireComponent(typeof(Renderer))]
 public class Character : MonoBehaviour {
-    private string m_Option = null;
-    private float m_DeathTime = 10;
-    private bool m_OnFire = false;
+    private string m_SuitType = null;
+    private int m_DeathTime = 10;
 
     public Axe axe;
     public float delayToNextTool = 0.5f;
@@ -24,25 +23,22 @@ public class Character : MonoBehaviour {
     }
 	// Use this for initialization
 	void Start () {
+<<<<<<< HEAD
+	    
+=======
         axe.enabled = false;
         normalState();
+>>>>>>> 12f3906ddc7829993b5d10fa0b18c85b56cdcdde
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (m_OnFire)
-        {
-            m_DeathTime -= Time.deltaTime;
-        }
-        if(m_DeathTime < 0)
-        {
-            isDead();
-        }
 	}
-
-    void setOption(string option){
-        m_Option = option;
-        if (m_Option == "FireSuit")
+<<<<<<< HEAD
+    //Las opciones de traje son 2: Ignifugo y Normal.
+    void setSuitType(string suit){
+        m_SuitType = suit;
+        if (m_SuitType == "Ignifugo")
         {
             m_DeathTime += 10;
         }
@@ -50,13 +46,16 @@ public class Character : MonoBehaviour {
 
     void isDead()
     {
-        this.SendMessage(this.name);
-        this.enabled = false;
+        if (m_DeathTime < 0)
+        {
+            this.SendMessage(this.name);
+        }
     }
+=======
 
     public void useTool()
     {
-        if (!axe.enabled && m_Option == "Axe")
+        if ( !axe.enabled)
         { 
             axe.enabled = true;
             axe.activeAxe(0.2f);
@@ -72,19 +71,16 @@ public class Character : MonoBehaviour {
     {
         gameObject.SendMessage("setSpeed", m_states.changeState(States.CharacterStates.BURNING));
         m_renderer.material.color = Color.red;
-        gameObject.SendMessage("blockImput");
-        m_OnFire = true;
     }
     public void OnWater()
     {
         gameObject.SendMessage("setSpeed", m_states.changeState(States.CharacterStates.WET));
         m_renderer.material.color = Color.blue;
-        gameObject.SendMessage("releaseImput");
     }
     public void normalState()
     {
         gameObject.SendMessage("setSpeed", m_states.changeState(States.CharacterStates.NORMAL));
         m_renderer.material.color = Color.white;
-        gameObject.SendMessage("releaseImput");
     }
+>>>>>>> 12f3906ddc7829993b5d10fa0b18c85b56cdcdde
 }
