@@ -273,25 +273,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
---- !u!1 &1905002988 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 186676, guid: ea535654c316d8948af59e091402b2a1, type: 2}
-  m_PrefabInternal: {fileID: 990111919}
---- !u!54 &1905002989
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1905002988}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &1956232158
 GameObject:
   m_ObjectHideFlags: 0
