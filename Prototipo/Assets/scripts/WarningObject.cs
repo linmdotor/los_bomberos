@@ -14,10 +14,8 @@ public class WarningObject : MonoBehaviour {
 
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("OTRO");
         if (other.transform.CompareTag(m_Tag))
         {
-            Debug.Log("collition ENTER " + numberOfFiresColliding);
             if (numberOfFiresColliding == 0)
             {
                 turnAlarmOn();
@@ -36,7 +34,6 @@ public class WarningObject : MonoBehaviour {
             {
                 turnAlarmOff();
             }
-            Debug.Log("collition EXIT " + numberOfFiresColliding);
         }
     }
 
