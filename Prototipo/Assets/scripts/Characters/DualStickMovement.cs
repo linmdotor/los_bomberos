@@ -25,7 +25,7 @@ public class DualStickMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.velocity = Vector3.zero;
+        rb.velocity = vector
     }
 
     // Update is called once per frame
@@ -33,7 +33,7 @@ public class DualStickMovement : MonoBehaviour
     {   
         //Hacha
 
-        if (GamePad.GetButtonDown(GamePad.Button.B, numController)) {
+        if (Input.GetKeyDown(KeyCode.Space) || GamePad.GetButtonDown(GamePad.Button.B, numController)) {
             gameObject.SendMessage("useTool");
         }
 
