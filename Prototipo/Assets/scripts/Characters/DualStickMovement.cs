@@ -5,28 +5,51 @@ using GamepadInput;
 
 public class DualStickMovement : MonoBehaviour
 {
-    static int nController = 1;
-    GamePad.Index mIndice;
+    private Rigidbody rb;
+    static int mIndice = 1;
+    GamePad.Index numController;
 
-    public float speed = 5.0f;
+    private float speed = 5.0f;
+
+    void setSpeed(float s)
+    {
+        speed = s;
+    }
 
     void Start()
-    {      
-        mIndice = (GamePad.Index)nController;
-        ++nController;
+    {
+        rb = GetComponent<Rigidbody>();
+        numController = (GamePad.Index)mIndice;
+        ++mIndice;
+    }
+
+    void FixedUpdate()
+    {
+        rb.velocity = Vector3.zero;
     }
 
     // Update is called once per frame
     void Update()
-    {
-        Vector3 leftStickAxis = (Vector3.right * GamePad.GetAxis(GamePad.Axis.LeftStick, mIndice).x + Vector3.forward * GamePad.GetAxis(GamePad.Axis.LeftStick, mIndice).y);
-        transform.position += leftStickAxis * speed * Time.deltaTime;
-        Vector3 lookDir = (Vector3.right * GamePad.GetAxis(GamePad.Axis.RightStick, mIndice).x + Vector3.forward * GamePad.GetAxis(GamePad.Axis.RightStick, mIndice).y);
+    {   
+        //Hacha
 
-        if (lookDir.sqrMagnitude > 0.0f)
-        {
+        if (Input.GetKeyDown(KeyCode.Space) || GamePad.GetButtonDown(GamePad.Button.B, numController)) {
+            gameObject.SendMessage("useTool");
+        }
+
+        //Movemos al personaje
+        Vector3 leftStickAxis = (Vector3.right * GamePad.GetAxis(GamePad.Axis.LeftStick, numController).x + Vector3.forward * GamePad.GetAxis(GamePad.Axis.LeftStick, numController).y);
+        transform.position += leftStickAxis * speed * Time.deltaTime;
+
+        //Orientamos al personaje
+        Vector3 lookDir = (Vector3.right * GamePad.GetAxis(GamePad.Axis.RightStick, numController).x + Vector3.forward * GamePad.GetAxis(GamePad.Axis.RightStick, numController).y);
+        if (lookDir.sqrMagnitude > 0.0f) {
             transform.rotation = Quaternion.LookRotation(lookDir, Vector3.up);
+            gameObject.BroadcastMessage("startShooting");
+        } else {
+            gameObject.BroadcastMessage("stopShooting");
         }
         
     }
+
 }
