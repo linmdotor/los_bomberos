@@ -16,6 +16,10 @@ public class Door : MonoBehaviour {
 
     public void OnDead()
     {
+        //sonido de la puerta al romperse
+        AudioSource aud = gameObject.GetComponent<AudioSource>();
+        aud.PlayOneShot(aud.clip);
+
         gameObject.active = false;
     }
 }
