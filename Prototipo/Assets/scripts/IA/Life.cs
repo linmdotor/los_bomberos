@@ -29,4 +29,14 @@ public class Life : MonoBehaviour {
     {
         return m_currentLife > 0.0f;
     }
+
+    public float getLife()
+    {
+        return m_currentLife;
+    }
+
+    public float getMaxLife()
+    {
+        return m_maxLife;
+    }
 }

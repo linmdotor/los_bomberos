@@ -31,6 +31,20 @@ public class Axe : MonoBehaviour {
     {
         if (other.gameObject.tag.Equals("Door"))
         {
+            //calcula la vida que tiene y hace un sonido más fuerte cuanta menos vida le quede
+            float current_life = other.GetComponent<Life>().getLife();
+            if(current_life >= other.GetComponent<Life>().getMaxLife()/2.0)
+            {
+                AudioSource[] aud = gameObject.GetComponents<AudioSource>();
+                aud[1].PlayOneShot(aud[1].clip);
+            }
+            else
+            {
+                AudioSource[] aud = gameObject.GetComponents<AudioSource>();
+                aud[2].PlayOneShot(aud[2].clip);
+            }
+
+
             other.gameObject.SendMessage("OnDamage", m_damager.m_damage);
             m_boxCollider.enabled = false;
         }
