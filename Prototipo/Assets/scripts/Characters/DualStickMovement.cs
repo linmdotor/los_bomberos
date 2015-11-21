@@ -25,7 +25,6 @@ public class DualStickMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        //Evitamos fuerzas residuales despues de chocar contra otro bombero
         rb.velocity = Vector3.zero;
     }
 
@@ -34,7 +33,7 @@ public class DualStickMovement : MonoBehaviour
     {   
         //Hacha
 
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (GamePad.GetButtonDown(GamePad.Button.B, numController)) {
             gameObject.SendMessage("useTool");
         }
 
