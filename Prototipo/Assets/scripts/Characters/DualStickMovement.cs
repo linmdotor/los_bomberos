@@ -11,6 +11,11 @@ public class DualStickMovement : MonoBehaviour
 
     public float speed = 5.0f;
 
+    void setSpeed(float s)
+    {
+        speed = s;
+    }
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
