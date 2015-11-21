@@ -10,11 +10,18 @@ public class DualStickMovement : MonoBehaviour
     GamePad.Index numController;
 
     private float speed = 5.0f;
+    private bool block = false;
 
     void setSpeed(float s)
     {
         speed = s;
     }
+
+    void blockImput (bool op)
+    {
+        block = op;
+    }
+
 
     void Start()
     {
@@ -45,7 +52,10 @@ public class DualStickMovement : MonoBehaviour
         Vector3 lookDir = (Vector3.right * GamePad.GetAxis(GamePad.Axis.RightStick, numController).x + Vector3.forward * GamePad.GetAxis(GamePad.Axis.RightStick, numController).y);
         if (lookDir.sqrMagnitude > 0.0f) {
             transform.rotation = Quaternion.LookRotation(lookDir, Vector3.up);
-            gameObject.BroadcastMessage("startShooting");
+            if (!block)
+            {
+                gameObject.BroadcastMessage("startShooting");
+            }
         } else {
             gameObject.BroadcastMessage("stopShooting");
         }
