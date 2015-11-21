@@ -20,12 +20,12 @@ public class Extinguisher : MonoBehaviour {
     //Funciones llamadas desde el input para activar y desactivar el extintor. Tanto collider como efecto.
     void startShooting()
     {
-        m_AoE.GetComponent<Collider>().enabled = true;
+        m_AoE.SetActive(true);
         m_Water.SetActive(true);
     }
     void stopShooting()
     {
-        m_AoE.GetComponent<Collider>().enabled = false;
+        m_AoE.SetActive(false);
         m_Water.SetActive(false);
     }
 }
