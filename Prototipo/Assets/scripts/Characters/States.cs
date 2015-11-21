@@ -19,9 +19,6 @@ public class States : MonoBehaviour {
     public float m_wetDuration;
     private float m_currentTime;
     private CharacterStates currentState = CharacterStates.NORMAL;
-    private float m_normalSpeed = 5;
-    private float m_burningSpeed = 0;
-    private float m_wetSpeed = 2;
 
     void Update()
     {
@@ -36,12 +33,12 @@ public class States : MonoBehaviour {
         currentState = state;
         switch (state){
             case CharacterStates.NORMAL:
-                return m_normalSpeed;
+                return 100;
             case CharacterStates.BURNING:
                 //Llamada a iniciar contador de muerte;
-                return m_burningSpeed;
+                return 0;
             case CharacterStates.WET:
-                return m_wetDuration;
+                return 50;
             default:
                 return 100;
         }
