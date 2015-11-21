@@ -224,7 +224,7 @@ namespace GamepadInput
 
             state.LeftTrigger = GetTrigger(Trigger.LeftTrigger, controlIndex, raw);
             state.RightTrigger = GetTrigger(Trigger.RightTrigger, controlIndex, raw);
-
+            
             return state;
         }
 
