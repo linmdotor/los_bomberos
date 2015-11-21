@@ -26,3 +26,8 @@
 *.exe
 *.out
 *.app
+
+Prototipo/Library/
+Prototipo/Temp/
+*.sln
+*.csproj
