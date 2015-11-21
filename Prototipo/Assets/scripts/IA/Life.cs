@@ -17,7 +17,7 @@ public class Life : MonoBehaviour {
     public bool OnDamage(float damage)
     {
         m_currentLife -= damage;
-        if (m_currentLife < 0.0f)
+        if (m_currentLife <= 0.0f)
         {
             gameObject.SendMessage("OnDead");
             m_currentLife = 0.0f;

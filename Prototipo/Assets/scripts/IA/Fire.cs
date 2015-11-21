@@ -16,6 +16,7 @@ public class Fire : MonoBehaviour {
 	void Start () {
         init();
         fireManager = FireManager.m_instance;
+        fireManager.addFire(transform.position);
 	}
 
     void init()
@@ -30,7 +31,7 @@ public class Fire : MonoBehaviour {
         if ( m_nextPropagation < 0.0f )
         {
             m_nextPropagation = m_propagationTime;
-            fireManager.firePropagation(transform.position, m_damegePerPropagationTime, this);
+            fireManager.firePropagation(transform.position, m_damegePerPropagationTime);
             //logica de propagación
         }
 	}
