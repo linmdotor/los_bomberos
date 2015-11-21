@@ -226,6 +226,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 117060, guid: fd7e4477dc2b9874dac7ff2777933a66, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fd7e4477dc2b9874dac7ff2777933a66, type: 2}
   m_IsPrefabParent: 0
@@ -236,56 +240,40 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 450448, guid: ea535654c316d8948af59e091402b2a1, type: 2}
+    - target: {fileID: 420424, guid: 99751c855ccc5134fba712cb7feca264, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 450448, guid: ea535654c316d8948af59e091402b2a1, type: 2}
+    - target: {fileID: 420424, guid: 99751c855ccc5134fba712cb7feca264, type: 2}
       propertyPath: m_LocalPosition.y
       value: .5
       objectReference: {fileID: 0}
-    - target: {fileID: 450448, guid: ea535654c316d8948af59e091402b2a1, type: 2}
+    - target: {fileID: 420424, guid: 99751c855ccc5134fba712cb7feca264, type: 2}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 450448, guid: ea535654c316d8948af59e091402b2a1, type: 2}
+    - target: {fileID: 420424, guid: 99751c855ccc5134fba712cb7feca264, type: 2}
       propertyPath: m_LocalRotation.x
       value: -.707106829
       objectReference: {fileID: 0}
-    - target: {fileID: 450448, guid: ea535654c316d8948af59e091402b2a1, type: 2}
+    - target: {fileID: 420424, guid: 99751c855ccc5134fba712cb7feca264, type: 2}
       propertyPath: m_LocalRotation.y
       value: 1.13310689e-15
       objectReference: {fileID: 0}
-    - target: {fileID: 450448, guid: ea535654c316d8948af59e091402b2a1, type: 2}
+    - target: {fileID: 420424, guid: 99751c855ccc5134fba712cb7feca264, type: 2}
       propertyPath: m_LocalRotation.z
       value: -1.13310689e-15
       objectReference: {fileID: 0}
-    - target: {fileID: 450448, guid: ea535654c316d8948af59e091402b2a1, type: 2}
+    - target: {fileID: 420424, guid: 99751c855ccc5134fba712cb7feca264, type: 2}
       propertyPath: m_LocalRotation.w
       value: .707106829
       objectReference: {fileID: 0}
-    - target: {fileID: 450448, guid: ea535654c316d8948af59e091402b2a1, type: 2}
+    - target: {fileID: 420424, guid: 99751c855ccc5134fba712cb7feca264, type: 2}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 186676, guid: ea535654c316d8948af59e091402b2a1, type: 2}
-      propertyPath: m_TagString
-      value: Water
-      objectReference: {fileID: 0}
-    - target: {fileID: 186676, guid: ea535654c316d8948af59e091402b2a1, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6573662, guid: ea535654c316d8948af59e091402b2a1, type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 130452, guid: ea535654c316d8948af59e091402b2a1, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: ea535654c316d8948af59e091402b2a1, type: 2}
+  m_ParentPrefab: {fileID: 100100000, guid: 99751c855ccc5134fba712cb7feca264, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1158132191
 GameObject:
@@ -373,22 +361,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
---- !u!1 &1905002988 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 186676, guid: ea535654c316d8948af59e091402b2a1, type: 2}
-  m_PrefabInternal: {fileID: 990111919}
---- !u!114 &1905002993
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1905002988}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0c5d1f0d4543c94588ba0e7ffa4b25c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_damage: 10
 --- !u!1 &1956232158
 GameObject:
   m_ObjectHideFlags: 0
