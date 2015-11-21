@@ -43,6 +43,10 @@ public class DualStickMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) || GamePad.GetButtonDown(GamePad.Button.B, numController)) {
             gameObject.SendMessage("useTool");
         }
+        if (GamePad.GetButtonDown(GamePad.Button.A, numController)) {
+            gameObject.SendMessage("pressAction");
+        }
+
 
         //Movemos al personaje
         Vector3 leftStickAxis = (Vector3.right * GamePad.GetAxis(GamePad.Axis.LeftStick, numController).x + Vector3.forward * GamePad.GetAxis(GamePad.Axis.LeftStick, numController).y);

@@ -2,6 +2,7 @@
 using System.Collections;
 [RequireComponent(typeof(Damager))]
 [RequireComponent(typeof(BoxCollider))]
+[RequireComponent(typeof(AudioSource))]
 public class Axe : MonoBehaviour {
 
     private BoxCollider m_boxCollider;
@@ -51,6 +52,8 @@ public class Axe : MonoBehaviour {
     }
     public void activeAxe(float seconds)
     {
+        AudioSource[] aud = gameObject.GetComponents<AudioSource>();
+        aud[0].Play();// PlayOneShot(aud[0].clip);
         currentTime = seconds;
         m_boxCollider.enabled = true;
         m_animator.SetTrigger("Attack");
