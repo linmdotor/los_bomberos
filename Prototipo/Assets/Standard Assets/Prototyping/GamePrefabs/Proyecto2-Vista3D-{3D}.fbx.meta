@@ -1,0 +1,365 @@
+fileFormatVersion: 2
+guid: 62e972e75779d5e49bf120b0884708d5
+timeCreated: 1448114497
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Fijo 0406 x 0610mm [131806]
+    100002: Fijo 0406 x 0610mm [131857]
+    100004: Fijo 0406 x 0610mm [131885]
+    100006: Fijo 0406 x 0610mm [131949]
+    100008: Fijo 0406 x 0610mm [131971]
+    100010: Fijo 0406 x 0610mm [132007]
+    100012: Fijo 0406 x 0610mm [132055]
+    100014: Fijo 0406 x 0610mm [132111]
+    100016: Fijo 0406 x 0610mm [132159]
+    100018: Fijo 0406 x 0610mm [132197]
+    100020: Fijo 0406 x 0610mm [132247]
+    100022: Fijo 0406 x 0610mm [132307]
+    100024: Fijo 0406 x 0610mm [132353]
+    100026: Fijo 0406 x 0610mm [132403]
+    100028: Fijo 0406 x 0610mm [132449]
+    100030: Fijo 0406 x 0610mm [132495]
+    100032: Fijo 0406 x 0610mm [132535]
+    100034: Fijo 0406 x 0610mm [132559]
+    100036: Fijo 0406 x 0610mm [132587]
+    100038: Fijo 0406 x 0610mm [132615]
+    100040: Fijo 0406 x 0610mm [132749]
+    100042: Fijo 0406 x 0610mm [132815]
+    100044: Fijo 0406 x 0610mm [132885]
+    100046: Fijo 0406 x 0610mm [132993]
+    100048: Fijo 0406 x 0610mm [133045]
+    100050: Fijo 0406 x 0610mm [133103]
+    100052: Fijo 0406 x 0610mm [133147]
+    100054: Fijo 0406 x 0610mm [133253]
+    100056: Fijo 0406 x 0610mm [133321]
+    100058: Fijo 0406 x 0610mm [133357]
+    100060: Fijo 0406 x 0610mm [133389]
+    100062: Fijo 0406 x 0610mm [133447]
+    100064: Fijo 0406 x 0610mm [133573]
+    100066: Fijo 0406 x 0610mm [133609]
+    100068: Fijo 0406 x 0610mm [133645]
+    100070: Fijo 0406 x 0610mm [133675]
+    100072: Fijo 0406 x 0610mm [133705]
+    100074: Fijo 0406 x 0610mm [133737]
+    100076: Fijo 0406 x 0610mm [133785]
+    100078: "Muro b\xE1sico Gen\xE9rico - 200 mm [129132]"
+    100080: "Muro b\xE1sico Gen\xE9rico - 200 mm [129329]"
+    100082: "Muro b\xE1sico Gen\xE9rico - 200 mm [129434]"
+    100084: "Muro b\xE1sico Gen\xE9rico - 200 mm [129527]"
+    100086: "Muro b\xE1sico Gen\xE9rico - 200 mm [129639]"
+    100088: "Muro b\xE1sico Gen\xE9rico - 200 mm [129736]"
+    100090: "Muro b\xE1sico Gen\xE9rico - 200 mm [129818]"
+    100092: "Muro b\xE1sico Gen\xE9rico - 200 mm [129882]"
+    100094: "Muro b\xE1sico Gen\xE9rico - 200 mm [129956]"
+    100096: "Muro b\xE1sico Gen\xE9rico - 200 mm [130033]"
+    100098: "Muro b\xE1sico Gen\xE9rico - 200 mm [130079]"
+    100100: "Muro b\xE1sico Gen\xE9rico - 200 mm [130171]"
+    100102: "Muro b\xE1sico Gen\xE9rico - 200 mm [130218]"
+    100104: "Muro b\xE1sico Gen\xE9rico - 200 mm [130295]"
+    100106: "Muro b\xE1sico Gen\xE9rico - 200 mm [130351]"
+    100108: "Muro b\xE1sico Gen\xE9rico - 200 mm [130629]"
+    100110: //RootNode
+    100112: Simple-A ras 0915 x 2134mm [130697]
+    100114: Simple-A ras 0915 x 2134mm [130808]
+    100116: Simple-A ras 0915 x 2134mm [130872]
+    100118: Simple-A ras 0915 x 2134mm [130946]
+    100120: Simple-A ras 0915 x 2134mm [131070]
+    100122: Simple-A ras 0915 x 2134mm [131152]
+    100124: Simple-A ras 0915 x 2134mm [131210]
+    100126: Simple-A ras 0915 x 2134mm [131264]
+    100128: Simple-A ras 0915 x 2134mm [131326]
+    100130: Simple-A ras 0915 x 2134mm [131586]
+    100132: Simple-A ras 0915 x 2134mm [131632]
+    100134: Simple-A ras 0915 x 2134mm [131692]
+    100136: Simple-A ras 0915 x 2134mm [131724]
+    100138: 'Vista 3D: {3D}'
+    400000: Fijo 0406 x 0610mm [131806]
+    400002: Fijo 0406 x 0610mm [131857]
+    400004: Fijo 0406 x 0610mm [131885]
+    400006: Fijo 0406 x 0610mm [131949]
+    400008: Fijo 0406 x 0610mm [131971]
+    400010: Fijo 0406 x 0610mm [132007]
+    400012: Fijo 0406 x 0610mm [132055]
+    400014: Fijo 0406 x 0610mm [132111]
+    400016: Fijo 0406 x 0610mm [132159]
+    400018: Fijo 0406 x 0610mm [132197]
+    400020: Fijo 0406 x 0610mm [132247]
+    400022: Fijo 0406 x 0610mm [132307]
+    400024: Fijo 0406 x 0610mm [132353]
+    400026: Fijo 0406 x 0610mm [132403]
+    400028: Fijo 0406 x 0610mm [132449]
+    400030: Fijo 0406 x 0610mm [132495]
+    400032: Fijo 0406 x 0610mm [132535]
+    400034: Fijo 0406 x 0610mm [132559]
+    400036: Fijo 0406 x 0610mm [132587]
+    400038: Fijo 0406 x 0610mm [132615]
+    400040: Fijo 0406 x 0610mm [132749]
+    400042: Fijo 0406 x 0610mm [132815]
+    400044: Fijo 0406 x 0610mm [132885]
+    400046: Fijo 0406 x 0610mm [132993]
+    400048: Fijo 0406 x 0610mm [133045]
+    400050: Fijo 0406 x 0610mm [133103]
+    400052: Fijo 0406 x 0610mm [133147]
+    400054: Fijo 0406 x 0610mm [133253]
+    400056: Fijo 0406 x 0610mm [133321]
+    400058: Fijo 0406 x 0610mm [133357]
+    400060: Fijo 0406 x 0610mm [133389]
+    400062: Fijo 0406 x 0610mm [133447]
+    400064: Fijo 0406 x 0610mm [133573]
+    400066: Fijo 0406 x 0610mm [133609]
+    400068: Fijo 0406 x 0610mm [133645]
+    400070: Fijo 0406 x 0610mm [133675]
+    400072: Fijo 0406 x 0610mm [133705]
+    400074: Fijo 0406 x 0610mm [133737]
+    400076: Fijo 0406 x 0610mm [133785]
+    400078: "Muro b\xE1sico Gen\xE9rico - 200 mm [129132]"
+    400080: "Muro b\xE1sico Gen\xE9rico - 200 mm [129329]"
+    400082: "Muro b\xE1sico Gen\xE9rico - 200 mm [129434]"
+    400084: "Muro b\xE1sico Gen\xE9rico - 200 mm [129527]"
+    400086: "Muro b\xE1sico Gen\xE9rico - 200 mm [129639]"
+    400088: "Muro b\xE1sico Gen\xE9rico - 200 mm [129736]"
+    400090: "Muro b\xE1sico Gen\xE9rico - 200 mm [129818]"
+    400092: "Muro b\xE1sico Gen\xE9rico - 200 mm [129882]"
+    400094: "Muro b\xE1sico Gen\xE9rico - 200 mm [129956]"
+    400096: "Muro b\xE1sico Gen\xE9rico - 200 mm [130033]"
+    400098: "Muro b\xE1sico Gen\xE9rico - 200 mm [130079]"
+    400100: "Muro b\xE1sico Gen\xE9rico - 200 mm [130171]"
+    400102: "Muro b\xE1sico Gen\xE9rico - 200 mm [130218]"
+    400104: "Muro b\xE1sico Gen\xE9rico - 200 mm [130295]"
+    400106: "Muro b\xE1sico Gen\xE9rico - 200 mm [130351]"
+    400108: "Muro b\xE1sico Gen\xE9rico - 200 mm [130629]"
+    400110: //RootNode
+    400112: Simple-A ras 0915 x 2134mm [130697]
+    400114: Simple-A ras 0915 x 2134mm [130808]
+    400116: Simple-A ras 0915 x 2134mm [130872]
+    400118: Simple-A ras 0915 x 2134mm [130946]
+    400120: Simple-A ras 0915 x 2134mm [131070]
+    400122: Simple-A ras 0915 x 2134mm [131152]
+    400124: Simple-A ras 0915 x 2134mm [131210]
+    400126: Simple-A ras 0915 x 2134mm [131264]
+    400128: Simple-A ras 0915 x 2134mm [131326]
+    400130: Simple-A ras 0915 x 2134mm [131586]
+    400132: Simple-A ras 0915 x 2134mm [131632]
+    400134: Simple-A ras 0915 x 2134mm [131692]
+    400136: Simple-A ras 0915 x 2134mm [131724]
+    400138: 'Vista 3D: {3D}'
+    2300000: Fijo 0406 x 0610mm [131806]
+    2300002: Fijo 0406 x 0610mm [131857]
+    2300004: Fijo 0406 x 0610mm [131885]
+    2300006: Fijo 0406 x 0610mm [131949]
+    2300008: Fijo 0406 x 0610mm [131971]
+    2300010: Fijo 0406 x 0610mm [132007]
+    2300012: Fijo 0406 x 0610mm [132055]
+    2300014: Fijo 0406 x 0610mm [132111]
+    2300016: Fijo 0406 x 0610mm [132159]
+    2300018: Fijo 0406 x 0610mm [132197]
+    2300020: Fijo 0406 x 0610mm [132247]
+    2300022: Fijo 0406 x 0610mm [132307]
+    2300024: Fijo 0406 x 0610mm [132353]
+    2300026: Fijo 0406 x 0610mm [132403]
+    2300028: Fijo 0406 x 0610mm [132449]
+    2300030: Fijo 0406 x 0610mm [132495]
+    2300032: Fijo 0406 x 0610mm [132535]
+    2300034: Fijo 0406 x 0610mm [132559]
+    2300036: Fijo 0406 x 0610mm [132587]
+    2300038: Fijo 0406 x 0610mm [132615]
+    2300040: Fijo 0406 x 0610mm [132749]
+    2300042: Fijo 0406 x 0610mm [132815]
+    2300044: Fijo 0406 x 0610mm [132885]
+    2300046: Fijo 0406 x 0610mm [132993]
+    2300048: Fijo 0406 x 0610mm [133045]
+    2300050: Fijo 0406 x 0610mm [133103]
+    2300052: Fijo 0406 x 0610mm [133147]
+    2300054: Fijo 0406 x 0610mm [133253]
+    2300056: Fijo 0406 x 0610mm [133321]
+    2300058: Fijo 0406 x 0610mm [133357]
+    2300060: Fijo 0406 x 0610mm [133389]
+    2300062: Fijo 0406 x 0610mm [133447]
+    2300064: Fijo 0406 x 0610mm [133573]
+    2300066: Fijo 0406 x 0610mm [133609]
+    2300068: Fijo 0406 x 0610mm [133645]
+    2300070: Fijo 0406 x 0610mm [133675]
+    2300072: Fijo 0406 x 0610mm [133705]
+    2300074: Fijo 0406 x 0610mm [133737]
+    2300076: Fijo 0406 x 0610mm [133785]
+    2300078: "Muro b\xE1sico Gen\xE9rico - 200 mm [129132]"
+    2300080: "Muro b\xE1sico Gen\xE9rico - 200 mm [129329]"
+    2300082: "Muro b\xE1sico Gen\xE9rico - 200 mm [129434]"
+    2300084: "Muro b\xE1sico Gen\xE9rico - 200 mm [129527]"
+    2300086: "Muro b\xE1sico Gen\xE9rico - 200 mm [129639]"
+    2300088: "Muro b\xE1sico Gen\xE9rico - 200 mm [129736]"
+    2300090: "Muro b\xE1sico Gen\xE9rico - 200 mm [129818]"
+    2300092: "Muro b\xE1sico Gen\xE9rico - 200 mm [129882]"
+    2300094: "Muro b\xE1sico Gen\xE9rico - 200 mm [129956]"
+    2300096: "Muro b\xE1sico Gen\xE9rico - 200 mm [130033]"
+    2300098: "Muro b\xE1sico Gen\xE9rico - 200 mm [130079]"
+    2300100: "Muro b\xE1sico Gen\xE9rico - 200 mm [130171]"
+    2300102: "Muro b\xE1sico Gen\xE9rico - 200 mm [130218]"
+    2300104: "Muro b\xE1sico Gen\xE9rico - 200 mm [130295]"
+    2300106: "Muro b\xE1sico Gen\xE9rico - 200 mm [130351]"
+    2300108: "Muro b\xE1sico Gen\xE9rico - 200 mm [130629]"
+    2300110: Simple-A ras 0915 x 2134mm [130697]
+    2300112: Simple-A ras 0915 x 2134mm [130808]
+    2300114: Simple-A ras 0915 x 2134mm [130872]
+    2300116: Simple-A ras 0915 x 2134mm [130946]
+    2300118: Simple-A ras 0915 x 2134mm [131070]
+    2300120: Simple-A ras 0915 x 2134mm [131152]
+    2300122: Simple-A ras 0915 x 2134mm [131210]
+    2300124: Simple-A ras 0915 x 2134mm [131264]
+    2300126: Simple-A ras 0915 x 2134mm [131326]
+    2300128: Simple-A ras 0915 x 2134mm [131586]
+    2300130: Simple-A ras 0915 x 2134mm [131632]
+    2300132: Simple-A ras 0915 x 2134mm [131692]
+    2300134: Simple-A ras 0915 x 2134mm [131724]
+    3300000: Fijo 0406 x 0610mm [131806]
+    3300002: Fijo 0406 x 0610mm [131857]
+    3300004: Fijo 0406 x 0610mm [131885]
+    3300006: Fijo 0406 x 0610mm [131949]
+    3300008: Fijo 0406 x 0610mm [131971]
+    3300010: Fijo 0406 x 0610mm [132007]
+    3300012: Fijo 0406 x 0610mm [132055]
+    3300014: Fijo 0406 x 0610mm [132111]
+    3300016: Fijo 0406 x 0610mm [132159]
+    3300018: Fijo 0406 x 0610mm [132197]
+    3300020: Fijo 0406 x 0610mm [132247]
+    3300022: Fijo 0406 x 0610mm [132307]
+    3300024: Fijo 0406 x 0610mm [132353]
+    3300026: Fijo 0406 x 0610mm [132403]
+    3300028: Fijo 0406 x 0610mm [132449]
+    3300030: Fijo 0406 x 0610mm [132495]
+    3300032: Fijo 0406 x 0610mm [132535]
+    3300034: Fijo 0406 x 0610mm [132559]
+    3300036: Fijo 0406 x 0610mm [132587]
+    3300038: Fijo 0406 x 0610mm [132615]
+    3300040: Fijo 0406 x 0610mm [132749]
+    3300042: Fijo 0406 x 0610mm [132815]
+    3300044: Fijo 0406 x 0610mm [132885]
+    3300046: Fijo 0406 x 0610mm [132993]
+    3300048: Fijo 0406 x 0610mm [133045]
+    3300050: Fijo 0406 x 0610mm [133103]
+    3300052: Fijo 0406 x 0610mm [133147]
+    3300054: Fijo 0406 x 0610mm [133253]
+    3300056: Fijo 0406 x 0610mm [133321]
+    3300058: Fijo 0406 x 0610mm [133357]
+    3300060: Fijo 0406 x 0610mm [133389]
+    3300062: Fijo 0406 x 0610mm [133447]
+    3300064: Fijo 0406 x 0610mm [133573]
+    3300066: Fijo 0406 x 0610mm [133609]
+    3300068: Fijo 0406 x 0610mm [133645]
+    3300070: Fijo 0406 x 0610mm [133675]
+    3300072: Fijo 0406 x 0610mm [133705]
+    3300074: Fijo 0406 x 0610mm [133737]
+    3300076: Fijo 0406 x 0610mm [133785]
+    3300078: "Muro b\xE1sico Gen\xE9rico - 200 mm [129132]"
+    3300080: "Muro b\xE1sico Gen\xE9rico - 200 mm [129329]"
+    3300082: "Muro b\xE1sico Gen\xE9rico - 200 mm [129434]"
+    3300084: "Muro b\xE1sico Gen\xE9rico - 200 mm [129527]"
+    3300086: "Muro b\xE1sico Gen\xE9rico - 200 mm [129639]"
+    3300088: "Muro b\xE1sico Gen\xE9rico - 200 mm [129736]"
+    3300090: "Muro b\xE1sico Gen\xE9rico - 200 mm [129818]"
+    3300092: "Muro b\xE1sico Gen\xE9rico - 200 mm [129882]"
+    3300094: "Muro b\xE1sico Gen\xE9rico - 200 mm [129956]"
+    3300096: "Muro b\xE1sico Gen\xE9rico - 200 mm [130033]"
+    3300098: "Muro b\xE1sico Gen\xE9rico - 200 mm [130079]"
+    3300100: "Muro b\xE1sico Gen\xE9rico - 200 mm [130171]"
+    3300102: "Muro b\xE1sico Gen\xE9rico - 200 mm [130218]"
+    3300104: "Muro b\xE1sico Gen\xE9rico - 200 mm [130295]"
+    3300106: "Muro b\xE1sico Gen\xE9rico - 200 mm [130351]"
+    3300108: "Muro b\xE1sico Gen\xE9rico - 200 mm [130629]"
+    3300110: Simple-A ras 0915 x 2134mm [130697]
+    3300112: Simple-A ras 0915 x 2134mm [130808]
+    3300114: Simple-A ras 0915 x 2134mm [130872]
+    3300116: Simple-A ras 0915 x 2134mm [130946]
+    3300118: Simple-A ras 0915 x 2134mm [131070]
+    3300120: Simple-A ras 0915 x 2134mm [131152]
+    3300122: Simple-A ras 0915 x 2134mm [131210]
+    3300124: Simple-A ras 0915 x 2134mm [131264]
+    3300126: Simple-A ras 0915 x 2134mm [131326]
+    3300128: Simple-A ras 0915 x 2134mm [131586]
+    3300130: Simple-A ras 0915 x 2134mm [131632]
+    3300132: Simple-A ras 0915 x 2134mm [131692]
+    3300134: Simple-A ras 0915 x 2134mm [131724]
+    4300000: "Muro b\xE1sico Gen\xE9rico - 200 mm [129132]"
+    4300002: "Muro b\xE1sico Gen\xE9rico - 200 mm [129329]"
+    4300004: "Muro b\xE1sico Gen\xE9rico - 200 mm [129434]"
+    4300006: "Muro b\xE1sico Gen\xE9rico - 200 mm [129527]"
+    4300008: "Muro b\xE1sico Gen\xE9rico - 200 mm [129639]"
+    4300010: "Muro b\xE1sico Gen\xE9rico - 200 mm [129736]"
+    4300012: "Muro b\xE1sico Gen\xE9rico - 200 mm [129818]"
+    4300014: "Muro b\xE1sico Gen\xE9rico - 200 mm [129882]"
+    4300016: "Muro b\xE1sico Gen\xE9rico - 200 mm [129956]"
+    4300018: "Muro b\xE1sico Gen\xE9rico - 200 mm [130033]"
+    4300020: "Muro b\xE1sico Gen\xE9rico - 200 mm [130079]"
+    4300022: "Muro b\xE1sico Gen\xE9rico - 200 mm [130171]"
+    4300024: "Muro b\xE1sico Gen\xE9rico - 200 mm [130218]"
+    4300026: "Muro b\xE1sico Gen\xE9rico - 200 mm [130295]"
+    4300028: "Muro b\xE1sico Gen\xE9rico - 200 mm [130351]"
+    4300030: "Muro b\xE1sico Gen\xE9rico - 200 mm [130629]"
+    4300032: Simple-A ras 0915 x 2134mm [130697]
+    4300034: Fijo 0406 x 0610mm [131806]
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
