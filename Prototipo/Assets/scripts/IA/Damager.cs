@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Damagable : MonoBehaviour {
+public class Damager : MonoBehaviour {
 
     public float m_damage = 10.0f;
 	// Use this for initialization

@@ -33,6 +33,12 @@ public class FireManager : MonoBehaviour {
         int z = (int)(position.z / m_map.m_zSize);
         m_map.m_FireMap[x][z] = true;
     }
+    public void removeFire(Vector3 position)
+    {
+        int x = (int)(position.x / m_map.m_xSize);
+        int z = (int)(position.z / m_map.m_zSize);
+        m_map.m_FireMap[x][z] = false;
+    }
     public void firePropagation(Vector3 position, float damegePerPropagationTime)
     {
         int xMin = ((int)(position.x / m_map.m_xSize) - 1);
