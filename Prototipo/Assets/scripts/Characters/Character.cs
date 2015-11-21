@@ -8,6 +8,8 @@ public class Character : MonoBehaviour {
     private string m_Option = null;
     private float m_DeathTime = 10;
     private bool m_OnFire = false;
+    public GameObject m_Extinguisher = null;
+    public GameObject m_HugeExtinguisher = null;
 
     public Axe axe;
     public float delayToNextTool = 0.5f;
@@ -47,6 +49,11 @@ public class Character : MonoBehaviour {
         {
             m_DeathTime += 10;
         }
+        if (m_Option == "HugeEx")
+        {
+            m_HugeExtinguisher.SetActive(true);
+            m_Extinguisher.SetActive(false);
+        }
     }
 
     void isDead()
@@ -73,19 +80,19 @@ public class Character : MonoBehaviour {
     {
         gameObject.SendMessage("setSpeed", m_states.changeState(States.CharacterStates.BURNING));
         m_renderer.material.color = Color.red;
-        gameObject.SendMessage("blockImput");
+        gameObject.SendMessage("blockImput", true);
         m_OnFire = true;
     }
     public void OnWater()
     {
         gameObject.SendMessage("setSpeed", m_states.changeState(States.CharacterStates.WET));
         m_renderer.material.color = Color.blue;
-        gameObject.SendMessage("releaseImput");
+        gameObject.SendMessage("blockImput", false);
     }
     public void normalState()
     {
         gameObject.SendMessage("setSpeed", m_states.changeState(States.CharacterStates.NORMAL));
         m_renderer.material.color = Color.white;
-        gameObject.SendMessage("releaseImput");
+        gameObject.SendMessage("blockImput", false);
     }
 }
