@@ -57,8 +57,8 @@ public class FireManager : MonoBehaviour {
 
         int xMax = xMin + increment;
         int zMax = zMin + increment;
-        if (xMax >= m_map.m_xCell) xMax = m_map.m_xCell-1;
-        if (zMax >= m_map.m_xCell) zMax = m_map.m_zCell - 1;
+        if (xMax >= m_map.m_xCell) xMax = m_map.m_xCell - 1;
+        if (zMax >= m_map.m_zCell) zMax = m_map.m_zCell - 1;
         List<Vector2> possibleCell = new List<Vector2>();
 
         for (int x = xMin; x < xMax; ++x)
@@ -70,21 +70,11 @@ public class FireManager : MonoBehaviour {
                     if (m_map.m_ObjectsMap[x][z].isAlive())
                     {
                         possibleCell.Add(new Vector2(x, z));
-                        /*bool dead = m_map.m_ObjectsMap[x][z].OnDamage(damegePerPropagationTime);
-                        if (dead)
-                        {
-                            m_map.m_FireMap[x][z] = true;
-                            Instantiate(fire, new Vector3(x * m_map.m_xSize + m_map.m_xSize * 0.5f, position.y, z * m_map.m_zSize + m_map.m_zSize*0.5f), fire.transform.rotation);
-                            return;
-                        }*/
                     }
                 }
                 else if (!m_map.m_FireMap[x][z])
                 {
                     possibleCell.Add(new Vector2(x, z));
-                    /*m_map.m_FireMap[x][z] = true;
-                    Instantiate(fire, new Vector3(x * m_map.m_xSize + m_map.m_xSize * 0.5f, position.y, z * m_map.m_zSize + m_map.m_zSize * 0.5f), fire.transform.rotation);
-                    return;*/
                 }
             }
         }
@@ -94,7 +84,6 @@ public class FireManager : MonoBehaviour {
         int zCell = (int)possibleCell[cell].y;
         if (m_map.m_ObjectsMap[xCell][zCell] != null)
         {
-            possibleCell.Add(new Vector2(xCell, zCell));
             bool dead = m_map.m_ObjectsMap[xCell][zCell].OnDamage(damegePerPropagationTime);
             if (dead)
             {
