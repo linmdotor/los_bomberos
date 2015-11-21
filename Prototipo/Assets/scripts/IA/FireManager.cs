@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class FireManager : MonoBehaviour {
 
@@ -36,13 +37,24 @@ public class FireManager : MonoBehaviour {
     {
         int xMin = ((int)(position.x / m_map.m_xSize) - 1);
         int zMin = ((int)(position.z / m_map.m_zSize) - 1);
-        if (xMin < 0) xMin = 0;
-        if (zMin < 0) zMin = 0;
+        int increment = 2;
+        if (xMin < 0)
+        {
+            xMin = 0;
+            increment = 1;
+        }
+        if (zMin < 0)
+        {
+            zMin = 0;
+            increment = 1;
+        }
 
-        int xMax = xMin + 2;
-        int zMax = zMin + 2;
+        int xMax = xMin + increment;
+        int zMax = zMin + increment;
         if (xMax >= m_map.m_xCell) xMax = m_map.m_xCell-1;
         if (zMax >= m_map.m_xCell) zMax = m_map.m_zCell - 1;
+        List<Vector2> possibleCell = new List<Vector2>();
+
         for (int x = xMin; x <= xMax; ++x)
         {
             for (int z = zMin; z <= zMax; ++z)
@@ -51,22 +63,43 @@ public class FireManager : MonoBehaviour {
                 {
                     if (m_map.m_ObjectsMap[x][z].isAlive())
                     {
-                        bool dead = m_map.m_ObjectsMap[x][z].OnDamage(damegePerPropagationTime);
+                        possibleCell.Add(new Vector2(x, z));
+                        /*bool dead = m_map.m_ObjectsMap[x][z].OnDamage(damegePerPropagationTime);
                         if (dead)
                         {
                             m_map.m_FireMap[x][z] = true;
                             Instantiate(fire, new Vector3(x * m_map.m_xSize + m_map.m_xSize * 0.5f, position.y, z * m_map.m_zSize + m_map.m_zSize*0.5f), fire.transform.rotation);
                             return;
-                        }
+                        }*/
                     }
                 }
                 else if (!m_map.m_FireMap[x][z])
                 {
-                    m_map.m_FireMap[x][z] = true;
+                    possibleCell.Add(new Vector2(x, z));
+                    /*m_map.m_FireMap[x][z] = true;
                     Instantiate(fire, new Vector3(x * m_map.m_xSize + m_map.m_xSize * 0.5f, position.y, z * m_map.m_zSize + m_map.m_zSize * 0.5f), fire.transform.rotation);
-                    return;
+                    return;*/
                 }
             }
+        }
+
+        int cell = Random.Range(0, possibleCell.Count);
+        int xCell = (int)possibleCell[cell].x;
+        int zCell = (int)possibleCell[cell].y;
+        if (m_map.m_ObjectsMap[xCell][zCell] != null)
+        {
+            possibleCell.Add(new Vector2(xCell, zCell));
+            bool dead = m_map.m_ObjectsMap[xCell][zCell].OnDamage(damegePerPropagationTime);
+            if (dead)
+            {
+                Instantiate(fire, new Vector3(xCell * m_map.m_xSize + m_map.m_xSize * 0.5f, position.y, zCell * m_map.m_zSize + m_map.m_zSize * 0.5f), fire.transform.rotation);
+                m_map.m_FireMap[xCell][zCell] = true;
+            }
+        }
+        else
+        {
+            Instantiate(fire, new Vector3(xCell * m_map.m_xSize + m_map.m_xSize * 0.5f, position.y, zCell * m_map.m_zSize + m_map.m_zSize * 0.5f), fire.transform.rotation);
+            m_map.m_FireMap[xCell][zCell] = true;
         }
 
     }
