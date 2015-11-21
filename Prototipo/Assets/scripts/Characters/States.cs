@@ -16,7 +16,21 @@ public class States : MonoBehaviour {
 
     public enum CharacterStates { NORMAL, BURNING, WET }
 
-    float changeState(CharacterStates state){
+    public float m_wetDuration;
+    private float m_currentTime;
+    private CharacterStates currentState = CharacterStates.NORMAL;
+
+    void Update()
+    {
+        m_currentTime -= Time.deltaTime;
+        if (currentState == CharacterStates.WET && m_currentTime < 0.0f)
+        {
+            gameObject.SendMessage("normalState");
+        }
+    }
+
+    public float changeState(CharacterStates state){
+        currentState = state;
         switch (state){
             case CharacterStates.NORMAL:
                 return 100;
@@ -28,5 +42,9 @@ public class States : MonoBehaviour {
             default:
                 return 100;
         }
+    }
+    public CharacterStates getState()
+    {
+        return currentState;
     }
 }

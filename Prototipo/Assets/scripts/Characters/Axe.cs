@@ -11,7 +11,7 @@ public class Axe : MonoBehaviour {
     private float currentTime;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         m_boxCollider = gameObject.GetComponent<BoxCollider>();
         m_damager = gameObject.GetComponent<Damager>();
         m_animator = gameObject.GetComponentInChildren<Animator>();
