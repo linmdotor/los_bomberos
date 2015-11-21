@@ -9,7 +9,7 @@ public class DualStickMovement : MonoBehaviour
     static int mIndice = 1;
     GamePad.Index numController;
 
-    public float speed = 5.0f;
+    private float speed = 5.0f;
 
     void setSpeed(float s)
     {
