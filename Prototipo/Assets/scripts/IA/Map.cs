@@ -25,7 +25,7 @@ public class Map : MonoBehaviour {
         {
             m_FireMap[x] = new bool[m_zCell];
             m_ObjectsMap[x] = new Life[m_zCell];
-            for (int z = 0; z < m_xCell; ++z)
+            for (int z = 0; z < m_zCell; ++z)
             {
                 m_FireMap[x][z] = false;
                 m_ObjectsMap[x][z] = null;
@@ -55,7 +55,7 @@ public class Map : MonoBehaviour {
         {
             for (uint x = 0; x < m_xCell; ++x)
             {
-                for (uint z = 0; z < m_xCell; ++z)
+                for (uint z = 0; z < m_zCell; ++z)
                 {
                     if (m_FireMap[x][z] == true)
                     {
@@ -105,7 +105,7 @@ public class Map : MonoBehaviour {
         bool firstTime = true;
         for (int x = xMin; x <= xMax; ++x)
         {
-            for (int z = zMin; z <= zMax; ++z)
+            for (int z = zMin; z < zMax; ++z)
             {
                 if (x < m_xCell && z < m_zCell)
                 {
@@ -118,7 +118,7 @@ public class Map : MonoBehaviour {
                         }
                         else
                         {
-                            GameObject go = new GameObject("fire");
+                            GameObject go = new GameObject("life "+x+" "+z);
                             go.transform.position = life.transform.position;
                             m_ObjectsMap[x][z] = go.AddComponent<Life>();
                         }
