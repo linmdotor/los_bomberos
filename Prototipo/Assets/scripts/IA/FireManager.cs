@@ -61,9 +61,9 @@ public class FireManager : MonoBehaviour {
         if (zMax >= m_map.m_xCell) zMax = m_map.m_zCell - 1;
         List<Vector2> possibleCell = new List<Vector2>();
 
-        for (int x = xMin; x <= xMax; ++x)
+        for (int x = xMin; x < xMax; ++x)
         {
-            for (int z = zMin; z <= zMax; ++z)
+            for (int z = zMin; z < zMax; ++z)
             {
                 if (m_map.m_ObjectsMap[x][z] != null)
                 {
