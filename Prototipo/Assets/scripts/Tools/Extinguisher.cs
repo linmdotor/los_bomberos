@@ -20,11 +20,19 @@ public class Extinguisher : MonoBehaviour {
     //Funciones llamadas desde el input para activar y desactivar el extintor. Tanto collider como efecto.
     void startShooting()
     {
+        //start the fire hose sound loop
+        AudioSource aud = gameObject.GetComponent<AudioSource>();
+        aud.Play();
+
         m_AoE.SetActive(true);
         m_Water.SetActive(true);
     }
     void stopShooting()
     {
+        //finish the fire hose sound loop
+        AudioSource aud = gameObject.GetComponent<AudioSource>();
+        aud.Stop();
+
         m_AoE.SetActive(false);
         m_Water.SetActive(false);
     }
