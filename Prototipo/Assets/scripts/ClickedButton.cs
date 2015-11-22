@@ -5,6 +5,7 @@ using System.Collections;
 public class ClickedButton : MonoBehaviour {
     
     public Dropdown m_Equipment;
+    public GamepadInput.GamePad.Index m_Index;
 
     private string[] m_EquipmentList = new string[3];
 	// Use this for initialization
@@ -21,7 +22,15 @@ public class ClickedButton : MonoBehaviour {
 
     public void PlayerReady()
     {
-        GameManager.m_instance.setReadyPlayer(m_Equipment.name);
-        GameManager.m_instance.setOptions(m_Equipment.name, m_EquipmentList[m_Equipment.value]);
+        GameManager.m_instance.setReadyPlayer(m_Index);
+        if (gameObject.GetComponent<Image>().color == Color.white)
+        {
+            gameObject.GetComponent<Image>().color = Color.yellow;
+        }
+        else
+        {
+            gameObject.GetComponent<Image>().color = Color.white;
+        }
+        GameManager.m_instance.setOptions(m_Index, m_EquipmentList[m_Equipment.value]);
     }
 }
