@@ -9,7 +9,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 453560}
   - 33: {fileID: 3327054}
-  - 65: {fileID: 6518460}
   - 23: {fileID: 2352362}
   m_Layer: 0
   m_Name: Gato (2)
@@ -27,7 +26,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 447830}
   - 33: {fileID: 3378682}
-  - 135: {fileID: 13535094}
   - 23: {fileID: 2325736}
   m_Layer: 0
   m_Name: Sphere (1)
@@ -45,7 +43,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 451092}
   - 33: {fileID: 3399566}
-  - 65: {fileID: 6524988}
   - 23: {fileID: 2346644}
   m_Layer: 0
   m_Name: Gato (2)
@@ -63,7 +60,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 419934}
   - 33: {fileID: 3354154}
-  - 135: {fileID: 13542180}
   - 23: {fileID: 2328320}
   m_Layer: 0
   m_Name: Sphere
@@ -81,7 +77,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 445408}
   - 33: {fileID: 3312736}
-  - 65: {fileID: 6507436}
   - 23: {fileID: 2377786}
   m_Layer: 0
   m_Name: Gato (1)
@@ -99,7 +94,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 424022}
   - 33: {fileID: 3358650}
-  - 65: {fileID: 6500554}
   - 23: {fileID: 2307322}
   m_Layer: 0
   m_Name: Gato (4)
@@ -117,7 +111,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 450270}
   - 33: {fileID: 3341936}
-  - 65: {fileID: 6505548}
   - 23: {fileID: 2331464}
   m_Layer: 0
   m_Name: Gato (5)
@@ -154,7 +147,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 193476}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .860000014, y: 0, z: 4.5999999}
+  m_LocalPosition: {x: 37.41539, y: .481007695, z: -7.10568237}
   m_LocalScale: {x: .300000012, y: .300000012, z: .300000012}
   m_Children:
   - {fileID: 445408}
@@ -514,66 +507,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 139038}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &6500554
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 169126}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &6505548
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 187538}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &6507436
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 162002}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &6518460
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 104846}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &6524988
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 139038}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &6547486
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -682,30 +615,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delay: 6
   repeatAlways: 1
---- !u!135 &13535094
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 110092}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: .5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!135 &13542180
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 149676}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: .5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
