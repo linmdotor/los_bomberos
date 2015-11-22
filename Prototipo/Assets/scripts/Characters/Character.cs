@@ -29,7 +29,7 @@ public class Character : MonoBehaviour {
 	void Start () {
         axe.enabled = false;
         normalState();
-        m_Option = "Axe"; //TODO: remover
+        //m_Option = "Axe"; //TODO: remover
 	}
 	
 	// Update is called once per frame
