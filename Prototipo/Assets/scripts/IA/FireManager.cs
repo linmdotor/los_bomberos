@@ -9,6 +9,8 @@ public class FireManager : MonoBehaviour {
     public static FireManager m_instance = null;
     public GameObject fire;
 
+    private PoolManager m_pool;
+
 	// Use this for initialization
 	void Start () {
         if (m_instance == null)
@@ -16,6 +18,9 @@ public class FireManager : MonoBehaviour {
             m_instance = this;
             DontDestroyOnLoad(m_instance);
             m_map = gameObject.GetComponent<Map>();
+            m_pool = new PoolManager();
+            m_pool.goPool = fire;
+            m_pool.iPoolAmount = 500;
         }
         else if (m_instance != this)
         {
@@ -85,7 +90,10 @@ public class FireManager : MonoBehaviour {
             bool dead = m_map.m_ObjectsMap[xCell][zCell].OnDamage(damegePerPropagationTime);
             if (dead)
             {
-                Instantiate(fire, new Vector3(xCell * m_map.m_xSize + m_map.m_xSize * 0.5f, position.y, zCell * m_map.m_zSize + m_map.m_zSize * 0.5f), fire.transform.rotation);
+                //Instantiate(fire, new Vector3(xCell * m_map.m_xSize + m_map.m_xSize * 0.5f, position.y, zCell * m_map.m_zSize + m_map.m_zSize * 0.5f), fire.transform.rotation);
+                GameObject go = m_pool.getObject(true);
+                go.transform.position = new Vector3(xCell * m_map.m_xSize + m_map.m_xSize * 0.5f, position.y, zCell * m_map.m_zSize + m_map.m_zSize * 0.5f);
+                go.transform.rotation = transform.rotation;
                 m_map.m_FireMap[xCell][zCell] = true;
             }
         }
