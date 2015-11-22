@@ -14,7 +14,7 @@ public class States : MonoBehaviour {
         
 	}*/
 
-    public enum CharacterStates { NORMAL, BURNING, WET }
+    public enum CharacterStates { NORMAL, BURNING, WET, NPC }
 
     public float m_wetDuration;
     private float m_currentTime;
@@ -22,6 +22,7 @@ public class States : MonoBehaviour {
     public float m_normalSpeed = 5;
     public float m_burningSpeed = 0;
     public float m_wetSpeed = 2;
+    public float m_withNPCSpeed = 3;
 
     void Update()
     {
@@ -43,9 +44,10 @@ public class States : MonoBehaviour {
             case CharacterStates.WET:
 			m_currentTime = m_wetDuration;
                 return m_wetDuration;
-            default:
-                return 100;
+            case CharacterStates.NPC:
+                return m_withNPCSpeed;
         }
+        return m_normalSpeed;
     }
     public CharacterStates getState()
     {

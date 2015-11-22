@@ -9,7 +9,7 @@ public class Character : MonoBehaviour {
     private bool m_OnFire = false;
     public GameObject m_Extinguisher = null;
     public GameObject m_HugeExtinguisher = null;
-
+    public GameObject m_helpNotification;
     public Axe axe;
     public float delayToNextTool = 0.5f;
     private DualStickMovement m_dualStickMovement;
@@ -84,12 +84,30 @@ public class Character : MonoBehaviour {
         m_renderer.material.color = Color.red;
         gameObject.SendMessage("blockImput", true);
         m_OnFire = true;
+        //help
+        Character[] gos = (Character[])GameObject.FindObjectsOfType<Character>();
+        foreach (Character go in gos)
+        {
+            if (go != this)
+            {
+                go.SendMessage("needHelp", transform.position);
+            }
+        }
     }
     public void OnWater()
     {
         gameObject.SendMessage("setSpeed", m_states.changeState(States.CharacterStates.WET));
         m_renderer.material.color = Color.blue;
         gameObject.SendMessage("blockImput", false);
+    }
+    public void needHelp(Vector3 position)
+    {
+        Vector3 dir = (position - transform.position).normalized;
+        m_helpNotification.SetActive(true);
+        dir = transform.position + dir * 2.0f;
+        //dir.y = 0.695f;
+        m_helpNotification.transform.position = dir;
+        m_helpNotification.transform.LookAt(dir);
     }
     public void normalState()
     {
@@ -110,6 +128,7 @@ public class Character : MonoBehaviour {
                     hitColliders[i].transform.SetParent(transform);
                     m_NPC = hitColliders[i].transform;
                     gameObject.SendMessage("blockShoot", true);
+                    gameObject.SendMessage("setSpeed", m_states.changeState(States.CharacterStates.NPC));
                     return;
                 }
                 i++;
@@ -120,6 +139,13 @@ public class Character : MonoBehaviour {
             m_NPC.parent = null;
             m_NPC = null;
             gameObject.SendMessage("blockShoot", false);
+            gameObject.SendMessage("setSpeed", m_states.changeState(States.CharacterStates.NORMAL));
         }
+    }
+    public void dropNPC()
+    {
+        m_NPC = null;
+        gameObject.SendMessage("blockShoot", false);
+        gameObject.SendMessage("setSpeed", m_states.changeState(States.CharacterStates.NORMAL));
     }
 }
