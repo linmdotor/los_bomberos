@@ -60,9 +60,9 @@ public class Character : MonoBehaviour {
 
     void isDead()
     {
-        string name = this.name.ToString();
-        gameObject.SendMessage("setDeadPlayer", name);
-        this.enabled = false;
+        GameManager.m_instance.setDeadPlayer(this.name);
+        gameObject.SetActive(false);
+        //Activar camara otro jugador
     }
 
     public void useTool()
