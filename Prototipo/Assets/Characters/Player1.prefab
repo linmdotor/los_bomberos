@@ -124,6 +124,7 @@ GameObject:
   - 65: {fileID: 6596090}
   - 54: {fileID: 5425866}
   - 114: {fileID: 11440090}
+  - 114: {fileID: 11420060}
   m_Layer: 0
   m_Name: AoE
   m_TagString: Water
@@ -314,7 +315,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 116536}
   m_LocalRotation: {x: 0, y: 2.98023224e-08, z: 0, w: 1}
-  m_LocalPosition: {x: 42.4900017, y: .509999335, z: -7.30000019}
+  m_LocalPosition: {x: 42.4900017, y: 0, z: -7.30000019}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 405864}
@@ -1149,6 +1150,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11420060
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73fe3e9919da3274e8412808a34db64e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11433916
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1302,6 +1314,10 @@ Prefab:
       objectReference: {fileID: 8300000, guid: 20dd81c5e0c764a47ae8a5bc4a51e798, type: 3}
     - target: {fileID: 0}
       propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
