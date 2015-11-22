@@ -99,7 +99,10 @@ public class FireManager : MonoBehaviour {
         }
         else
         {
-            Instantiate(fire, new Vector3(xCell * m_map.m_xSize + m_map.m_xSize * 0.5f, position.y, zCell * m_map.m_zSize + m_map.m_zSize * 0.5f), fire.transform.rotation);
+            //Instantiate(fire, new Vector3(xCell * m_map.m_xSize + m_map.m_xSize * 0.5f, position.y, zCell * m_map.m_zSize + m_map.m_zSize * 0.5f), fire.transform.rotation);
+            GameObject go = m_pool.getObject(true);
+            go.transform.position = new Vector3(xCell * m_map.m_xSize + m_map.m_xSize * 0.5f, position.y, zCell * m_map.m_zSize + m_map.m_zSize * 0.5f);
+            go.transform.rotation = transform.rotation;
             m_map.m_FireMap[xCell][zCell] = true;
         }
 
