@@ -2,14 +2,16 @@
 using System.Collections;
 
 public class GameManager : MonoBehaviour {
-
+    private uint m_spawnZone = 35;
+    public enum GameState { PrevioEscena, Escena }
+    private GameState m_Actual = GameState.PrevioEscena;
     private static uint m_NumPlayers = 4;
     public static GameManager m_instance = null;
-    private uint m_IndexPlayers = 1;
-    public GameObject m_Player = null;
-    public bool[] m_DeadPlayers = new bool[m_NumPlayers];
-    public bool[] m_PlayersReady = new bool[m_NumPlayers];
-    public string[] m_Options = new string[m_NumPlayers];
+    public GameObject[] m_Players = null;
+    public GameObject[] m_Cameras = null;
+    private bool[] m_DeadPlayers = new bool[m_NumPlayers];
+    private bool[] m_PlayersReady = new bool[m_NumPlayers];
+    private string[] m_Options = new string[m_NumPlayers];
     private uint m_People = 10; //Esto debería ser rellenado por LevelManager.
     private uint m_Cats = 3;    //Esto debería ser rellenado por LevelManager.
 
@@ -44,8 +46,19 @@ public class GameManager : MonoBehaviour {
         }
         if (m_PlayersReady[0] && m_PlayersReady[1] && m_PlayersReady[2] && m_PlayersReady[3])
         {
-            Application.LoadLevel("Level");
-            ComenzarPartida(m_Options);
+            switch (m_Actual)
+            {
+                case GameState.PrevioEscena:
+                    Application.LoadLevel("Apartamentos");
+                    m_Actual = GameState.Escena;
+                    break;
+                case GameState.Escena:
+                    ComenzarPartida(m_Options);
+                    setReadyOff();
+                    break;
+                default:
+                    break;
+            }
         }
 	}
 
@@ -54,10 +67,16 @@ public class GameManager : MonoBehaviour {
     //Ahora mismo suponemos que solo se elige una opción por personaje al empezar la partida.
     //Modificamos los nombres de los personajes por un número identificador.
     void ComenzarPartida(string[] options){
-        GameObject player = Instantiate<GameObject>(m_Player);
-        player.SendMessage("setOption", options[m_IndexPlayers]);
-        player.name = m_IndexPlayers.ToString();
-        ++m_IndexPlayers;
+        for (uint i = 0; i < m_NumPlayers; ++i)
+        {
+            GameObject player = Instantiate<GameObject>(m_Players[i]);
+            player.SendMessage("setOption", options[i]);
+            player.name = ((GamepadInput.GamePad.Index) i + 1).ToString();
+            player.transform.position = new Vector3(m_spawnZone, 0.5f, -7);
+            GameObject camera = Instantiate<GameObject>(m_Cameras[i]);
+            camera.GetComponent<CameraFollows>().Player = player.transform;
+            m_spawnZone += 5;
+        }
     }
 
     public void setDeadPlayer(string player)
@@ -65,21 +84,29 @@ public class GameManager : MonoBehaviour {
         m_DeadPlayers[int.Parse(player) - 1] = true;
     }
 
-    public void setReadyPlayer(string player)
+    public void setReadyPlayer(GamepadInput.GamePad.Index player)
     {
-        bool ready = m_PlayersReady[int.Parse(player) - 1];
+        bool ready = m_PlayersReady[(int)player - 1];
         if (ready)
         {
-            ready = false;
+            m_PlayersReady[(int)player - 1] = false;
         }
         else
         {
-            ready = true;
+            m_PlayersReady[(int)player - 1] = true;
         }
     }
 
-    public void setOptions(string player, string option)
+    public void setOptions(GamepadInput.GamePad.Index player, string option)
     {
-        m_Options[int.Parse(player) - 1] = option;
+        m_Options[(int)player - 1] = option;
+    }
+
+    void setReadyOff()
+    {
+        for (uint i = 0; i < m_NumPlayers; ++i)
+        {
+            m_PlayersReady[i] = false;
+        }
     }
 }

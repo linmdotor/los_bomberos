@@ -484,7 +484,7 @@ GameObject:
   - 114: {fileID: 183929216}
   - 114: {fileID: 183929215}
   m_Layer: 5
-  m_Name: Dropdown
+  m_Name: One
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -842,7 +842,7 @@ GameObject:
   - 114: {fileID: 247017860}
   - 114: {fileID: 247017859}
   m_Layer: 5
-  m_Name: Dropdown
+  m_Name: Two
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1421,7 +1421,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 1, g: .970588267, b: 0, a: 1}
     m_DisabledColor: {r: .784313738, g: .784313738, b: .784313738, a: .501960814}
     m_ColorMultiplier: 1
     m_FadeDuration: .100000001
@@ -1497,6 +1497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Equipment: {fileID: 183929215}
+  m_Index: 1
 --- !u!1 &508430170
 GameObject:
   m_ObjectHideFlags: 0
@@ -1770,6 +1771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Equipment: {fileID: 1621726173}
+  m_Index: 3
 --- !u!1 &606902313
 GameObject:
   m_ObjectHideFlags: 0
@@ -3459,14 +3461,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bddfcde716542b343a4211f6002ee2a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Player: {fileID: 116536, guid: 5006df0910ed8d74d8e3857c43254a23, type: 2}
-  m_DeadPlayers: 00000000
-  m_PlayersReady: 00000000
-  m_Options:
-  - 
-  - 
-  - 
-  - 
+  m_Players:
+  - {fileID: 116536, guid: 5006df0910ed8d74d8e3857c43254a23, type: 2}
+  - {fileID: 131892, guid: 4b2754d66509d9a4d9c1423b9f69827a, type: 2}
+  - {fileID: 154174, guid: 685d3ee884bffda4a84774c2bcdd682d, type: 2}
+  - {fileID: 122582, guid: a79167c525910f1489074c03b8477e80, type: 2}
+  m_Cameras:
+  - {fileID: 104384, guid: 468c7dc3fcef92646adcafb4ca7bf219, type: 2}
+  - {fileID: 178750, guid: 6ded5ffe50d8af94b8ec367ecf267443, type: 2}
+  - {fileID: 192706, guid: a7bf491b899a3a1459d7f410a5f919ae, type: 2}
+  - {fileID: 199336, guid: dc952b8d2defcdc448d64ddbccb2f93a, type: 2}
 --- !u!4 &1247611138
 Transform:
   m_ObjectHideFlags: 0
@@ -4020,6 +4024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Equipment: {fileID: 247017859}
+  m_Index: 2
 --- !u!1 &1458838828
 GameObject:
   m_ObjectHideFlags: 0
@@ -4824,7 +4829,7 @@ GameObject:
   - 114: {fileID: 1621726174}
   - 114: {fileID: 1621726173}
   m_Layer: 5
-  m_Name: Dropdown
+  m_Name: Three
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5211,6 +5216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Equipment: {fileID: 1687295640}
+  m_Index: 4
 --- !u!1 &1661198238
 GameObject:
   m_ObjectHideFlags: 0
@@ -5464,7 +5470,7 @@ GameObject:
   - 114: {fileID: 1687295641}
   - 114: {fileID: 1687295640}
   m_Layer: 5
-  m_Name: Dropdown
+  m_Name: Four
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
