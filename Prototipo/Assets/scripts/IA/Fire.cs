@@ -57,6 +57,10 @@ public class Fire : MonoBehaviour {
             Instantiate(m_smokeParticle, transform.position, transform.rotation);
         }
 
+        if(other.gameObject.tag.Equals("Explosive"))
+        {
+            other.SendMessage("OnDamage", other.gameObject.GetComponent<Damager>().getDamage() * Time.fixedDeltaTime);
+        }
     }
     public void OnDead()
     {

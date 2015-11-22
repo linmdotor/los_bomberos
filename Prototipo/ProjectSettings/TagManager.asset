@@ -9,6 +9,7 @@ TagManager:
   - Fire
   - Door
   - Entrance
+  - Explosive
   layers:
   - Default
   - TransparentFX

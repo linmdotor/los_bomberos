@@ -14,7 +14,7 @@ GameObject:
   - 82: {fileID: 8251028}
   m_Layer: 0
   m_Name: P_Fire
-  m_TagString: Untagged
+  m_TagString: Fire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1351,6 +1351,10 @@ Prefab:
       propertyPath: m_smokeParticle
       value: 
       objectReference: {fileID: 100000, guid: 921a3ff88856fe04ebc86b196fd8cc59, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: Fire
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 123836}
