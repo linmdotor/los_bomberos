@@ -43,16 +43,13 @@ public class FireManager : MonoBehaviour {
     {
         int xMin = ((int)(position.x / m_map.m_xSize) - 1);
         int zMin = ((int)(position.z / m_map.m_zSize) - 1);
-        int increment = 2;
         if (xMin < 0)
         {
             xMin = 0;
-            increment = 1;
         }
         if (zMin < 0)
         {
             zMin = 0;
-            increment = 1;
         }
 
         int xMax = ((int)(position.x / m_map.m_xSize) + 1);
