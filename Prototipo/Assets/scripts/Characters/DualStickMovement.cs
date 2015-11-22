@@ -53,6 +53,16 @@ public class DualStickMovement : MonoBehaviour
         Vector3 leftStickAxis = (Vector3.right * GamePad.GetAxis(GamePad.Axis.LeftStick, numController).x + Vector3.forward * GamePad.GetAxis(GamePad.Axis.LeftStick, numController).y);
         transform.position += leftStickAxis * speed * Time.deltaTime;
 
+        //llama a isMoving o IsNotMoving para reproducir el sonido de las pisadas
+        if(GamePad.GetAxis(GamePad.Axis.LeftStick, numController).x == 0 && GamePad.GetAxis(GamePad.Axis.LeftStick, numController).y == 0)
+        {
+            gameObject.BroadcastMessage("isNotMoving");
+        }
+        else
+        {
+            gameObject.BroadcastMessage("isMoving");
+        }
+
         //Orientamos al personaje
         Vector3 lookDir = (Vector3.right * GamePad.GetAxis(GamePad.Axis.RightStick, numController).x + Vector3.forward * GamePad.GetAxis(GamePad.Axis.RightStick, numController).y);
         if (lookDir.sqrMagnitude > 0.0f) {
