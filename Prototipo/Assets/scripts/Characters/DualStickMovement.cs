@@ -39,10 +39,11 @@ public class DualStickMovement : MonoBehaviour
     void Update()
     {   
         //Hacha
-
         if (Input.GetKeyDown(KeyCode.Space) || GamePad.GetButtonDown(GamePad.Button.B, numController)) {
             gameObject.SendMessage("useTool");
         }
+
+        //Coger persona
         if (GamePad.GetButtonDown(GamePad.Button.A, numController)) {
             gameObject.SendMessage("pressAction");
         }
