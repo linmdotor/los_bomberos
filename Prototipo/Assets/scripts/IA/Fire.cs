@@ -2,10 +2,14 @@
 using System.Collections;
 using UnityEngine.Assertions;
 
+public delegate void pullOutFire(Fire fire);
+
 [RequireComponent(typeof(BoxCollider))]
 [RequireComponent(typeof(AudioSource))]
 public class Fire : MonoBehaviour {
 
+    public pullOutFire m_pullOutFire = null;
+    
     public float m_damegePerPropagationTime = 1.0f;
     [HideInInspector]
     public float m_propagationTime = 2.0f;
@@ -68,6 +72,7 @@ public class Fire : MonoBehaviour {
         Assert.IsTrue(m_init);
         fireManager.removeFire(transform.position);
         gameObject.SetActive(false);
+        if (m_pullOutFire != null) m_pullOutFire(this);
         //Destroy(gameObject);
     }
     
