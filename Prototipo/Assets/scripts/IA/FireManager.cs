@@ -21,6 +21,8 @@ public class FireManager : MonoBehaviour {
             m_pool = new PoolManager();
             m_pool.goPool = fire;
             m_pool.iPoolAmount = 500;
+            m_pool.Init();
+            m_pool.Reset();
         }
         else if (m_instance != this)
         {
