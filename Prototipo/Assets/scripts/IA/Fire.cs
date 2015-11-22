@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.Assertions;
+
 [RequireComponent(typeof(BoxCollider))]
+[RequireComponent(typeof(AudioSource))]
 public class Fire : MonoBehaviour {
 
     public float m_damegePerPropagationTime = 1.0f;
@@ -21,6 +23,8 @@ public class Fire : MonoBehaviour {
 
     void init()
     {
+        AudioSource aud = gameObject.GetComponent<AudioSource>();
+        aud.Play();
         m_init = true;
         m_nextPropagation = m_propagationTime;
     }
