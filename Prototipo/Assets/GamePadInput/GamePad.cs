@@ -43,7 +43,7 @@ namespace GamepadInput
         /// <returns></returns>
         public static Vector2 GetAxis(Axis axis, Index controlIndex, bool raw = false)
         {
-
+            //Debug.Log(controlIndex);
             string xName = "", yName = "";
             switch (axis)
             {

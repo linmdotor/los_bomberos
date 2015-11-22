@@ -19,7 +19,7 @@ public class Life : MonoBehaviour {
         m_currentLife -= damage;
         if (m_currentLife <= 0.0f)
         {
-            gameObject.SendMessage("OnDead");
+            gameObject.SendMessage("OnDead", SendMessageOptions.DontRequireReceiver);
             m_currentLife = 0.0f;
             return true;
         }
