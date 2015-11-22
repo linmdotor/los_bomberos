@@ -117,6 +117,7 @@ public class Character : MonoBehaviour {
         else
         {
             m_NPC.parent = null;
+            m_NPC = null;
         }
     }
 }
