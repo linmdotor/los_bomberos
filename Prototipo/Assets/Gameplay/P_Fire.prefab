@@ -219,6 +219,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_damegePerPropagationTime: 10
   m_propagationTime: 2
+  m_canBePropagated: 1
+  m_smokeParticle: {fileID: 100000, guid: 921a3ff88856fe04ebc86b196fd8cc59, type: 2}
 --- !u!114 &11464698
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1341,6 +1343,10 @@ Prefab:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_smokeParticle
+      value: 
+      objectReference: {fileID: 100000, guid: 921a3ff88856fe04ebc86b196fd8cc59, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 123836}

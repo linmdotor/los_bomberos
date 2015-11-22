@@ -9,6 +9,7 @@ public class Fire : MonoBehaviour {
     public float m_damegePerPropagationTime = 1.0f;
     public float m_propagationTime = 2.0f;
     public bool m_canBePropagated = true;
+    public GameObject m_smokeParticle;
     private float m_nextPropagation = 0.0f;
     private bool m_init = false;
     //private EventFirefighterOnFire m_eventFirefighterOnFire  = new EventFirefighterOnFire();
@@ -53,6 +54,7 @@ public class Fire : MonoBehaviour {
         if (other.gameObject.tag.Equals("Water"))
         {
             gameObject.SendMessage("OnDamage", other.gameObject.GetComponent<Damager>().getDamage()*Time.fixedDeltaTime);
+            Instantiate(m_smokeParticle, transform.position, transform.rotation);
         }
 
     }
