@@ -5,11 +5,11 @@ public class GameManager : MonoBehaviour {
 
     private static uint m_NumPlayers = 4;
     public static GameManager m_instance = null;
-
+    private uint m_IndexPlayers = 1;
     public GameObject m_Player = null;
-    private bool[] m_DeadPlayers = new bool[m_NumPlayers];
-    private bool[] m_PlayersReady = new bool[m_NumPlayers];
-    private string[] m_Options = new string[m_NumPlayers];
+    public bool[] m_DeadPlayers = new bool[m_NumPlayers];
+    public bool[] m_PlayersReady = new bool[m_NumPlayers];
+    public string[] m_Options = new string[m_NumPlayers];
     private uint m_People = 10; //Esto debería ser rellenado por LevelManager.
     private uint m_Cats = 3;    //Esto debería ser rellenado por LevelManager.
 
@@ -54,12 +54,10 @@ public class GameManager : MonoBehaviour {
     //Ahora mismo suponemos que solo se elige una opción por personaje al empezar la partida.
     //Modificamos los nombres de los personajes por un número identificador.
     void ComenzarPartida(string[] options){
-        for (uint i = 0; i < m_NumPlayers; ++i)
-        {
-            GameObject player = Instantiate<GameObject>(m_Player);
-            player.SendMessage("setOption", options[i]);
-            player.name = i.ToString();
-        }
+        GameObject player = Instantiate<GameObject>(m_Player);
+        player.SendMessage("setOption", options[m_IndexPlayers]);
+        player.name = m_IndexPlayers.ToString();
+        ++m_IndexPlayers;
     }
 
     public void setDeadPlayer(string player)
