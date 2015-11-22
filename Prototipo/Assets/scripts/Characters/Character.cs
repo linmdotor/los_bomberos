@@ -3,7 +3,6 @@ using System.Collections;
 
 [RequireComponent(typeof(DualStickMovement))]
 [RequireComponent(typeof(States))]
-[RequireComponent(typeof(Renderer))]
 public class Character : MonoBehaviour {
     private string m_Option = null;
     private float m_DeathTime = 10;
@@ -15,7 +14,7 @@ public class Character : MonoBehaviour {
     public float delayToNextTool = 0.5f;
     private DualStickMovement m_dualStickMovement;
     private States m_states;
-    private Renderer m_renderer;
+    public Renderer m_renderer;
     private bool m_toolEnabled = false;
 
     private Transform m_NPC = null;
@@ -24,7 +23,7 @@ public class Character : MonoBehaviour {
     {
         m_dualStickMovement = GetComponent<DualStickMovement>();
         m_states = GetComponent<States>();
-        m_renderer = GetComponent<Renderer>();
+        //m_renderer = GetComponent<Renderer>();
     }
 	// Use this for initialization
 	void Start () {

@@ -8,6 +8,7 @@ public class Fire : MonoBehaviour {
 
     public float m_damegePerPropagationTime = 1.0f;
     public float m_propagationTime = 2.0f;
+    public bool m_canBePropagated = true;
     private float m_nextPropagation = 0.0f;
     private bool m_init = false;
     //private EventFirefighterOnFire m_eventFirefighterOnFire  = new EventFirefighterOnFire();
@@ -32,7 +33,7 @@ public class Fire : MonoBehaviour {
 	void Update () {
         Assert.IsTrue(m_init);
         m_nextPropagation -= Time.deltaTime;
-        if ( m_nextPropagation < 0.0f )
+        if (m_canBePropagated && m_nextPropagation < 0.0f)
         {
             m_nextPropagation = m_propagationTime;
             fireManager.firePropagation(transform.position, m_damegePerPropagationTime);
