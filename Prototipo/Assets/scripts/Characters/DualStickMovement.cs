@@ -11,6 +11,7 @@ public class DualStickMovement : MonoBehaviour
 
     private float speed = 5.0f;
     private bool block = false;
+    private bool m_blockShoot = false;
 
     void setSpeed(float s)
     {
@@ -21,7 +22,10 @@ public class DualStickMovement : MonoBehaviour
     {
         block = op;
     }
-
+    public void blockShoot(bool op)
+    {
+        m_blockShoot = op;
+    }
 
     void Start()
     {
@@ -65,7 +69,8 @@ public class DualStickMovement : MonoBehaviour
 
         //Orientamos al personaje
         Vector3 lookDir = (Vector3.right * GamePad.GetAxis(GamePad.Axis.RightStick, numController).x + Vector3.forward * GamePad.GetAxis(GamePad.Axis.RightStick, numController).y);
-        if (lookDir.sqrMagnitude > 0.0f) {
+        if (!m_blockShoot && lookDir.sqrMagnitude > 0.0f)
+        {
             transform.rotation = Quaternion.LookRotation(lookDir, Vector3.up);
             if (!block)
             {
