@@ -4,6 +4,7 @@ using System.Collections;
 public class GameManager : MonoBehaviour {
 
     private static uint m_NumPlayers = 4;
+    public static GameManager m_instance = null;
 
     public GameObject m_Player = null;
     private bool[] m_DeadPlayers = new bool[m_NumPlayers];
@@ -14,10 +15,19 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        for (uint i = 0; i < m_DeadPlayers.Length; ++i)
+        if (m_instance == null)
         {
-            m_DeadPlayers[i] = false;
-            m_PlayersReady[i] = false;
+            m_instance = this;
+            DontDestroyOnLoad(m_instance);
+            for (uint i = 0; i < m_DeadPlayers.Length; ++i)
+            {
+                m_DeadPlayers[i] = false;
+                m_PlayersReady[i] = false;
+            }
+        }
+        else if (m_instance != this)
+        {
+            Destroy(this.gameObject);
         }
 	}
 	
@@ -39,6 +49,8 @@ public class GameManager : MonoBehaviour {
         }
 	}
 
+
+
     //Ahora mismo suponemos que solo se elige una opción por personaje al empezar la partida.
     //Modificamos los nombres de los personajes por un número identificador.
     void ComenzarPartida(string[] options){
@@ -50,12 +62,12 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    void setDeadPlayer(string player)
+    public void setDeadPlayer(string player)
     {
         m_DeadPlayers[int.Parse(player) - 1] = true;
     }
 
-    void setReadyPlayer(string player)
+    public void setReadyPlayer(string player)
     {
         bool ready = m_PlayersReady[int.Parse(player) - 1];
         if (ready)
@@ -68,7 +80,7 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    void setOptions(string player, string option)
+    public void setOptions(string player, string option)
     {
         m_Options[int.Parse(player) - 1] = option;
     }
