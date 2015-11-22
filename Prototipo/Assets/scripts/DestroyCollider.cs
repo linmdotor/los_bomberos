@@ -16,6 +16,7 @@ public class DestroyCollider : MonoBehaviour
         if (other.transform.CompareTag(m_Tag))
         {
             //other.gameObject.SendMessage("damage", m_damage, SendMessageOptions.DontRequireReceiver);
+            transform.parent.SendMessage("dropNPC");
             if (m_destroyOnCollision)
                 Destroy(gameObject);
         }

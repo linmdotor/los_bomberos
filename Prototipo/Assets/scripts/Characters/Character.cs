@@ -122,4 +122,9 @@ public class Character : MonoBehaviour {
             gameObject.SendMessage("blockShoot", false);
         }
     }
+    public void dropNPC()
+    {
+        m_NPC = null;
+        gameObject.SendMessage("blockShoot", false);
+    }
 }
