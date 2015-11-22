@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour {
 
     void setDeadPlayer(string player)
     {
-        m_DeadPlayers[int.Parse(player)] = false;
+        m_DeadPlayers[int.Parse(player) - 1] = true;
     }
 
     void setReadyPlayer(string player)

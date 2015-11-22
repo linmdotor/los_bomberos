@@ -60,7 +60,8 @@ public class Character : MonoBehaviour {
 
     void isDead()
     {
-        this.SendMessage(this.name);
+        string name = this.name.ToString();
+        gameObject.SendMessage("setDeadPlayer", name);
         this.enabled = false;
     }
 

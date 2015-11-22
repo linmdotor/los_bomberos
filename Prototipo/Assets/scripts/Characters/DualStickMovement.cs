@@ -63,6 +63,10 @@ public class DualStickMovement : MonoBehaviour
             } else {
                 gameObject.BroadcastMessage("stopShooting");
             }
+            else
+            {
+                gameObject.BroadcastMessage("stopShooting");
+            }
         } else {
             gameObject.BroadcastMessage("stopShooting");
         }
