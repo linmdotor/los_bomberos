@@ -21,10 +21,7 @@ public class ClickedButton : MonoBehaviour {
 
     public void PlayerReady()
     {
-        this.SendMessage("setReadyPlayer", this.name);
-        object[] options = new object[2];
-        options[0] = this.name;
-        options[1] = m_EquipmentList[m_Equipment.value];
-        this.SendMessage("setOptions", options);
+        GameManager.m_instance.setReadyPlayer(m_Equipment.name);
+        GameManager.m_instance.setOptions(m_Equipment.name, m_EquipmentList[m_Equipment.value]);
     }
 }

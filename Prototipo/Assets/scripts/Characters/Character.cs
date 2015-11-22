@@ -8,6 +8,8 @@ public class Character : MonoBehaviour {
     private string m_Option = null;
     private float m_DeathTime = 10;
     private bool m_OnFire = false;
+    public GameObject m_Extinguisher = null;
+    public GameObject m_HugeExtinguisher = null;
 
     public Axe axe;
     public float delayToNextTool = 0.5f;
@@ -15,6 +17,8 @@ public class Character : MonoBehaviour {
     private States m_states;
     private Renderer m_renderer;
     private bool m_toolEnabled = false;
+
+    private Transform m_NPC = null;
 
     void Awake()
     {
@@ -26,6 +30,7 @@ public class Character : MonoBehaviour {
 	void Start () {
         axe.enabled = false;
         normalState();
+        m_Option = "Axe"; //TODO: remover
 	}
 	
 	// Update is called once per frame
@@ -46,12 +51,18 @@ public class Character : MonoBehaviour {
         {
             m_DeathTime += 10;
         }
+        if (m_Option == "HugeEx")
+        {
+            m_HugeExtinguisher.SetActive(true);
+            m_Extinguisher.SetActive(false);
+        }
     }
 
     void isDead()
     {
-        this.SendMessage(this.name);
-        this.enabled = false;
+        GameManager.m_instance.setDeadPlayer(this.name);
+        gameObject.SetActive(false);
+        //Activar camara otro jugador
     }
 
     public void useTool()
@@ -72,19 +83,41 @@ public class Character : MonoBehaviour {
     {
         gameObject.SendMessage("setSpeed", m_states.changeState(States.CharacterStates.BURNING));
         m_renderer.material.color = Color.red;
-        gameObject.SendMessage("blockImput");
+        gameObject.SendMessage("blockImput", true);
         m_OnFire = true;
     }
     public void OnWater()
     {
         gameObject.SendMessage("setSpeed", m_states.changeState(States.CharacterStates.WET));
         m_renderer.material.color = Color.blue;
-        gameObject.SendMessage("releaseImput");
+        gameObject.SendMessage("blockImput", false);
     }
     public void normalState()
     {
         gameObject.SendMessage("setSpeed", m_states.changeState(States.CharacterStates.NORMAL));
         m_renderer.material.color = Color.white;
-        gameObject.SendMessage("releaseImput");
+        gameObject.SendMessage("blockImput", false);
+    }
+    public void pressAction()
+    {
+        if (m_NPC == null)
+        {
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, 3.0f);
+            int i = 0;
+            while (i < hitColliders.Length)
+            {
+                if (hitColliders[i].tag.Equals("NPC"))
+                {
+                    hitColliders[i].transform.SetParent(transform);
+                    m_NPC = hitColliders[i].transform;
+                    return;
+                }
+                i++;
+            }
+        }
+        else
+        {
+            m_NPC.parent = null;
+        }
     }
 }

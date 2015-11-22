@@ -7,7 +7,7 @@ using System.Collections;
  */
 public class DestroyCollider : MonoBehaviour
 {
-    public string m_Tag = "Player";
+    public string m_Tag = "Entrance";
     //public float m_damage = 10.0f;
     public bool m_destroyOnCollision = true;
 
