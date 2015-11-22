@@ -67,7 +67,8 @@ public class Fire : MonoBehaviour {
     {
         Assert.IsTrue(m_init);
         fireManager.removeFire(transform.position);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+        //Destroy(gameObject);
     }
     
 }
