@@ -110,6 +110,7 @@ public class Character : MonoBehaviour {
                     hitColliders[i].transform.SetParent(transform);
                     m_NPC = hitColliders[i].transform;
                     gameObject.SendMessage("blockShoot", true);
+                    gameObject.SendMessage("setSpeed", m_states.changeState(States.CharacterStates.NPC));
                     return;
                 }
                 i++;
@@ -120,11 +121,13 @@ public class Character : MonoBehaviour {
             m_NPC.parent = null;
             m_NPC = null;
             gameObject.SendMessage("blockShoot", false);
+            gameObject.SendMessage("setSpeed", m_states.changeState(States.CharacterStates.NORMAL));
         }
     }
     public void dropNPC()
     {
         m_NPC = null;
         gameObject.SendMessage("blockShoot", false);
+        gameObject.SendMessage("setSpeed", m_states.changeState(States.CharacterStates.NORMAL));
     }
 }
