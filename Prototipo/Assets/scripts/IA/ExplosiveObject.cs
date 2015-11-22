@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(AudioSource))]
 public class ExplosiveObject : MonoBehaviour {
 
     public GameObject m_explosionParticle;
@@ -34,6 +35,12 @@ public class ExplosiveObject : MonoBehaviour {
         Debug.Log("HE EXPLOTADO; HIJOS DE LA CHINGADA!");
         //poner la animación y sonido de explosión
         Instantiate(m_explosionParticle, transform.position, transform.rotation);
+        AudioSource aud = gameObject.GetComponent<AudioSource>();
+        GameObject aux = new GameObject();
+        AudioSource asource = aux.AddComponent<AudioSource>();
+        aux = Instantiate(aux);
+        aux.GetComponent<AudioSource>().PlayOneShot(aud.clip);
+        Destroy(aux, 4.0f);
 
         //destruye el objeto
         Destroy(gameObject);
