@@ -18,6 +18,8 @@ public class Character : MonoBehaviour {
     private Renderer m_renderer;
     private bool m_toolEnabled = false;
 
+    private Transform m_NPC = null;
+
     void Awake()
     {
         m_dualStickMovement = GetComponent<DualStickMovement>();
@@ -94,5 +96,27 @@ public class Character : MonoBehaviour {
         gameObject.SendMessage("setSpeed", m_states.changeState(States.CharacterStates.NORMAL));
         m_renderer.material.color = Color.white;
         gameObject.SendMessage("blockImput", false);
+    }
+    public void pressAction()
+    {
+        if (m_NPC == null)
+        {
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, 3.0f);
+            int i = 0;
+            while (i < hitColliders.Length)
+            {
+                if (hitColliders[i].tag.Equals("NPC"))
+                {
+                    hitColliders[i].transform.SetParent(transform);
+                    m_NPC = hitColliders[i].transform;
+                    return;
+                }
+                i++;
+            }
+        }
+        else
+        {
+            m_NPC.parent = null;
+        }
     }
 }
