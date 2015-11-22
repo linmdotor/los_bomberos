@@ -7,6 +7,7 @@ using UnityEngine.Assertions;
 public class Fire : MonoBehaviour {
 
     public float m_damegePerPropagationTime = 1.0f;
+    [HideInInspector]
     public float m_propagationTime = 2.0f;
     public bool m_canBePropagated = true;
     public GameObject m_smokeParticle;
