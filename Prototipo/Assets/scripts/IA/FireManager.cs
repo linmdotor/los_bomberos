@@ -48,6 +48,7 @@ public class FireManager : MonoBehaviour {
     }
     public void firePropagation(Vector3 position, float damegePerPropagationTime)
     {
+        if (Random.Range(0, 100) > 50) return;
         int xMin = ((int)(position.x / m_map.m_xSize) - 1);
         int zMin = ((int)(position.z / m_map.m_zSize) - 1);
         if (xMin < 0)
