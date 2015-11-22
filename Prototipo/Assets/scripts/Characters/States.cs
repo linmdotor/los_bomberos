@@ -41,6 +41,7 @@ public class States : MonoBehaviour {
                 //Llamada a iniciar contador de muerte;
                 return m_burningSpeed;
             case CharacterStates.WET:
+			m_currentTime = m_wetDuration;
                 return m_wetDuration;
             default:
                 return 100;
