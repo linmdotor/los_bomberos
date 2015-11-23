@@ -1,0 +1,10 @@
+wasd -> movimiento player 1
+tfgh -> extintor player 1
+z -> accion 1 player 1
+x -> accion 2 player 1
+
+NO ME HA FUNCIONADO CON TECLADO NUMERICO
+ijkl -> movimiento player 2
+8456 -> extintor player 2
+n -> accion 1 player 2
+m -> accion 2 player 2

@@ -43,7 +43,7 @@ public class DualStickMovement : MonoBehaviour
     void Update()
     {   
         //Hacha
-        if (Input.GetKeyDown(KeyCode.Space) || GamePad.GetButtonDown(GamePad.Button.B, numController)) {
+        if (GamePad.GetButtonDown(GamePad.Button.B, numController)) {
             gameObject.SendMessage("useTool");
         }
 
@@ -55,10 +55,20 @@ public class DualStickMovement : MonoBehaviour
 
         //Movemos al personaje
         Vector3 leftStickAxis = (Vector3.right * GamePad.GetAxis(GamePad.Axis.LeftStick, numController).x + Vector3.forward * GamePad.GetAxis(GamePad.Axis.LeftStick, numController).y);
+        Vector3 aux = Vector3.zero;
+        if (leftStickAxis.magnitude < 0.01f)
+        {
+            aux = (Vector3.right * GamePad.GetAxis(GamePad.Axis.KeyboardL, numController).x + Vector3.forward * GamePad.GetAxis(GamePad.Axis.KeyboardL, numController).y);
+            if (aux.magnitude > 0.0f)
+            {
+                leftStickAxis = aux;
+            }
+        }
+
         transform.position += leftStickAxis * speed * Time.deltaTime;
 
         //llama a isMoving o IsNotMoving para reproducir el sonido de las pisadas
-        if(GamePad.GetAxis(GamePad.Axis.LeftStick, numController).x == 0 && GamePad.GetAxis(GamePad.Axis.LeftStick, numController).y == 0)
+        if (leftStickAxis.x == 0 && leftStickAxis.y == 0)
         {
             gameObject.BroadcastMessage("isNotMoving");
         }
@@ -79,7 +89,23 @@ public class DualStickMovement : MonoBehaviour
                 gameObject.BroadcastMessage("stopShooting");
             }
         } else {
-            gameObject.BroadcastMessage("stopShooting");
+            lookDir = (Vector3.right * GamePad.GetAxis(GamePad.Axis.KeyboardR, numController).x + Vector3.forward * GamePad.GetAxis(GamePad.Axis.KeyboardR, numController).y);
+            if (!m_blockShoot && lookDir.sqrMagnitude > 0.0f)
+            {
+                transform.rotation = Quaternion.LookRotation(lookDir, Vector3.up);
+                if (!block)
+                {
+                    gameObject.BroadcastMessage("startShooting");
+                }
+                else
+                {
+                    gameObject.BroadcastMessage("stopShooting");
+                }
+            }
+            else
+            {
+                gameObject.BroadcastMessage("stopShooting");
+            }
         }
         
     }
