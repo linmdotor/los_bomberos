@@ -381,7 +381,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 154174}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 36.9500008, y: 0, z: -9}
+  m_LocalPosition: {x: 0, y: 0, z: -9}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 410740}
@@ -1401,6 +1401,7 @@ MonoBehaviour:
   axe: {fileID: 11428438}
   delayToNextTool: .5
   m_renderer: {fileID: 2331740}
+  m_axeCheat: 1
 --- !u!114 &11447674
 MonoBehaviour:
   m_ObjectHideFlags: 1

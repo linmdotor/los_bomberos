@@ -841,8 +841,8 @@ InputManager:
     m_Name: R_Vertical_2
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: 8
-    positiveButton: 5
+    negativeButton: 5
+    positiveButton: 8
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
