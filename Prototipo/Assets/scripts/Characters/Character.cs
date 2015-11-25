@@ -19,6 +19,8 @@ public class Character : MonoBehaviour {
 
     private Transform m_NPC = null;
 
+    public bool m_axeCheat = true;
+
     void Awake()
     {
         m_dualStickMovement = GetComponent<DualStickMovement>();
@@ -29,7 +31,8 @@ public class Character : MonoBehaviour {
 	void Start () {
         axe.enabled = false;
         normalState();
-        //m_Option = "Axe"; //TODO: remover
+        if (m_axeCheat)
+            m_Option = "Axe";
 	}
 	
 	// Update is called once per frame

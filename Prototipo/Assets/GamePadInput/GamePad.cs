@@ -13,13 +13,28 @@ namespace GamepadInput
 
         public enum Button { A, B, Y, X, RightShoulder, LeftShoulder, RightStick, LeftStick, Back, Start }
         public enum Trigger { LeftTrigger, RightTrigger }
-        public enum Axis { LeftStick, RightStick, Dpad }
+        public enum Axis { LeftStick, RightStick, Dpad, KeyboardL, KeyboardR }
         public enum Index { Any, One, Two, Three, Four }
 
         public static bool GetButtonDown(Button button, Index controlIndex)
         {
             KeyCode code = GetKeycode(button, controlIndex);
-            return Input.GetKeyDown(code);
+            bool aux = Input.GetKeyDown(code);
+            if (!aux) //miramos el PC
+            {
+                string xName = "";
+                switch (button)
+                {
+                    case Button.A:
+                        xName = "1_Action_" + (int)controlIndex;
+                        break;
+                    case Button.B:
+                        xName = "2_Action_" + (int)controlIndex;
+                        break;
+                }
+                aux = Input.GetAxis(xName) > 0.0f;
+            }
+            return aux;
         }
 
         public static bool GetButtonUp(Button button, Index controlIndex)
@@ -58,6 +73,14 @@ namespace GamepadInput
                 case Axis.RightStick:
                     xName = "R_XAxis_" + (int)controlIndex;
                     yName = "R_YAxis_" + (int)controlIndex;
+                    break;
+                case Axis.KeyboardR:
+                    xName = "R_Horizontal_" + (int)controlIndex;
+                    yName = "R_Vertical_" + (int)controlIndex;
+                    break;
+                case Axis.KeyboardL:
+                    xName = "L_Horizontal_" + (int)controlIndex;
+                    yName = "L_Vertical_" + (int)controlIndex;
                     break;
             }
 
