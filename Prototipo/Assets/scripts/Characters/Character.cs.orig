@@ -3,59 +3,74 @@ using System.Collections;
 
 [RequireComponent(typeof(DualStickMovement))]
 [RequireComponent(typeof(States))]
-[RequireComponent(typeof(Renderer))]
 public class Character : MonoBehaviour {
-    private string m_SuitType = null;
-    private int m_DeathTime = 10;
-
+    private string m_Option = null;
+    private float m_DeathTime = 10;
+    private bool m_OnFire = false;
+    public GameObject m_Extinguisher = null;
+    public GameObject m_HugeExtinguisher = null;
+    public GameObject m_helpNotification;
     public Axe axe;
     public float delayToNextTool = 0.5f;
     private DualStickMovement m_dualStickMovement;
     private States m_states;
-    private Renderer m_renderer;
+    public Renderer m_renderer;
     private bool m_toolEnabled = false;
+
+    private Transform m_NPC = null;
 
     void Awake()
     {
         m_dualStickMovement = GetComponent<DualStickMovement>();
         m_states = GetComponent<States>();
-        m_renderer = GetComponent<Renderer>();
+        //m_renderer = GetComponent<Renderer>();
     }
 	// Use this for initialization
 	void Start () {
-<<<<<<< HEAD
-	    
-=======
         axe.enabled = false;
         normalState();
->>>>>>> 12f3906ddc7829993b5d10fa0b18c85b56cdcdde
+<<<<<<< HEAD
+        m_Option = "Axe"; //TODO: remover
+=======
+        //m_Option = "Axe"; //TODO: remover
+>>>>>>> parent of 4a2648d... jugar con teclado y mandos player 1 y 2
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        if (m_OnFire)
+        {
+            m_DeathTime -= Time.deltaTime;
+        }
+        if(m_DeathTime < 0)
+        {
+            isDead();
+        }
 	}
-<<<<<<< HEAD
-    //Las opciones de traje son 2: Ignifugo y Normal.
-    void setSuitType(string suit){
-        m_SuitType = suit;
-        if (m_SuitType == "Ignifugo")
+
+    void setOption(string option){
+        m_Option = option;
+        if (m_Option == "FireSuit")
         {
             m_DeathTime += 10;
+        }
+        if (m_Option == "HugeEx")
+        {
+            m_HugeExtinguisher.SetActive(true);
+            m_Extinguisher.SetActive(false);
         }
     }
 
     void isDead()
     {
-        if (m_DeathTime < 0)
-        {
-            this.SendMessage(this.name);
-        }
+        GameManager.m_instance.setDeadPlayer(this.name);
+        gameObject.SetActive(false);
+        //Activar camara otro jugador
     }
-=======
 
     public void useTool()
     {
-        if ( !axe.enabled)
+        if (!axe.enabled && m_Option == "Axe")
         { 
             axe.enabled = true;
             axe.activeAxe(0.2f);
@@ -71,16 +86,70 @@ public class Character : MonoBehaviour {
     {
         gameObject.SendMessage("setSpeed", m_states.changeState(States.CharacterStates.BURNING));
         m_renderer.material.color = Color.red;
+        gameObject.SendMessage("blockImput", true);
+        m_OnFire = true;
+        //help
+        Character[] gos = (Character[])GameObject.FindObjectsOfType<Character>();
+        foreach (Character go in gos)
+        {
+            if (go != this)
+            {
+                go.SendMessage("needHelp", transform.position);
+            }
+        }
     }
     public void OnWater()
     {
         gameObject.SendMessage("setSpeed", m_states.changeState(States.CharacterStates.WET));
         m_renderer.material.color = Color.blue;
+        gameObject.SendMessage("blockImput", false);
+    }
+    public void needHelp(Vector3 position)
+    {
+        Vector3 dir = (position - transform.position).normalized;
+        m_helpNotification.SetActive(true);
+        dir = transform.position + dir * 2.0f;
+        //dir.y = 0.695f;
+        m_helpNotification.transform.position = dir;
+        m_helpNotification.transform.LookAt(dir);
     }
     public void normalState()
     {
         gameObject.SendMessage("setSpeed", m_states.changeState(States.CharacterStates.NORMAL));
         m_renderer.material.color = Color.white;
+        gameObject.SendMessage("blockImput", false);
     }
->>>>>>> 12f3906ddc7829993b5d10fa0b18c85b56cdcdde
+    public void pressAction()
+    {
+        if (m_NPC == null)
+        {
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, 3.0f);
+            int i = 0;
+            while (i < hitColliders.Length)
+            {
+                if (hitColliders[i].tag.Equals("NPC"))
+                {
+                    hitColliders[i].transform.SetParent(transform);
+                    m_NPC = hitColliders[i].transform;
+                    gameObject.SendMessage("blockShoot", true);
+                    gameObject.SendMessage("setSpeed", m_states.changeState(States.CharacterStates.NPC));
+                    return;
+                }
+                i++;
+            }
+        }
+        else
+        {
+            m_NPC.parent = null;
+            m_NPC = null;
+            gameObject.SendMessage("blockShoot", false);
+            gameObject.SendMessage("setSpeed", m_states.changeState(States.CharacterStates.NORMAL));
+        }
+    }
+    public void dropNPC()
+    {
+        m_NPC = null;
+        gameObject.SendMessage("blockShoot", false);
+        gameObject.SendMessage("setSpeed", m_states.changeState(States.CharacterStates.NORMAL));
+    }
 }
