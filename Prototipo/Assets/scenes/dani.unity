@@ -564,6 +564,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 946799788}
   - 114: {fileID: 946799787}
+  - 114: {fileID: 946799789}
+  - 114: {fileID: 946799791}
+  - 114: {fileID: 946799790}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -596,6 +599,43 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
+--- !u!114 &946799789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 946799786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f2bfa04f60628e41a55ac3d166a44b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iPrueba: 10
+  vPrueba: {x: 1, y: 2, z: 3}
+--- !u!114 &946799790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 946799786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71c447f2a2fd7174abfc76b0b79d5839, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &946799791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 946799786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d77a5d2735310c4fae59f152faf0550, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Tag: Entrance
+  m_destroyOnCollision: 1
 --- !u!1 &1303376255
 GameObject:
   m_ObjectHideFlags: 0
