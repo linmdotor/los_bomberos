@@ -81,7 +81,11 @@ public class GameManager : MonoBehaviour {
 
     public void setDeadPlayer(string player)
     {
-        m_DeadPlayers[int.Parse(player) - 1] = true;
+        //Dará fallo porque se espera un x donde x es el número del jugador y se recibe la cadena Playerx
+        m_DeadPlayers[int.Parse(player) - 1] = true; 
+
+        for (uint i = 0; i < m_DeadPlayers.Length; ++i )
+            Debug.Log(m_DeadPlayers[i]);
     }
 
     public void setReadyPlayer(GamepadInput.GamePad.Index player)
