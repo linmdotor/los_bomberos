@@ -44,8 +44,25 @@ public class ExportableManager : MonoBehaviour {
             if (aux != null)
             {
                 //TODO: de alguna forma hay que ponerle la ruta completa
-                toExport.Add("\t\tmodel = \"" + aux.mesh.name.Substring(0, aux.mesh.name.LastIndexOf("Instance") - 1) + ".mesh\"");
+                toExport.Add("\t\tmodel = \"" + aux.mesh.name.Substring(0, aux.mesh.name.LastIndexOf("Instance") - 1) + ".mesh\",");
             }
+            BoxCollider boxCollider = gameObject.GetComponent<BoxCollider>();
+            if (boxCollider != null)
+            {
+                //TODO: de alguna forma hay que ponerle la ruta completa
+                toExport.Add("\t\tcolliderSize = " + boxCollider.size + ",");
+                toExport.Add("\t\tcolliderCenter = " + boxCollider.center + ",");
+                toExport.Add("\t\tisTrigger = " + boxCollider.isTrigger.ToString().ToLower()+",");
+            }
+            SphereCollider sphereCollider = gameObject.GetComponent<SphereCollider>();
+            if (sphereCollider != null)
+            {
+                //TODO: de alguna forma hay que ponerle la ruta completa
+                toExport.Add("\t\tcolliderRadius = " + sphereCollider.radius + ",");
+                toExport.Add("\t\tcolliderCenter = " + sphereCollider.center + ",");
+                toExport.Add("\t\tisTrigger = " + sphereCollider.isTrigger.ToString().ToLower() + ",");
+            }
+
             toExport.Add("\t},");
             for (int w = 0; w < toExport.Count; ++w)
             {
