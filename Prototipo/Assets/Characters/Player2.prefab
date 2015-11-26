@@ -67,7 +67,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &106154
 GameObject:
   m_ObjectHideFlags: 1
@@ -1357,6 +1357,7 @@ MonoBehaviour:
   axe: {fileID: 11446316}
   delayToNextTool: .5
   m_renderer: {fileID: 2368516}
+  m_axeCheat: 1
 --- !u!114 &11414176
 MonoBehaviour:
   m_ObjectHideFlags: 1

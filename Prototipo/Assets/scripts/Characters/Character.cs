@@ -5,7 +5,7 @@ using System.Collections;
 [RequireComponent(typeof(States))]
 public class Character : MonoBehaviour {
     private string m_Option = null;
-    private float m_DeathTime = 10;
+    private float m_DeathTime = 10; //Cambiar a 10
     private bool m_OnFire = false;
     public GameObject m_Extinguisher = null;
     public GameObject m_HugeExtinguisher = null;
@@ -16,6 +16,8 @@ public class Character : MonoBehaviour {
     private States m_states;
     public Renderer m_renderer;
     private bool m_toolEnabled = false;
+    private bool m_SomebodyNeedHelp = false;
+    private Vector3 m_WhereNeedHelp = new Vector3();
 
     private Transform m_NPC = null;
 
@@ -45,6 +47,11 @@ public class Character : MonoBehaviour {
         {
             isDead();
         }
+        if (m_SomebodyNeedHelp && !m_OnFire)
+        {
+            m_helpNotification.SetActive(true);
+            m_helpNotification.transform.LookAt(m_WhereNeedHelp);
+        }
 	}
 
     void setOption(string option){
@@ -62,8 +69,8 @@ public class Character : MonoBehaviour {
 
     void isDead()
     {
-        GameManager.m_instance.setDeadPlayer(this.name);
         gameObject.SetActive(false);
+        GameManager.m_instance.setDeadPlayer(this.name);
         //Activar camara otro jugador
     }
 
@@ -93,9 +100,19 @@ public class Character : MonoBehaviour {
         {
             if (go != this)
             {
-                go.SendMessage("needHelp", transform.position);
+                go.SendMessage("setSomeNeedHelp", true);
+                go.SendMessage("setWhereNeedHelp", transform.position);
+                //go.SendMessage("needHelp", transform.position);
             }
         }
+    }
+    public void setSomeNeedHelp(bool help)
+    {
+        m_SomebodyNeedHelp = help;
+    }
+    public void setWhereNeedHelp(Vector3 posHelp)
+    {
+        m_WhereNeedHelp = posHelp;
     }
     public void OnWater()
     {
@@ -105,12 +122,8 @@ public class Character : MonoBehaviour {
     }
     public void needHelp(Vector3 position)
     {
-        Vector3 dir = (position - transform.position).normalized;
         m_helpNotification.SetActive(true);
-        dir = transform.position + dir * 2.0f;
-        //dir.y = 0.695f;
-        m_helpNotification.transform.position = dir;
-        m_helpNotification.transform.LookAt(dir);
+        m_helpNotification.transform.LookAt(position);
     }
     public void normalState()
     {

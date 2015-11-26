@@ -11,8 +11,8 @@ public class ClickedButton : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         m_EquipmentList[0] = "Axe";
-        m_EquipmentList[0] = "HugeEx";
-        m_EquipmentList[0] = "FireSuit";
+        m_EquipmentList[1] = "HugeEx";
+        m_EquipmentList[2] = "FireSuit";
 	}
 	
 	// Update is called once per frame
