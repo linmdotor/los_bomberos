@@ -4,7 +4,7 @@ using System.Collections;
 public class Life : MonoBehaviour {
 
     public float m_maxLife = 100.0f;
-    private float m_currentLife;
+    public float m_currentLife;
 	// Use this for initialization
 	void Start () {
         m_currentLife = m_maxLife;	    
