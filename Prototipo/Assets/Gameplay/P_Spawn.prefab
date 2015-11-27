@@ -12,7 +12,7 @@ GameObject:
   m_Layer: 0
   m_Name: P_Spawn
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -41,6 +41,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawn: {fileID: 123836, guid: 0caf9adc629c275408aca05e301aad61, type: 2}
   remainingTimeToSpawn: 1
+  m_firePropagation: 2
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
