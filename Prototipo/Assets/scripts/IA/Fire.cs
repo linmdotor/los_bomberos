@@ -51,7 +51,16 @@ public class Fire : MonoBehaviour {
         //m_eventFirefighterOnFire.m_firefighter = other.;7
         if (other.gameObject.tag.Equals("Player"))
         {
-            other.gameObject.SendMessage("OnFire");
+            other.gameObject.SendMessage("FireEnter");
+        }
+    }
+    void OnTriggerExit(Collider other)
+    {
+        Assert.IsTrue(m_init);
+        //m_eventFirefighterOnFire.m_firefighter = other.;7
+        if (other.gameObject.tag.Equals("Player"))
+        {
+            other.gameObject.SendMessage("FireExit");
         }
     }
     void OnTriggerStay(Collider other)

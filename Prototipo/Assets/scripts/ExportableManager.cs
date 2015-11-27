@@ -38,7 +38,7 @@ public class ExportableManager : MonoBehaviour {
 
     private void writeObject(GameObject gameObject, StreamWriter sw)
     {
-        if (toExport.Count > 1)
+        if (toExport.Count > 4)
         {
             MeshFilter aux = gameObject.GetComponent<MeshFilter>();
             if (aux != null)
@@ -95,7 +95,11 @@ public class ExportableManager : MonoBehaviour {
         for (int z = 0; z < components.Length; ++z)
         {
             processComponent(components[z]);
-        }//for (int z = 0; z < components.Length; ++z)
+        }
+
+        toExport.Add("\t\tposition = " + transform.position + ",");
+        toExport.Add("\t\tscale = " + transform.localScale + ",");
+        toExport.Add("\t\trotation = " + transform.rotation + ",");
     }
     private void processComponent(Component component)
     {

@@ -23,6 +23,11 @@ public class Character : MonoBehaviour {
 
     public bool m_axeCheat = true;
 
+    public float m_resistanceToBurning = 1.0f;
+    public float m_resistanceToBurningRegeneration = 1.0f;
+    private float m_currentResistanceToBurning;
+    private bool m_FireEnter = false;
+
     void Awake()
     {
         m_dualStickMovement = GetComponent<DualStickMovement>();
@@ -31,6 +36,7 @@ public class Character : MonoBehaviour {
     }
 	// Use this for initialization
 	void Start () {
+        m_currentResistanceToBurning = m_resistanceToBurning;
         axe.enabled = false;
         normalState();
         if (m_axeCheat)
@@ -42,6 +48,26 @@ public class Character : MonoBehaviour {
         if (m_OnFire)
         {
             m_DeathTime -= Time.deltaTime;
+        }
+        else
+        {
+            if (m_FireEnter)
+            {
+                m_currentResistanceToBurning -= Time.deltaTime;
+                if ( m_currentResistanceToBurning < 0.0f)
+                {
+                    m_currentResistanceToBurning = 0.0f;
+                    OnFire();
+                }
+            }
+            else
+            {
+                m_currentResistanceToBurning += Time.deltaTime * m_resistanceToBurningRegeneration;
+                if ( m_currentResistanceToBurning > m_resistanceToBurning)
+                {
+                    m_currentResistanceToBurning = m_resistanceToBurning;
+                }
+            }
         }
         if(m_DeathTime < 0)
         {
@@ -88,6 +114,14 @@ public class Character : MonoBehaviour {
         yield return new WaitForSeconds(delayToNextTool);
         axe.enabled = false;
     }
+    public void FireEnter()
+    {
+        m_FireEnter = true;
+    }
+    public void FireExit()
+    {
+        m_FireEnter = false;
+    }
     public void OnFire()
     {
         gameObject.SendMessage("setSpeed", m_states.changeState(States.CharacterStates.BURNING));
@@ -116,6 +150,9 @@ public class Character : MonoBehaviour {
     }
     public void OnWater()
     {
+        m_currentResistanceToBurning = m_resistanceToBurning;
+        m_FireEnter = false;
+        m_OnFire = false;
         gameObject.SendMessage("setSpeed", m_states.changeState(States.CharacterStates.WET));
         m_renderer.material.color = Color.blue;
         gameObject.SendMessage("blockImput", false);
