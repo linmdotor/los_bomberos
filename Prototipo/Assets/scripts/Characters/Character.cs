@@ -123,7 +123,7 @@ public class Character : MonoBehaviour {
         if (m_Option == "WaterSword")
         {
             waterSword.gameObject.SetActive(true);
-            waterSword.activeWaterSword(0.2f);
+            waterSword.activeWaterSword(0.5f);
             StartCoroutine(dissableWaterSword());
         }
     }
