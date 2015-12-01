@@ -161,6 +161,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &135036
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 429604}
+  - 82: {fileID: 8289484}
+  - 114: {fileID: 11480014}
+  - 65: {fileID: 6563738}
+  - 114: {fileID: 11488904}
+  m_Layer: 0
+  m_Name: P_WaterSword
+  m_TagString: Water
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!1 &146380
 GameObject:
   m_ObjectHideFlags: 1
@@ -173,6 +192,24 @@ GameObject:
   - 23: {fileID: 2381046}
   m_Layer: 0
   m_Name: Axe001_grip
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &147544
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 426200}
+  - 33: {fileID: 3312372}
+  - 23: {fileID: 2387248}
+  - 95: {fileID: 9591224}
+  m_Layer: 0
+  m_Name: SM_WaterSword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -248,7 +285,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &177302
 GameObject:
   m_ObjectHideFlags: 1
@@ -375,6 +412,31 @@ Transform:
   - {fileID: 456820}
   m_Father: {fileID: 469548}
   m_RootOrder: 4
+--- !u!4 &426200
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147544}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: .136571303, y: .726176262, z: .124999322}
+  m_Children: []
+  m_Father: {fileID: 429604}
+  m_RootOrder: 0
+--- !u!4 &429604
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135036}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.312999994, y: .393000007, z: .259000003}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 426200}
+  m_Father: {fileID: 469548}
+  m_RootOrder: 5
 --- !u!4 &435720
 Transform:
   m_ObjectHideFlags: 1
@@ -508,7 +570,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 131892}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 36.9500008, y: 0, z: -5.63000011}
+  m_LocalPosition: {x: 5.13286734, y: .24000001, z: 6.76193476}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 472254}
@@ -516,6 +578,7 @@ Transform:
   - {fileID: 444164}
   - {fileID: 456024}
   - {fileID: 424276}
+  - {fileID: 429604}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &472254
@@ -981,6 +1044,32 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
+--- !u!23 &2387248
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147544}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 1659259cfdbd50342a7f3dc4d6c08f1d, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
 --- !u!26 &2606876
 ParticleRenderer:
   m_ObjectHideFlags: 1
@@ -1074,6 +1163,13 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 101606}
   m_Mesh: {fileID: 4300002, guid: f367f43a8686f124fa99269076b856a6, type: 3}
+--- !u!33 &3312372
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147544}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &3320868
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -1213,6 +1309,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .529999971, y: .600000024, z: .400000006}
   m_Center: {x: 0, y: .469999999, z: .460000008}
+--- !u!65 &6563738
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135036}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.23000002, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: .649999976}
 --- !u!65 &6588056
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1307,6 +1415,76 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!82 &8289484
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135036}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!95 &9533824
 Animator:
   serializedVersion: 3
@@ -1317,6 +1495,23 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 2d298e2bd383a1b4bb0977e2120dc11f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &9591224
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147544}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4fd4b56f88a865448bf69ca3fd0b44ad, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1355,9 +1550,13 @@ MonoBehaviour:
   m_HugeExtinguisher: {fileID: 101606}
   m_helpNotification: {fileID: 180736}
   axe: {fileID: 11446316}
+  waterSword: {fileID: 11488904}
   delayToNextTool: .5
   m_renderer: {fileID: 2368516}
   m_axeCheat: 1
+  m_waterSwordCheat: 0
+  m_resistanceToBurning: 1
+  m_resistanceToBurningRegeneration: 1
 --- !u!114 &11414176
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1455,6 +1654,29 @@ MonoBehaviour:
   m_ShootPoint: {fileID: 476534}
   m_AoE: {fileID: 156440}
   m_Water: {fileID: 182136}
+--- !u!114 &11480014
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0c5d1f0d4543c94588ba0e7ffa4b25c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_damage: 1000
+--- !u!114 &11488904
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00de6df75f74ac442b2de02b68601097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11494838
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1479,6 +1701,14 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_axeCheat
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_waterSwordCheat
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

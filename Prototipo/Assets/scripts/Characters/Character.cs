@@ -11,6 +11,7 @@ public class Character : MonoBehaviour {
     public GameObject m_HugeExtinguisher = null;
     public GameObject m_helpNotification;
     public Axe axe;
+    public WaterSword waterSword;
     public float delayToNextTool = 0.5f;
     private DualStickMovement m_dualStickMovement;
     private States m_states;
@@ -21,7 +22,8 @@ public class Character : MonoBehaviour {
 
     private Transform m_NPC = null;
 
-    public bool m_axeCheat = true;
+    public bool m_axeCheat = false;
+    public bool m_waterSwordCheat = true;
 
     public float m_resistanceToBurning = 1.0f;
     public float m_resistanceToBurningRegeneration = 1.0f;
@@ -41,6 +43,8 @@ public class Character : MonoBehaviour {
         normalState();
         if (m_axeCheat)
             m_Option = "Axe";
+        if (m_waterSwordCheat)
+            m_Option = "WaterSword";
 	}
 	
 	// Update is called once per frame
@@ -86,10 +90,18 @@ public class Character : MonoBehaviour {
         {
             m_DeathTime += 10;
         }
-        if (m_Option == "HugeEx")
+        else if (m_Option == "HugeEx")
         {
             m_HugeExtinguisher.SetActive(true);
             m_Extinguisher.SetActive(false);
+        }
+        else if (m_Option == "Axe")
+        {
+            axe.enabled = true;
+        }
+        else if (m_Option == "WaterSword")
+        {
+            axe.enabled = true;
         }
     }
 
@@ -103,16 +115,27 @@ public class Character : MonoBehaviour {
     public void useTool()
     {
         if (!axe.enabled && m_Option == "Axe")
-        { 
-            axe.enabled = true;
+        {
+            axe.gameObject.SetActive(true);
             axe.activeAxe(0.2f);
             StartCoroutine(dissableAxe());
+        }
+        if (m_Option == "WaterSword")
+        {
+            waterSword.gameObject.SetActive(true);
+            waterSword.activeWaterSword(0.2f);
+            StartCoroutine(dissableWaterSword());
         }
     }
     IEnumerator dissableAxe()
     {
         yield return new WaitForSeconds(delayToNextTool);
-        axe.enabled = false;
+        axe.gameObject.SetActive(false);
+    }
+    IEnumerator dissableWaterSword()
+    {
+        yield return new WaitForSeconds(delayToNextTool);
+        waterSword.gameObject.SetActive(false);
     }
     public void FireEnter()
     {
