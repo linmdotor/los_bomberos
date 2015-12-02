@@ -174,18 +174,7 @@ public class Character : MonoBehaviour {
         gameObject.SendMessage("blockImput", true);
         m_OnFire = true;
         //help
-        Character[] gos = (Character[])GameObject.FindObjectsOfType<Character>();
-        foreach (Character go in gos)
-        {
-            if (go != this)
-            {
-                object[] args = {(int)HELP_MESSAGES.HELP_MESSAGES_BURNING, 1000.0f };
-                go.SendMessage("setSomeNeedHelp", args);
-                args[1] = transform.position;
-                go.SendMessage("setWhereNeedHelp", args);
-                //go.SendMessage("needHelp", transform.position);
-            }
-        }
+        helpMessage(HELP_MESSAGES.HELP_MESSAGES_BURNING);
     }
     public void setSomeNeedHelp(object[] args)
     {
