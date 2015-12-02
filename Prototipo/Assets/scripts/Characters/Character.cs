@@ -30,6 +30,7 @@ public class Character : MonoBehaviour {
 
     public bool m_axeCheat = false;
     public bool m_waterSwordCheat = true;
+    public bool m_HugeExCheat = false;
 
     public float m_resistanceToBurning = 1.0f;
     public float m_resistanceToBurningRegeneration = 1.0f;
@@ -57,6 +58,10 @@ public class Character : MonoBehaviour {
             m_Option = "Axe";
         if (m_waterSwordCheat)
             m_Option = "WaterSword";
+        if (m_HugeExCheat)
+            m_Option = "HugeEx";
+
+        setOption(m_Option);
 	}
 	
 	// Update is called once per frame
@@ -106,7 +111,7 @@ public class Character : MonoBehaviour {
 
 	}
 
-    void setOption(string option){
+    public void setOption(string option){
         m_Option = option;
         if (m_Option == "FireSuit")
         {
@@ -119,11 +124,11 @@ public class Character : MonoBehaviour {
         }
         else if (m_Option == "Axe")
         {
-            axe.enabled = true;
+            //axe.enabled = true; //No es necesario, al utilizar la herramienta ya se comprueba
         }
         else if (m_Option == "WaterSword")
         {
-            axe.enabled = true;
+            //waterSword.enabled = true; //No es necesario, al utilizar la herramienta ya se comprueba
         }
     }
 
