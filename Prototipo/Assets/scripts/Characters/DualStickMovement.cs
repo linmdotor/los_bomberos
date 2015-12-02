@@ -52,6 +52,16 @@ public class DualStickMovement : MonoBehaviour
             gameObject.SendMessage("pressAction");
         }
 
+        //Enviar mensaje 1
+        if (GamePad.GetButtonDown(GamePad.Button.Y, numController))
+        {
+            gameObject.SendMessage("helpMessage", Character.HELP_MESSAGES.HELP_MESSAGES_FIRE_HERE);
+        }
+        //Enviar mensaje 2
+        if (GamePad.GetButtonDown(GamePad.Button.X, numController))
+        {
+            gameObject.SendMessage("helpMessage", Character.HELP_MESSAGES.HELP_MESSAGES_NPC_HERE);
+        }
 
         //Movemos al personaje
         Vector3 leftStickAxis = (Vector3.right * GamePad.GetAxis(GamePad.Axis.LeftStick, numController).x + Vector3.forward * GamePad.GetAxis(GamePad.Axis.LeftStick, numController).y);

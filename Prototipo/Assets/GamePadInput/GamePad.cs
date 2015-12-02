@@ -31,6 +31,12 @@ namespace GamepadInput
                     case Button.B:
                         xName = "2_Action_" + (int)controlIndex;
                         break;
+                    case Button.Y:
+                        xName = "3_Action_" + (int)controlIndex;
+                        break;
+                    case Button.X:
+                        xName = "4_Action_" + (int)controlIndex;
+                        break;
                 }
                 aux = Input.GetAxis(xName) > 0.0f;
             }

@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour {
     private uint m_spawnZone = 35;
     public enum GameState { PrevioEscena, Escena }
     private GameState m_Actual = GameState.PrevioEscena;
-    private static uint m_NumPlayers = 4;
+    public static uint m_NumPlayers = 4;
     public static GameManager m_instance = null;
     public GameObject[] m_Players = null;
     public GameObject[] m_Cameras = null;

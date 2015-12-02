@@ -4,12 +4,19 @@ using System.Collections;
 [RequireComponent(typeof(DualStickMovement))]
 [RequireComponent(typeof(States))]
 public class Character : MonoBehaviour {
+    public enum HELP_MESSAGES
+    {
+        HELP_MESSAGES_BURNING, HELP_MESSAGES_FIRE_HERE, HELP_MESSAGES_NPC_HERE, HELP_MESSAGES_MAX
+    }
+
     private string m_Option = null;
     private float m_DeathTime = 10; //Cambiar a 10
     private bool m_OnFire = false;
     public GameObject m_Extinguisher = null;
     public GameObject m_HugeExtinguisher = null;
-    public GameObject m_helpNotification;
+    public GameObject [] m_helpNotification; //solo permite una notificacion por tipo, si varios piden ayuda se reemplaza
+    public float[] helpMessagesDuration;
+    private float[] remainingTimeMessages; //solo permite una notificacion por tipo, si varios piden ayuda se reemplaza
     public Axe axe;
     public WaterSword waterSword;
     public float delayToNextTool = 0.5f;
@@ -17,8 +24,7 @@ public class Character : MonoBehaviour {
     private States m_states;
     public Renderer m_renderer;
     private bool m_toolEnabled = false;
-    private bool m_SomebodyNeedHelp = false;
-    private Vector3 m_WhereNeedHelp = new Vector3();
+    private Vector3[] m_WhereNeedHelp; //solo permite una notificacion por tipo, si varios piden ayuda se reemplaza
 
     private Transform m_NPC = null;
 
@@ -34,6 +40,12 @@ public class Character : MonoBehaviour {
     {
         m_dualStickMovement = GetComponent<DualStickMovement>();
         m_states = GetComponent<States>();
+        remainingTimeMessages = new float[(int)HELP_MESSAGES.HELP_MESSAGES_MAX];
+        m_WhereNeedHelp = new Vector3[(int)HELP_MESSAGES.HELP_MESSAGES_MAX];
+        for (int i=0; i < (int)HELP_MESSAGES.HELP_MESSAGES_MAX; ++i)
+        {
+            remainingTimeMessages[i] = 0.0f;
+        }
         //m_renderer = GetComponent<Renderer>();
     }
 	// Use this for initialization
@@ -77,11 +89,21 @@ public class Character : MonoBehaviour {
         {
             isDead();
         }
-        if (m_SomebodyNeedHelp && !m_OnFire)
+        for (int i = 0; i < (int)HELP_MESSAGES.HELP_MESSAGES_MAX; ++i )
         {
-            m_helpNotification.SetActive(true);
-            m_helpNotification.transform.LookAt(m_WhereNeedHelp);
+            remainingTimeMessages[i] -= Time.deltaTime;
+            if ( remainingTimeMessages[i] > 0.0f)
+            {
+                //if (!m_OnFire)
+                m_helpNotification[i].SetActive(true);
+                m_helpNotification[i].transform.LookAt(m_WhereNeedHelp[i]);
+            }
+            else
+            {
+                m_helpNotification[i].SetActive(false); //no se debe hacer en cada frame
+            }
         }
+
 	}
 
     void setOption(string option){
@@ -157,19 +179,23 @@ public class Character : MonoBehaviour {
         {
             if (go != this)
             {
-                go.SendMessage("setSomeNeedHelp", true);
-                go.SendMessage("setWhereNeedHelp", transform.position);
+                object[] args = {(int)HELP_MESSAGES.HELP_MESSAGES_BURNING, 1000.0f };
+                go.SendMessage("setSomeNeedHelp", args);
+                args[1] = transform.position;
+                go.SendMessage("setWhereNeedHelp", args);
                 //go.SendMessage("needHelp", transform.position);
             }
         }
     }
-    public void setSomeNeedHelp(bool help)
+    public void setSomeNeedHelp(object[] args)
     {
-        m_SomebodyNeedHelp = help;
+        //object[] args = {int action, time };
+       remainingTimeMessages[(int)args[0]] = (float)args[1];
     }
-    public void setWhereNeedHelp(Vector3 posHelp)
+    public void setWhereNeedHelp(object[] args)
     {
-        m_WhereNeedHelp = posHelp;
+        //object[] args = {int action, vector3 position };
+        m_WhereNeedHelp[(int)args[0]] = (Vector3)args[1];
     }
     public void OnWater()
     {
@@ -180,10 +206,25 @@ public class Character : MonoBehaviour {
         m_renderer.material.color = Color.blue;
         gameObject.SendMessage("blockImput", false);
     }
-    public void needHelp(Vector3 position)
+    public void needHelp(Vector3 position) //llamada por fire
     {
-        m_helpNotification.SetActive(true);
-        m_helpNotification.transform.LookAt(position);
+        m_helpNotification[(int)HELP_MESSAGES.HELP_MESSAGES_BURNING].SetActive(true);
+        m_helpNotification[(int)HELP_MESSAGES.HELP_MESSAGES_BURNING].transform.LookAt(position);
+    }
+    public void helpMessage(HELP_MESSAGES action)
+    {
+        Character[] gos = (Character[])GameObject.FindObjectsOfType<Character>();
+        foreach (Character go in gos)
+        {
+            if (go != this)
+            {
+                object[] args = { action, helpMessagesDuration[(int)action] };
+                go.SendMessage("setSomeNeedHelp", args);
+                args[1] = transform.position;
+                go.SendMessage("setWhereNeedHelp", args);
+                //go.SendMessage("needHelp", transform.position);
+            }
+        }
     }
     public void normalState()
     {
