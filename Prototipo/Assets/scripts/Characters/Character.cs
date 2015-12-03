@@ -37,6 +37,8 @@ public class Character : MonoBehaviour {
     private float m_currentResistanceToBurning;
     private bool m_FireEnter = false;
 
+    private Vector3 m_PosAnterior; 
+
     void Awake()
     {
         m_dualStickMovement = GetComponent<DualStickMovement>();
@@ -48,6 +50,7 @@ public class Character : MonoBehaviour {
             remainingTimeMessages[i] = 0.0f;
         }
         //m_renderer = GetComponent<Renderer>();
+        m_PosAnterior = transform.position;
     }
 	// Use this for initialization
 	void Start () {
@@ -72,6 +75,7 @@ public class Character : MonoBehaviour {
         }
         else
         {
+            //Resistencia al quemado. (Para no arder instantaneamente)
             if (m_FireEnter)
             {
                 m_currentResistanceToBurning -= Time.deltaTime;
@@ -89,6 +93,7 @@ public class Character : MonoBehaviour {
                     m_currentResistanceToBurning = m_resistanceToBurning;
                 }
             }
+            //
         }
         if(m_DeathTime < 0)
         {
@@ -97,13 +102,13 @@ public class Character : MonoBehaviour {
         for (int i = 0; i < (int)HELP_MESSAGES.HELP_MESSAGES_MAX; ++i )
         {
             remainingTimeMessages[i] -= Time.deltaTime;
-            if ( remainingTimeMessages[i] > 0.0f)
+            if (remainingTimeMessages[i] > 0.0f && m_PosAnterior != transform.position)
             {
                 //if (!m_OnFire)
-                m_helpNotification[i].SetActive(true);
                 m_helpNotification[i].transform.LookAt(m_WhereNeedHelp[i]);
+                m_helpNotification[i].SetActive(true);
             }
-            else
+            if (remainingTimeMessages[i] < 0.0f && m_helpNotification[i].activeInHierarchy == true)
             {
                 m_helpNotification[i].SetActive(false); //no se debe hacer en cada frame
             }
@@ -200,11 +205,12 @@ public class Character : MonoBehaviour {
         m_renderer.material.color = Color.blue;
         gameObject.SendMessage("blockImput", false);
     }
+    /* Esto no sirve para nada
     public void needHelp(Vector3 position) //llamada por fire
     {
         m_helpNotification[(int)HELP_MESSAGES.HELP_MESSAGES_BURNING].SetActive(true);
         m_helpNotification[(int)HELP_MESSAGES.HELP_MESSAGES_BURNING].transform.LookAt(position);
-    }
+    }*/
     public void helpMessage(HELP_MESSAGES action)
     {
         Character[] gos = (Character[])GameObject.FindObjectsOfType<Character>();
