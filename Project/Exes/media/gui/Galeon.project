@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project CEGUIDefaultResolution="1920x1080" CEGUIVersion="1.0" baseDirectory="." fontsPath="fonts" imagesetsPath="imagesets" layoutsPath="layouts" looknfeelsPath="looknfeel" schemesPath="schemes" version="CEED Project 1" xmlSchemasPath="xml_schemas">
+    <Items>
+        <Item name="Cosas" type="folder">
+            <Item path="layouts/Menu.layout" type="file" />
+            <Item path="layouts/Time.layout" type="file" />
+        </Item>
+    </Items>
+</Project>
