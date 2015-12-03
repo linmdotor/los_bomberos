@@ -7,12 +7,13 @@ public class ClickedButton : MonoBehaviour {
     public Dropdown m_Equipment;
     public GamepadInput.GamePad.Index m_Index;
 
-    private string[] m_EquipmentList = new string[3];
+    private string[] m_EquipmentList = new string[4];
 	// Use this for initialization
 	void Start () {
         m_EquipmentList[0] = "Axe";
         m_EquipmentList[1] = "HugeEx";
         m_EquipmentList[2] = "FireSuit";
+        m_EquipmentList[3] = "WaterSword";
 	}
 	
 	// Update is called once per frame
