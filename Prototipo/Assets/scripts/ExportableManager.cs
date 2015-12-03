@@ -14,20 +14,60 @@ public class ExportableAttribute : Attribute
 public class ExportableManager : MonoBehaviour {
 
     private List<string> toExport;
+    private List<List<string>> allObjects;
 
 	// Use this for initialization
-	void Start () {
+	public void export () {
         StreamWriter sw = File.CreateText("pruebaMap.txt");
-        sw.WriteLine("Map = {	");
+        allObjects = new List<List<string>>(100);
+        toExport = new List<string>(1);
+        toExport.Add("Map = {	");
+        allObjects.Add(toExport);
+        //sw.WriteLine("Map = {	");
         GameObject[] objects = GameObject.FindObjectsOfType<GameObject>();
-
+        
         for (int j = 0; j < objects.Length; ++j)
         {
             processObject(objects[j]);
             writeObject(objects[j], sw);
         } // for (int j = 0; j < objects.Length; ++j)
 
-        sw.WriteLine("}");
+
+        toExport = new List<string>(1);
+        toExport.Add("}");
+        allObjects.Add(toExport);
+        //sw.WriteLine("}");
+
+        for (int i = 0; i < allObjects.Count; ++i)
+        {
+            List<string> aux = allObjects[i];
+            bool entity = false;
+            bool model = false;
+            if (i == 0 || i == allObjects.Count-1)//una chapuza mas, el primero y el utlimo pasan siempre
+            {
+                entity = true;
+                model = true;
+            }
+            for (int j = 0; j < aux.Count; ++j)
+            {
+                if (aux[j].Contains("Entity"))
+                {
+                    entity = true;
+                }
+                if (aux[j].Contains("model"))
+                {
+                    model = true;
+                }
+            }
+            if (entity && model)
+            {
+                for (int j = 0; j < aux.Count; ++j)
+                {
+                    sw.WriteLine(aux[j]);
+                }
+            }
+        }
+
         sw.Close();
 	}
 	
@@ -35,7 +75,17 @@ public class ExportableManager : MonoBehaviour {
 	void Update () {
 	
 	}
+    private bool existName(string name)
+    {
+        for (int i = 0; i < allObjects.Count;++i )
+        {
+            List<string> aux = allObjects[i];
+            if (aux[0].Equals("\t" + name + " = {	"))
+                return true;
+        }
 
+        return false;
+    }
     private void writeObject(GameObject gameObject, StreamWriter sw)
     {
         if (toExport.Count > 4)
@@ -43,8 +93,14 @@ public class ExportableManager : MonoBehaviour {
             MeshFilter aux = gameObject.GetComponent<MeshFilter>();
             if (aux != null)
             {
-                //TODO: de alguna forma hay que ponerle la ruta completa
-                toExport.Add("\t\tmodel = \"" + aux.mesh.name.Substring(0, aux.mesh.name.LastIndexOf("Instance") - 1) + ".mesh\",");
+                if (aux.mesh.name.Contains("Combined"))
+                {
+                    int isdfs = 0;
+                }
+                else
+                {
+                    toExport.Add("\t\tmodel = \"" + aux.mesh.name.Substring(0, aux.mesh.name.LastIndexOf("Instance") - 1) + ".mesh\",");
+                }
             }
             BoxCollider boxCollider = gameObject.GetComponent<BoxCollider>();
             if (boxCollider != null)
@@ -71,10 +127,13 @@ public class ExportableManager : MonoBehaviour {
 
                 //toExport[w] = toExport[w].Replace('?', '(');
                 //toExport[w] = toExport[w].Replace('¿', ')');
-                sw.WriteLine(toExport[w]);
+
+                //sw.WriteLine(toExport[w]);
             } //for (int w = 0; w < toExport.Count; ++w)
+            allObjects.Add(toExport);
         } //if (toExport.Count > 1)
     }
+    static int repetidos = 0;
     private void processObject(GameObject gameObject)
     {
         toExport = new List<string>();
@@ -89,6 +148,12 @@ public class ExportableManager : MonoBehaviour {
         }
         name = name.Replace(' ', '_');
         name = name.Trim();// (new Char[] { ' ' });
+        
+        while (existName(name))
+        {
+            ++repetidos;
+            name += repetidos;
+        }
         toExport.Add("\t" + name + " = {	");
 
         Component[] components = gameObject.GetComponents<Component>();
@@ -97,9 +162,9 @@ public class ExportableManager : MonoBehaviour {
             processComponent(components[z]);
         }
 
-        toExport.Add("\t\tposition = " + transform.position + ",");
-        toExport.Add("\t\tscale = " + transform.localScale + ",");
-        toExport.Add("\t\trotation = " + transform.rotation + ",");
+        toExport.Add("\t\tposition = " + gameObject.transform.position + ",");
+        toExport.Add("\t\tscale = " + gameObject.transform.localScale + ",");
+        toExport.Add("\t\trotation = " + gameObject.transform.rotation.eulerAngles + ",");
     }
     private void processComponent(Component component)
     {

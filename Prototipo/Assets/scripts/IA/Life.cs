@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Life : MonoBehaviour {
 
+    [ExportableAttribute]
     public float m_maxLife = 100.0f;
     public float m_currentLife;
 	// Use this for initialization

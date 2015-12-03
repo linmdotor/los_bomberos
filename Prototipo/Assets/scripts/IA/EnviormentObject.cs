@@ -4,6 +4,9 @@ using System.Collections;
 [RequireComponent(typeof(Life))]
 public class EnviormentObject : MonoBehaviour {
 
+    [ExportableAttribute]
+    public string type = "Entity";
+    [ExportableAttribute]
     private BoxCollider m_boxCollider;
 	// Use this for initialization
 	void Start () {
