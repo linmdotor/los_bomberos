@@ -41,23 +41,23 @@ Project/dependencies/Ogre/
 Project/dependencies/OgreDependencies/
 Project/dependencies/VisualLeakDetector/
 
-Projects/Application/Debug/
-Projects/Application/Release/
+Project/Projects/Application/Debug/
+Project/Projects/Application/Release/
 
-Projects/BaseSubsystems/Debug/
-Projects/BaseSubsystems/Release/
+Project/Projects/BaseSubsystems/Debug/
+Project/Projects/BaseSubsystems/Release/
 
-Projects/Configure/Debug/
-Projects/Configure/Release/
+Project/Projects/Configure/Debug/
+Project/Projects/Configure/Release/
 
-Projects/Graphics/Debug/
-Projects/Graphics/Release/
+Project/Projects/Graphics/Debug/
+Project/Projects/Graphics/Release/
 
-Projects/GUI/Debug/
-Projects/GUI/Release/
+Project/Projects/GUI/Debug/
+Project/Projects/GUI/Release/
 
-Projects/Logic/Debug/
-Projects/Logic/Release/
+Project/Projects/Logic/Debug/
+Project/Projects/Logic/Release/
 
-Projects/Map/Debug/
-Projects/Map/Release/
+Project/Projects/Map/Debug/
+Project/Projects/Map/Release/
