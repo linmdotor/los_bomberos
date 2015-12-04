@@ -47,7 +47,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>../../Src;../../Src/Map;../../dependencies/include/OIS;../../dependencies/include/OGRE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Datos\CLASE\Master\PaperFirefighter\Project\dependencies\CEGUI\dependencies\src\xerces-c-3.1.1\src;../../Src;../../Src/Map;../../dependencies/include/OIS;../../dependencies/include/OGRE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -81,6 +81,7 @@
     <ClCompile Include="..\..\Src\Map\MapParser.cpp" />
     <ClCompile Include="..\..\Src\Map\Parser.cpp" />
     <ClCompile Include="..\..\Src\Map\Scanner.cpp" />
+    <ClCompile Include="..\..\Src\Map\ParserXml.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Src\Map\Documentation.h" />
@@ -89,6 +90,7 @@
     <ClInclude Include="..\..\Src\Map\MapParser.h" />
     <ClInclude Include="..\..\Src\Map\Parser.h" />
     <ClInclude Include="..\..\Src\Map\Scanner.h" />
+    <ClInclude Include="..\..\Src\Map\ParserXml.h" />
     <ClInclude Include="..\..\Src\Map\y.tab.h" />
   </ItemGroup>
   <ItemGroup>
