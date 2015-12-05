@@ -29,6 +29,15 @@
     <Filter Include="Entity\Components\Source Files">
       <UniqueIdentifier>{0d3eb664-af15-498e-9e00-23d67b9c271e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Entity\Messages">
+      <UniqueIdentifier>{7c803a20-b44b-4062-b164-7d3576e6b2f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entity\Messages\Header Files">
+      <UniqueIdentifier>{d61c3854-8f5d-46be-8bfb-b71b6056e788}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entity\Messages\Source Files">
+      <UniqueIdentifier>{0109f262-c54f-4978-a11f-d987ca50c736}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\Logic\Maps\ComponentFactory.cpp">
@@ -67,6 +76,9 @@
     <ClCompile Include="..\..\Src\Logic\Server.cpp">
       <Filter>Maps\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Src\Logic\Entity\Messages\ReferenceCounter.cpp">
+      <Filter>Entity\Messages\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Src\Logic\Maps\ComponentFactory.h">
@@ -96,9 +108,6 @@
     <ClInclude Include="..\..\Src\Logic\Entity\Entity.h">
       <Filter>Entity\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Src\Logic\Entity\Message.h">
-      <Filter>Entity\Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Src\Logic\Entity\Components\AnimatedGraphics.h">
       <Filter>Entity\Components\Header Files</Filter>
     </ClInclude>
@@ -116,6 +125,15 @@
     </ClInclude>
     <ClInclude Include="..\..\Src\Logic\Server.h">
       <Filter>Maps\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Logic\Entity\Messages\ReferenceCounterPtr.h">
+      <Filter>Entity\Messages\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Logic\Entity\Messages\ReferenceCounter.h">
+      <Filter>Entity\Messages\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Logic\Entity\Messages\IMessage.h">
+      <Filter>Entity\Messages\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

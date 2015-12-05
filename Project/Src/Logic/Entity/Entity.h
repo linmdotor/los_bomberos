@@ -19,7 +19,7 @@ de juego. Es una colección de componentes.
 #include "Logic/Maps/EntityID.h"
 
 // Mensaje
-#include "Message.h"
+#include "Messages\IMessage.h"
 
 #include <list>
 #include <string>
@@ -166,7 +166,7 @@ namespace Logic
 		@param emitter Componente emisor, si lo hay. No se le enviará el mensaje.
 		@return true si al menos un componente aceptó el mensaje
 		*/
-		bool emitMessage(const TMessage &message, IComponent* emitter = 0);
+		bool emitMessage(IMessage *message, IComponent* emitter = 0);
 
 		/**
 		Devuelve el identificador único de la entidad.

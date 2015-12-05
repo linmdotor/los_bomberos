@@ -50,33 +50,34 @@ namespace Logic
 	
 	//---------------------------------------------------------
 
-	bool CAvatarController::accept(const TMessage &message)
+	bool CAvatarController::accept(Logic::ReferenceCounterPtr<Logic::IMessage> messagePtr)
 	{
-		return message._type == Message::CONTROL;
+		return messagePtr->m_type == IMessage::MESSAGE_TYPE_SET_CONTROL;
 
 	} // accept
 	
 	//---------------------------------------------------------
 
-	void CAvatarController::process(const TMessage &message)
+	void CAvatarController::process(Logic::ReferenceCounterPtr<Logic::IMessage> messagePtr)
 	{
-		switch(message._type)
+		switch (messagePtr->m_type)
 		{
-		case Message::CONTROL:
-			if(!message._string.compare("walk"))
+		case IMessage::MESSAGE_TYPE_SET_CONTROL:
+			MessageControl *messageControl = (MessageControl*)messagePtr.get();
+			if (!messageControl->m_animation.compare("walk"))
 				walk();
-			else if(!message._string.compare("walkBack"))
+			else if (!messageControl->m_animation.compare("walkBack"))
 				walkBack();
-			else if(!message._string.compare("stopWalk"))
+			else if (!messageControl->m_animation.compare("stopWalk"))
 				stopWalk();
-			else if(!message._string.compare("strafeLeft"))
+			else if (!messageControl->m_animation.compare("strafeLeft"))
 				strafeLeft();
-			else if(!message._string.compare("strafeRight"))
+			else if (!messageControl->m_animation.compare("strafeRight"))
 				strafeRight();
-			else if(!message._string.compare("stopStrafe"))
+			else if (!messageControl->m_animation.compare("stopStrafe"))
 				stopStrafe();
-			else if(!message._string.compare("turn"))
-				turn(message._float);
+			else if (!messageControl->m_animation.compare("turn"))
+				turn(messageControl->m_turn);
 		}
 
 	} // process

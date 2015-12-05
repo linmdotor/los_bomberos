@@ -83,6 +83,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Src\Logic\Entity\Messages\ReferenceCounter.cpp" />
     <ClCompile Include="..\..\Src\Logic\Maps\ComponentFactory.cpp" />
     <ClCompile Include="..\..\Src\Logic\Maps\EntityFactory.cpp" />
     <ClCompile Include="..\..\Src\Logic\Maps\EntityID.cpp" />
@@ -97,6 +98,9 @@
     <ClCompile Include="..\..\Src\Logic\Server.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Src\Logic\Entity\Messages\IMessage.h" />
+    <ClInclude Include="..\..\Src\Logic\Entity\Messages\ReferenceCounter.h" />
+    <ClInclude Include="..\..\Src\Logic\Entity\Messages\ReferenceCounterPtr.h" />
     <ClInclude Include="..\..\Src\Logic\Maps\ComponentFactory.h" />
     <ClInclude Include="..\..\Src\Logic\Maps\Documentation.h" />
     <ClInclude Include="..\..\Src\Logic\Maps\EntityFactory.h" />
@@ -106,7 +110,6 @@
     <ClInclude Include="..\..\Src\Logic\Entity\Component.h" />
     <ClInclude Include="..\..\Src\Logic\Entity\Documentation.h" />
     <ClInclude Include="..\..\Src\Logic\Entity\Entity.h" />
-    <ClInclude Include="..\..\Src\Logic\Entity\Message.h" />
     <ClInclude Include="..\..\Src\Logic\Entity\Components\AnimatedGraphics.h" />
     <ClInclude Include="..\..\Src\Logic\Entity\Components\AvatarController.h" />
     <ClInclude Include="..\..\Src\Logic\Entity\Components\Camera.h" />

@@ -87,7 +87,7 @@ namespace Logic
 	
 	//---------------------------------------------------------
 
-	bool CGraphics::accept(const TMessage &message)
+	bool CGraphics::accept(Logic::ReferenceCounterPtr<Logic::IMessage> messagePtr)
 	{
 		// @todo true ante mensajes aceptados. Debe aceptar
 		// Mensajes de tipo SET_TRANSFORM.
@@ -98,7 +98,7 @@ namespace Logic
 	
 	//---------------------------------------------------------
 
-	void CGraphics::process(const TMessage &message)
+	void CGraphics::process(Logic::ReferenceCounterPtr<Logic::IMessage> messagePtr)
 	{
 		// @todo procesar mensajes aceptados.
 

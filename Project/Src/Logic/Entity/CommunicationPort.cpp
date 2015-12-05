@@ -22,7 +22,7 @@ namespace Logic {
 	
 	//---------------------------------------------------------
 
-	bool CCommunicationPort::set(const TMessage &message)
+	bool CCommunicationPort::set(Logic::ReferenceCounterPtr<Logic::IMessage> messagePtr)
 	{
 		// @todo Nos proponen un mensaje, con ayuda de accept()
 		// evaluamos si lo encolamos o no

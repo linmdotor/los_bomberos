@@ -98,14 +98,14 @@ namespace Logic
 		@param message Mensaje a chequear.
 		@return true si el mensaje es aceptado.
 		*/
-		virtual bool accept(const TMessage &message);
+		virtual bool accept(Logic::ReferenceCounterPtr<Logic::IMessage> messagePtr);
 
 		/**
 		Método virtual que procesa un mensaje.
 
 		@param message Mensaje a procesar.
 		*/
-		virtual void process(const TMessage &message);
+		virtual void process(Logic::ReferenceCounterPtr<Logic::IMessage> messagePtr);
 
 		/**
 		Provoca que la entidad avance.

@@ -15,7 +15,7 @@ mover al jugador.
 #include "InputManager.h"
 
 #include "Logic/Entity/Entity.h"
-#include "Logic/Entity/Message.h"
+#include "Logic/Entity/Messages/IMessage.h"
 
 #include <cassert>
 
@@ -60,26 +60,26 @@ namespace GUI {
 	{
 		if(_controlledAvatar)
 		{
-			Logic::TMessage m;
-			m._type = Logic::Message::CONTROL;
+			//se almacenara en un puntero inteligente y se borrará más tarde
+			Logic::MessageControl *message = new Logic::MessageControl();
 			switch(key.keyId)
 			{
 			case GUI::Key::W:
-				m._string = "walk";
+				message->m_animation = "walk";
 				break;
 			case GUI::Key::S:
-				m._string = "walkBack";
+				message->m_animation = "walkBack";
 				break;
 			case GUI::Key::A:
-				m._string = "strafeLeft";
+				message->m_animation = "strafeLeft";
 				break;
 			case GUI::Key::D:
-				m._string = "strafeRight";
+				message->m_animation = "strafeRight";
 				break;
 			default:
 				return false;
 			}
-			_controlledAvatar->emitMessage(m);
+			_controlledAvatar->emitMessage(message);
 			return true;
 		}
 		return false;
@@ -92,18 +92,18 @@ namespace GUI {
 	{
 		if(_controlledAvatar)
 		{
-			Logic::TMessage m;
-			m._type = Logic::Message::CONTROL;
+			//se almacenara en un puntero inteligente y se borrará más tarde
+			Logic::MessageControl *m = new Logic::MessageControl();
 			switch(key.keyId)
 			{
 			case GUI::Key::W:
 			case GUI::Key::S:
-				m._string = "stopWalk";
+				m->m_animation = "stopWalk";
 				break;
 
 			case GUI::Key::A:
 			case GUI::Key::D:
-				m._string = "stopStrafe";
+				m->m_animation = "stopStrafe";
 				break;
 
 			default:
@@ -122,10 +122,10 @@ namespace GUI {
 	{
 		if(_controlledAvatar)
 		{
-			Logic::TMessage m;
-			m._type = Logic::Message::CONTROL;
-			m._string = "turn";
-			m._float = -(float)mouseState.movX * TURN_FACTOR;
+			//se almacenara en un puntero inteligente y se borrará más tarde
+			Logic::MessageControl *m = new Logic::MessageControl();
+			m->m_animation = "turn";
+			m->m_turn = -(float)mouseState.movX * TURN_FACTOR;
 			_controlledAvatar->emitMessage(m);
 			return true;
 		}

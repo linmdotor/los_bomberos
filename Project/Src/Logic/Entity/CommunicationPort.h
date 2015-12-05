@@ -15,7 +15,9 @@ de los mensajes.
 
 #include <list>
 
-#include "Message.h"
+#include "Messages/ReferenceCounterPtr.h"
+#include "BaseSubsystems/Math.h"
+#include "Messages/IMessage.h"
 
 // Declaración de la clase
 namespace Logic 
@@ -67,7 +69,7 @@ namespace Logic
 		@param message Mensaje a procesar.
 		@return true si el mensaje ha sido admitido y puesto en cola.
 		*/
-		bool set(const TMessage &message);
+		bool set(Logic::ReferenceCounterPtr<Logic::IMessage> messagePtr);
 
 		/**
 		Método virtual que elige que mensajes son aceptados. Las clases
@@ -78,14 +80,14 @@ namespace Logic
 		@param message Mensaje a chequear.
 		@return true si el mensaje es aceptado.
 		*/
-		virtual bool accept(const TMessage &message) {return false;}
+		virtual bool accept(Logic::ReferenceCounterPtr<Logic::IMessage> messagePtr) { return false; }
 
 		/**
 		Método virtual que procesa un mensaje.
 
 		@param message Mensaje a procesar.
 		*/
-		virtual void process(const TMessage &message) {}
+		virtual void process(Logic::ReferenceCounterPtr<Logic::IMessage> messagePtr) {}
 
 		/**
 		Método que procesa la lista de mensajes que faltan por procesar.
@@ -97,7 +99,7 @@ namespace Logic
 		/**
 		Tipo lista de CEntity donde guardaremos los pendientes de borrar.
 		*/
-		typedef std::list<TMessage> TMessageList;
+		typedef std::list<Logic::ReferenceCounterPtr<Logic::IMessage>> TMessageList;
 
 		/**
 		Lista de mensajes por procesar

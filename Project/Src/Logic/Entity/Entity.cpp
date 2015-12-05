@@ -196,24 +196,28 @@ namespace Logic
 
 	//---------------------------------------------------------
 
-	bool CEntity::emitMessage(const TMessage &message, IComponent* emitter)
+	bool CEntity::emitMessage(IMessage *message, IComponent* emitter)
 	{
 		// Interceptamos los mensajes que además de al resto de los
 		// componentes, interesan a la propia entidad.
-		switch(message._type)
+		switch(message->m_type)
 		{
-		case Message::SET_TRANSFORM:
-			_transform = message._transform;
+		case IMessage::MESSAGE_TYPE_SET_TRANSFORM:
+			MessageTransform *messageTransform = (MessageTransform*)message;
+			_transform = messageTransform->m_transform;
 		}
 
 		TComponentList::const_iterator it;
+		//se destruira al salir de la funcion, se crea esta guarda porque si no es aceptado el mensaje en la primera pasada se destruye
+		Logic::ReferenceCounterPtr<IMessage> messagePtrAux(message);
 		// Para saber si alguien quiso el mensaje.
 		bool anyReceiver = false;
 		for( it = _components.begin(); it != _components.end(); ++it )
 		{
 			// Al emisor no se le envia el mensaje.
+			Logic::ReferenceCounterPtr<IMessage> messagePtr(messagePtrAux);
 			if( emitter != (*it) )
-				anyReceiver = (*it)->set(message) || anyReceiver;
+				anyReceiver = (*it)->set(messagePtr) || anyReceiver;
 		}
 		return anyReceiver;
 
@@ -226,9 +230,9 @@ namespace Logic
 		_transform = transform;
 
 		// Avisamos a los componentes del cambio.
-		TMessage message;
-		message._type = Message::SET_TRANSFORM;
-		message._transform = _transform;
+		//se almacenara en un puntero inteligente y se borrará más tarde
+		MessageTransform *message = new MessageTransform();
+		message->m_transform = _transform;
 		emitMessage(message);
 
 	} // setTransform
@@ -240,9 +244,9 @@ namespace Logic
 		_transform.setTrans(position);
 
 		// Avisamos a los componentes del cambio.
-		TMessage message;
-		message._type = Message::SET_TRANSFORM;
-		message._transform = _transform;
+		//se almacenara en un puntero inteligente y se borrará más tarde
+		MessageTransform *message = new MessageTransform();
+		message->m_transform = _transform;
 		emitMessage(message);
 
 	} // setPosition
@@ -254,9 +258,9 @@ namespace Logic
 		_transform = orientation;
 
 		// Avisamos a los componentes del cambio.
-		TMessage message;
-		message._type = Message::SET_TRANSFORM;
-		message._transform = _transform;
+		//se almacenara en un puntero inteligente y se borrará más tarde
+		MessageTransform *message = new MessageTransform();
+		message->m_transform = _transform;
 		emitMessage(message);
 
 	} // setOrientation
@@ -278,9 +282,9 @@ namespace Logic
 		Math::setYaw(yaw,_transform);
 
 		// Avisamos a los componentes del cambio.
-		TMessage message;
-		message._type = Message::SET_TRANSFORM;
-		message._transform = _transform;
+		//se almacenara en un puntero inteligente y se borrará más tarde
+		MessageTransform *message = new MessageTransform();
+		message->m_transform = _transform;
 		emitMessage(message);
 
 	} // setYaw
@@ -292,9 +296,9 @@ namespace Logic
 		Math::yaw(yaw,_transform);
 
 		// Avisamos a los componentes del cambio.
-		TMessage message;
-		message._type = Message::SET_TRANSFORM;
-		message._transform = _transform;
+		//se almacenara en un puntero inteligente y se borrará más tarde
+		MessageTransform *message = new MessageTransform();
+		message->m_transform = _transform;
 		emitMessage(message);
 
 	} // yaw

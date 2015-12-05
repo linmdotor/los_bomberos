@@ -46,7 +46,7 @@ namespace Logic
 	
 	//---------------------------------------------------------
 
-	bool CAnimatedGraphics::accept(const TMessage &message)
+	bool CAnimatedGraphics::accept(Logic::ReferenceCounterPtr<Logic::IMessage> messagePtr)
 	{
 		// @todo true ante mensajes aceptados. CAnimatedGraphics es un 
 		// componente un tanto especial ya que extiende a el componente
@@ -54,15 +54,15 @@ namespace Logic
 		// mensajes que aceptan tanto uno como otro. Debe aceptar
 		// Mensajes de tipo SET_ANIMATION y STOP_ANIMATION.
 
-		return CGraphics::accept(message) /* || ... || ...*/;
+		return CGraphics::accept(messagePtr) /* || ... || ...*/;
 
 	} // accept
 	
 	//---------------------------------------------------------
 
-	void CAnimatedGraphics::process(const TMessage &message)
+	void CAnimatedGraphics::process(Logic::ReferenceCounterPtr<Logic::IMessage> messagePtr)
 	{
-		CGraphics::process(message);
+		CGraphics::process(messagePtr);
 
 		// @todo procesar mensajes aceptados.
 
