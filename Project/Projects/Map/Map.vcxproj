@@ -79,7 +79,9 @@
   <ItemGroup>
     <ClCompile Include="..\..\Src\Map\MapEntity.cpp" />
     <ClCompile Include="..\..\Src\Map\MapParser.cpp" />
+    <ClCompile Include="..\..\Src\Map\MapParserXml.cpp" />
     <ClCompile Include="..\..\Src\Map\Parser.cpp" />
+    <ClCompile Include="..\..\Src\Map\ParserXml.cpp" />
     <ClCompile Include="..\..\Src\Map\Scanner.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -87,7 +89,9 @@
     <ClInclude Include="..\..\Src\Map\FlexLexer.h" />
     <ClInclude Include="..\..\Src\Map\MapEntity.h" />
     <ClInclude Include="..\..\Src\Map\MapParser.h" />
+    <ClInclude Include="..\..\Src\Map\MapParserXml.h" />
     <ClInclude Include="..\..\Src\Map\Parser.h" />
+    <ClInclude Include="..\..\Src\Map\ParserXml.h" />
     <ClInclude Include="..\..\Src\Map\Scanner.h" />
     <ClInclude Include="..\..\Src\Map\y.tab.h" />
   </ItemGroup>

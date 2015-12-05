@@ -48,7 +48,7 @@ namespace Logic
 	public:
 		/**
 		Método factoría que carga un mapa de fichero. Tras el parseo de
-		todas las entidades del mapa mediante CMapParser, genera todas las
+		todas las entidades del mapa mediante MapParserXml, genera todas las
 		entidades con CEntityFactory.
 
 		@param filename Nombre del archivo a cargar.

@@ -15,7 +15,7 @@ la gestión de la lógica del juego.
 
 #include "Logic/Maps/EntityFactory.h"
 
-#include "Map/MapParser.h"
+#include "Map/MapParserXml.h"
 
 #include <cassert>
 
@@ -76,7 +76,7 @@ namespace Logic {
 	bool CServer::open()
 	{
 		// Inicializamos el parser de mapas.
-		if (!Map::CMapParser::Init())
+		if (!Map::MapParserXml::Init())
 			return false;
 
 		// Inicializamos la factoría de entidades.
@@ -95,7 +95,7 @@ namespace Logic {
 
 		Logic::CEntityFactory::Release();
 		
-		Map::CMapParser::Release();
+		Map::MapParserXml::Release();
 
 	} // close
 

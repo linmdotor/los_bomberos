@@ -14,7 +14,7 @@ Contiene la implementación de la clase CMap, Un mapa lógico.
 #include "Logic/Entity/Entity.h"
 #include "EntityFactory.h"
 
-#include "Map/MapParser.h"
+#include "Map/MapParserXml.h"
 
 #include "Graphics/Server.h"
 #include "Graphics/Scene.h"
@@ -32,7 +32,7 @@ namespace Logic {
 		std::string completePath(MAP_FILE_PATH);
 		completePath = completePath + filename;
 		// Parseamos el fichero
-		if(!Map::CMapParser::getSingletonPtr()->parseFile(completePath))
+		if(!Map::MapParserXml::getSingletonPtr()->parseFile(completePath))
 		{
 			assert(!"No se ha podido parsear el mapa.");
 			return false;
@@ -42,12 +42,12 @@ namespace Logic {
 		CMap *map = new CMap(filename);
 
 		// Extraemos las entidades del parseo.
-		Map::CMapParser::TEntityList entityList = 
-			Map::CMapParser::getSingletonPtr()->getEntityList();
+		Map::MapParserXml::TEntityList entityList =
+			Map::MapParserXml::getSingletonPtr()->getEntityList();
 
 		CEntityFactory* entityFactory = CEntityFactory::getSingletonPtr();
 
-		Map::CMapParser::TEntityList::const_iterator it, end;
+		Map::MapParserXml::TEntityList::const_iterator it, end;
 		it = entityList.begin();
 		end = entityList.end();
 
