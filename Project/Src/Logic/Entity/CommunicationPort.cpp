@@ -24,9 +24,13 @@ namespace Logic {
 
 	bool CCommunicationPort::set(Logic::ReferenceCounterPtr<Logic::IMessage> messagePtr)
 	{
-		// @todo Nos proponen un mensaje, con ayuda de accept()
+		// Nos proponen un mensaje, con ayuda de accept()
 		// evaluamos si lo encolamos o no
-
+		if (accept(messagePtr))
+		{
+			_messages.push_back(messagePtr);
+			return true;
+		}
 		return false;
 
 	} // set
@@ -35,8 +39,15 @@ namespace Logic {
 
 	void CCommunicationPort::processMessages()
 	{
-		// @todo Debemos procesar todos los mensajes de la cola
+		// Debemos procesar todos los mensajes de la cola
 		// con ayuda del método process()
+		TMessageList::iterator it = _messages.begin();
+		TMessageList::iterator itEnd = _messages.end();
+		for (; it != itEnd; ++it)
+		{
+			process((*it));
+		}
+		_messages.clear();
 
 	} // processMessages
 

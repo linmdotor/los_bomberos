@@ -148,6 +148,7 @@ namespace Logic
 
 	protected:
 
+		//@todo quitar estos boleanos y cambiarlo por una enum
 		/**
 		Atributo para saber si la entidad está avanzando.
 		*/

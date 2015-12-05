@@ -25,7 +25,9 @@ namespace Logic
 			MESSAGE_TYPE_UNASSIGNED = 0xFFFFFFFF,
 			MESSAGE_TYPE_SET_POSITION,
 			MESSAGE_TYPE_SET_CONTROL,
-			MESSAGE_TYPE_SET_TRANSFORM
+			MESSAGE_TYPE_SET_TRANSFORM,
+			MESSAGE_TYPE_SET_ANIMATION,
+			MESSAGE_TYPE_STOP_ANIMATION
 		};
 		/**
 		Tipo del mensaje
@@ -84,5 +86,23 @@ namespace Logic
 		*/
 		Matrix4 m_transform;
 	}; //MessageControl
+	class MessageSetAnimation : public IMessage
+	{
+	public:
+		MessageSetAnimation() : IMessage(), m_animation(), m_loop(false)
+		{
+			m_type = MESSAGE_TYPE_SET_ANIMATION;
+		}
+		virtual ~MessageSetAnimation(){};
+		/**
+		Nombre de la animacion
+		*/
+		std::string m_animation;
+		/**
+		Controla si la animacion se reproduce en bucle
+		*/
+		bool m_loop;
+	}; //MessageSetAnimation
+	
 }
 #endif//__Logic_IMessage_H

@@ -89,10 +89,8 @@ namespace Logic
 
 	bool CGraphics::accept(Logic::ReferenceCounterPtr<Logic::IMessage> messagePtr)
 	{
-		// @todo true ante mensajes aceptados. Debe aceptar
-		// Mensajes de tipo SET_TRANSFORM.
-
-		return false;
+		return messagePtr->m_type == IMessage::MESSAGE_TYPE_SET_TRANSFORM || 
+			messagePtr->m_type == IMessage::MESSAGE_TYPE_SET_POSITION;
 
 	} // accept
 	
@@ -100,7 +98,21 @@ namespace Logic
 
 	void CGraphics::process(Logic::ReferenceCounterPtr<Logic::IMessage> messagePtr)
 	{
-		// @todo procesar mensajes aceptados.
+		switch (messagePtr->m_type)
+		{
+			case IMessage::MESSAGE_TYPE_SET_TRANSFORM:
+			{
+				MessageTransform *mTransform = (MessageTransform*)messagePtr.get();
+				_graphicsEntity->setTransform(mTransform->m_transform);
+				break;
+			}
+			case IMessage::MESSAGE_TYPE_SET_POSITION:
+			{
+				MessagePosition *mPosition = (MessagePosition*)messagePtr.get();
+				_graphicsEntity->setPosition(mPosition->m_position);
+				break;
+			}
+		}
 
 	} // process
 

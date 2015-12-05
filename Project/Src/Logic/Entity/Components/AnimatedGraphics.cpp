@@ -54,7 +54,8 @@ namespace Logic
 		// mensajes que aceptan tanto uno como otro. Debe aceptar
 		// Mensajes de tipo SET_ANIMATION y STOP_ANIMATION.
 
-		return CGraphics::accept(messagePtr) /* || ... || ...*/;
+		return CGraphics::accept(messagePtr) || messagePtr->m_type == IMessage::MESSAGE_TYPE_SET_ANIMATION
+			|| messagePtr->m_type == IMessage::MESSAGE_TYPE_STOP_ANIMATION;
 
 	} // accept
 	
@@ -63,8 +64,20 @@ namespace Logic
 	void CAnimatedGraphics::process(Logic::ReferenceCounterPtr<Logic::IMessage> messagePtr)
 	{
 		CGraphics::process(messagePtr);
-
-		// @todo procesar mensajes aceptados.
+		switch (messagePtr->m_type)
+		{
+			case IMessage::MESSAGE_TYPE_SET_ANIMATION:
+			{
+				MessageSetAnimation *mAnimation = (MessageSetAnimation*)messagePtr.get();
+				_animatedGraphicsEntity->setAnimation(mAnimation->m_animation, mAnimation->m_loop);
+				break;
+			}
+			case IMessage::MESSAGE_TYPE_STOP_ANIMATION:
+			{
+				_animatedGraphicsEntity->stopAllAnimations();
+				break;
+			}
+		}
 
 	} // process
 	
