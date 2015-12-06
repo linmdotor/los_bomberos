@@ -1,0 +1,44 @@
+<Map>
+	<World>
+		<type>World</type>
+		<position>{0,0,0}</position>
+		<model>laberinto.mesh</model>
+		<static>true</static>
+	</World>
+
+	<David>
+		<type>Player</type>,
+		<position>{0,0,0}</position>
+		<orientation>180</orientation>
+		<life>100.0</life>
+		<isPlayer>true</isPlayer>
+		<model>marine.mesh</model>
+		<speed>0.05</speed>
+		<defaultAnimation>Idle</defaultAnimation>
+	</David>
+	
+	<Camera>
+		<type>Camera</type>
+		<distance>20</distance>
+		<height>13</height>
+		<targetDistance>10</targetDistance>
+		<targetHeight>7</targetHeight>
+	</Camera>
+	
+	<skybox>
+		<type>Entity</type>
+		<static>true</static>
+		<position>{0,0,0}</position>
+		<orientation>0</orientation>
+		<model>skybox.mesh</model>
+	</skybox>
+	
+	<torreta>
+		<type>AnimatedEntity</type>
+		<position>{-70, 0, 670}</position>
+		<orientation>0</orientation>
+		<life>100.0</life>
+		<model>torreta_pie.mesh</model>
+		<defaultAnimation>torreta</defaultAnimation>
+	</torreta>
+</Map>

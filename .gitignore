@@ -11,7 +11,7 @@
 # Compiled Dynamic libraries
 *.so
 *.dylib
-*.dll
+#*.dll
 
 # Fortran module files
 *.mod
@@ -20,7 +20,7 @@
 *.lai
 *.la
 *.a
-*.lib
+#*.lib
 
 # Executables
 *.exe
@@ -33,6 +33,34 @@ Prototipo/Temp/
 *.csproj
 *.suo
 *.htm
+*.sdf
+*.opensdf
 Prototipo/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 Prototipo/obj/Debug/Assembly-CSharp-firstpass.csprojResolveAssemblyReference.cache
 Prototipo/obj/Debug/Assembly-CSharp-firstpass.pdb
+Project/dependencies/CEGUI/
+Project/dependencies/Ogre/
+Project/dependencies/OgreDependencies/
+Project/dependencies/VisualLeakDetector/
+
+Project/Projects/Application/Debug/
+Project/Projects/Application/Release/
+
+Project/Projects/BaseSubsystems/Debug/
+Project/Projects/BaseSubsystems/Release/
+
+Project/Projects/Configure/Debug/
+Project/Projects/Configure/Release/
+
+Project/Projects/Graphics/Debug/
+Project/Projects/Graphics/Release/
+
+Project/Projects/GUI/Debug/
+Project/Projects/GUI/Release/
+
+Project/Projects/Logic/Debug/
+Project/Projects/Logic/Release/
+
+Project/Projects/Map/Debug/
+Project/Projects/Map/Release/
+Project/Exes/ogre.cfg
