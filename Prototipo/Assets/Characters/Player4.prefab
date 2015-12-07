@@ -31,7 +31,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &108372
 GameObject:
   m_ObjectHideFlags: 1
@@ -657,7 +657,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 122582}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 36.9500008, y: -.0299999993, z: -12.3199997}
+  m_LocalPosition: {x: 36.9500008, y: 0, z: -13.9099998}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 418708}
@@ -2052,7 +2052,7 @@ MonoBehaviour:
   m_Extinguisher: {fileID: 136004}
   m_HugeExtinguisher: {fileID: 176230}
   m_helpNotification:
-  - {fileID: 0}
+  - {fileID: 107482}
   - {fileID: 121984}
   - {fileID: 130822}
   helpMessagesDuration:

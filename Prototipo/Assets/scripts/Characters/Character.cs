@@ -8,6 +8,10 @@ public class Character : MonoBehaviour {
     {
         HELP_MESSAGES_BURNING, HELP_MESSAGES_FIRE_HERE, HELP_MESSAGES_NPC_HERE, HELP_MESSAGES_MAX
     }
+    public enum Players
+    {
+        PLAYER1, PLAYER2, PLAYER3, PLAYER4
+    }
 
     private string m_Option = null;
     private float m_DeathTime = 10; //Cambiar a 10
@@ -37,7 +41,7 @@ public class Character : MonoBehaviour {
     private float m_currentResistanceToBurning;
     private bool m_FireEnter = false;
 
-    private Vector3 m_PosAnterior; 
+    private Players m_Me;
 
     void Awake()
     {
@@ -50,7 +54,6 @@ public class Character : MonoBehaviour {
             remainingTimeMessages[i] = 0.0f;
         }
         //m_renderer = GetComponent<Renderer>();
-        m_PosAnterior = transform.position;
     }
 	// Use this for initialization
 	void Start () {
@@ -65,6 +68,12 @@ public class Character : MonoBehaviour {
             m_Option = "HugeEx";
 
         setOption(m_Option);
+
+        //GITANADA PARA ASOCIAR A CADA PLAYER UN ID
+        if (gameObject.name == "Player1") { m_Me = Players.PLAYER1; }
+        if (gameObject.name == "Player2") { m_Me = Players.PLAYER2; }
+        if (gameObject.name == "Player3") { m_Me = Players.PLAYER3; }
+        if (gameObject.name == "Player4") { m_Me = Players.PLAYER4; }
 	}
 	
 	// Update is called once per frame
@@ -93,26 +102,24 @@ public class Character : MonoBehaviour {
                     m_currentResistanceToBurning = m_resistanceToBurning;
                 }
             }
-            //
         }
         if(m_DeathTime < 0)
         {
             isDead();
         }
-        for (int i = 0; i < (int)HELP_MESSAGES.HELP_MESSAGES_MAX; ++i )
+        /*for (int i = 0; i < (int)HELP_MESSAGES.HELP_MESSAGES_MAX; ++i )
         {
             remainingTimeMessages[i] -= Time.deltaTime;
-            if (remainingTimeMessages[i] > 0.0f && m_PosAnterior != transform.position)
+            if (remainingTimeMessages[i] > 0.0f)
             {
-                //if (!m_OnFire)
                 m_helpNotification[i].transform.LookAt(m_WhereNeedHelp[i]);
                 m_helpNotification[i].SetActive(true);
             }
             if (remainingTimeMessages[i] < 0.0f && m_helpNotification[i].activeInHierarchy == true)
             {
-                m_helpNotification[i].SetActive(false); //no se debe hacer en cada frame
+                m_helpNotification[i].SetActive(false);
             }
-        }
+        }*/
 
 	}
 
@@ -264,5 +271,15 @@ public class Character : MonoBehaviour {
         m_NPC = null;
         gameObject.SendMessage("blockShoot", false);
         gameObject.SendMessage("setSpeed", m_states.changeState(States.CharacterStates.NORMAL));
+    }
+
+    public bool getOnFire()
+    {
+        return m_OnFire;
+    }
+
+    public Players getID()
+    {
+        return m_Me;
     }
 }
