@@ -8,11 +8,15 @@ public class HelpNotifications : MonoBehaviour {
     public GameObject m_HelpFire = null;
     public GameObject[] m_Players = null;
 
-    private GameObject[] m_BurningNotifications;
+    private GameObject[][] m_BurningNotifications;
 
 	// Use this for initialization
 	void Start () {
-        m_BurningNotifications = new GameObject[m_Players.Length];
+        m_BurningNotifications = new GameObject[m_Players.Length][];
+        for (int i = 0; i < m_Players.Length; ++i)
+        {
+            m_BurningNotifications[i] = new GameObject[m_Players.Length];
+        }
 	}
 	
 	// Update is called once per frame
@@ -24,14 +28,15 @@ public class HelpNotifications : MonoBehaviour {
             {
                 foreach (GameObject nonBurning in m_Players)
                 {
-                    int id = (int)nonBurning.GetComponent<Character>().getID();
-                    if (player != nonBurning && m_BurningNotifications[id] == null)
+                    int id1 = (int)player.GetComponent<Character>().getID();
+                    int id2 = (int)nonBurning.GetComponent<Character>().getID();
+                    if (player != nonBurning && m_BurningNotifications[id1][id2] == null)
                     {
                         Vector3 position = new Vector3(
                             nonBurning.transform.position.x,
                             nonBurning.transform.position.y + 2,
                             nonBurning.transform.position.z + 1);
-                        m_BurningNotifications[id] = (GameObject)Instantiate(m_HelpBurning, position, Quaternion.identity);
+                        m_BurningNotifications[id1][id2] = (GameObject)Instantiate(m_HelpBurning, position, Quaternion.identity);
                     }
                 }
             }
@@ -46,16 +51,17 @@ public class HelpNotifications : MonoBehaviour {
                 {
                     if (!(nonBurning.GetComponent<Character>().getOnFire()))
                     {
-                        int id = (int)nonBurning.GetComponent<Character>().getID();
-                        m_BurningNotifications[id].transform.position = new Vector3(
+                        int id1 = (int)player.GetComponent<Character>().getID();
+                        int id2 = (int)nonBurning.GetComponent<Character>().getID();
+                        m_BurningNotifications[id1][id2].transform.position = new Vector3(
                             nonBurning.transform.position.x,
                             nonBurning.transform.position.y + 2,
                             nonBurning.transform.position.z + 1);
-                        m_BurningNotifications[id].transform.LookAt(m_Players[(int)player.GetComponent<Character>().getID()].transform);
+                        m_BurningNotifications[id1][id2].transform.LookAt(m_Players[(int)player.GetComponent<Character>().getID()].transform);
                     }
                 }
-                break; //Solo apunta al primer player ardiendo empezando desde el 1
             }
         }
+        //Borra notificaciones si mueres o eres apagado
     }
 }
