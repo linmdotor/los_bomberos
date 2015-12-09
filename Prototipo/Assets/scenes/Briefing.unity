@@ -560,6 +560,8 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: Fireproof suit
       m_Image: {fileID: 0}
+    - m_Text: Water sword
+      m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -917,6 +919,8 @@ MonoBehaviour:
     - m_Text: Huge extinguisher
       m_Image: {fileID: 0}
     - m_Text: Fireproof suit
+      m_Image: {fileID: 0}
+    - m_Text: Water sword
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4905,6 +4909,8 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: Fireproof suit
       m_Image: {fileID: 0}
+    - m_Text: Water sword
+      m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5545,6 +5551,8 @@ MonoBehaviour:
     - m_Text: Huge extinguisher
       m_Image: {fileID: 0}
     - m_Text: Fireproof suit
+      m_Image: {fileID: 0}
+    - m_Text: Water sword
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
