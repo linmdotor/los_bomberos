@@ -21,16 +21,20 @@ public class HelpNotifications : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //Crea una notifiación de: Personaje ardiendo| Para los demas personajes
+
         foreach (GameObject player in m_Players)
         {
             if (player.GetComponent<Character>().getOnFire())
             {
                 foreach (GameObject nonBurning in m_Players)
                 {
+
                     int id1 = (int)player.GetComponent<Character>().getID();
                     int id2 = (int)nonBurning.GetComponent<Character>().getID();
-                    if (player != nonBurning && m_BurningNotifications[id1][id2] == null)
+
+                    //Crea una notifiación de: Personaje ardiendo| Para los demas personajes
+                    if (player != nonBurning && !(nonBurning.GetComponent<Character>().getOnFire()) 
+                        && m_BurningNotifications[id1][id2] == null)
                     {
                         Vector3 position = new Vector3(
                             nonBurning.transform.position.x,
@@ -38,21 +42,10 @@ public class HelpNotifications : MonoBehaviour {
                             nonBurning.transform.position.z + 1);
                         m_BurningNotifications[id1][id2] = (GameObject)Instantiate(m_HelpBurning, position, Quaternion.identity);
                     }
-                }
-            }
-        }
 
-        //Actualiza la posición de las notificaciones
-        foreach (GameObject player in m_Players)
-        {
-            if (player.GetComponent<Character>().getOnFire())
-            {
-                foreach (GameObject nonBurning in m_Players)
-                {
+                    //Actualiza la posición de las notificaciones
                     if (!(nonBurning.GetComponent<Character>().getOnFire()))
                     {
-                        int id1 = (int)player.GetComponent<Character>().getID();
-                        int id2 = (int)nonBurning.GetComponent<Character>().getID();
                         m_BurningNotifications[id1][id2].transform.position = new Vector3(
                             nonBurning.transform.position.x,
                             nonBurning.transform.position.y + 2,
@@ -62,6 +55,5 @@ public class HelpNotifications : MonoBehaviour {
                 }
             }
         }
-        //Borra notificaciones si mueres o eres apagado
     }
 }
