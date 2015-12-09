@@ -8,7 +8,9 @@ public class Character : MonoBehaviour {
     {
         HELP_MESSAGES_BURNING, HELP_MESSAGES_FIRE_HERE, HELP_MESSAGES_NPC_HERE, HELP_MESSAGES_MAX
     }
-
+    public Mesh[] playerMesh;
+    public Material[] playerMaterial;
+    public MeshFilter meshFilter;
     private string m_Option = null;
     private float m_DeathTime = 10; //Cambiar a 10
     private bool m_OnFire = false;
@@ -62,6 +64,8 @@ public class Character : MonoBehaviour {
             m_Option = "HugeEx";
 
         setOption(m_Option);
+        meshFilter.mesh = playerMesh[(int)(m_dualStickMovement.numController - 1)];
+        meshFilter.gameObject.GetComponent<Renderer>().material = playerMaterial[(int)(m_dualStickMovement.numController - 1)];
 	}
 	
 	// Update is called once per frame

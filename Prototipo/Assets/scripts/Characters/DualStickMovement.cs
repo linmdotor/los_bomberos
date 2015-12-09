@@ -7,7 +7,7 @@ public class DualStickMovement : MonoBehaviour
 {
     private Rigidbody rb;
     static int mIndice = 1;
-    GamePad.Index numController;
+    public GamePad.Index numController;
 
     private float speed = 5.0f;
     private bool block = false;
@@ -26,12 +26,15 @@ public class DualStickMovement : MonoBehaviour
     {
         m_blockShoot = op;
     }
-
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody>();
         numController = (GamePad.Index)mIndice;
         ++mIndice;
+    }
+    void Start()
+    {
+        
     }
 
     void FixedUpdate()
