@@ -4,16 +4,20 @@ using System.Collections;
 public class GameManager : MonoBehaviour {
     private uint m_spawnZone = 35;
     public enum GameState { PrevioEscena, Escena }
-    private GameState m_Actual = GameState.PrevioEscena;
+    public GameState m_Actual = GameState.PrevioEscena;
     public static uint m_NumPlayers = 4;
     public static GameManager m_instance = null;
-    public GameObject[] m_Players = null;
+    public GameObject m_Player = null;
     public GameObject[] m_Cameras = null;
+    private GameObject[] m_Players = new GameObject[m_NumPlayers];
     private bool[] m_DeadPlayers = new bool[m_NumPlayers];
     private bool[] m_PlayersReady = new bool[m_NumPlayers];
     private string[] m_Options = new string[m_NumPlayers];
     private uint m_People = 10; //Esto debería ser rellenado por LevelManager.
     private uint m_Cats = 3;    //Esto debería ser rellenado por LevelManager.
+
+    public bool m_Init = false;
+    public int m_InstancedPlayer = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -44,7 +48,7 @@ public class GameManager : MonoBehaviour {
         {
             Application.LoadLevel("Victory");
         }
-        if (m_PlayersReady[0] && m_PlayersReady[1] && m_PlayersReady[2] && m_PlayersReady[3])
+        if (m_PlayersReady[0] && m_PlayersReady[1] && m_PlayersReady[2] && m_PlayersReady[3] )//|| m_Actual == GameState.Escena)
         {
             switch (m_Actual)
             {
@@ -69,14 +73,16 @@ public class GameManager : MonoBehaviour {
     void ComenzarPartida(string[] options){
         for (uint i = 0; i < m_NumPlayers; ++i)
         {
-            GameObject player = Instantiate<GameObject>(m_Players[i]);
+            GameObject player = Instantiate<GameObject>(m_Player);
             player.SendMessage("setOption", options[i]);
             player.name = ((GamepadInput.GamePad.Index) i + 1).ToString();
             player.transform.position = new Vector3(m_spawnZone, 0.5f, -7);
             GameObject camera = Instantiate<GameObject>(m_Cameras[i]);
             camera.GetComponent<CameraFollows>().Player = player.transform;
             m_spawnZone += 5;
+            m_Players[i] = player;
         }
+        m_Init = true; //VARIABLE USADA EN NOTIFICATION MANAGER
     }
 
     public void setDeadPlayer(string player)
@@ -88,6 +94,7 @@ public class GameManager : MonoBehaviour {
             Debug.Log(m_DeadPlayers[i]);
     }
 
+    //Cambiar a toggleReadyPlayer(PUTO DANI)
     public void setReadyPlayer(GamepadInput.GamePad.Index player)
     {
         bool ready = m_PlayersReady[(int)player - 1];
@@ -112,5 +119,9 @@ public class GameManager : MonoBehaviour {
         {
             m_PlayersReady[i] = false;
         }
+    }
+
+    public GameObject[] getPlayers(){
+        return m_Players;
     }
 }

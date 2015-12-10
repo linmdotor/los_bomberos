@@ -20,7 +20,7 @@ public class Character : MonoBehaviour {
 
     private string m_Option = null;
     private float m_DeathTime = 10; //Cambiar a 10
-    private bool m_OnFire = false;
+    public bool m_OnFire = false; //MODIFICADO A PUBLIC PARA HACER PRUEBAS-CAMBIAR A PRIVATE
     public GameObject m_Extinguisher = null;
     public GameObject m_HugeExtinguisher = null;
     public GameObject [] m_helpNotification; //solo permite una notificacion por tipo, si varios piden ayuda se reemplaza
@@ -76,13 +76,14 @@ public class Character : MonoBehaviour {
 
         meshFilter.mesh = playerMesh[(int)(m_dualStickMovement.numController - 1)];
         meshFilter.gameObject.GetComponent<Renderer>().material = playerMaterial[(int)(m_dualStickMovement.numController - 1)];
+        m_Me = (Players)GameManager.m_instance.m_InstancedPlayer;
+        ++GameManager.m_instance.m_InstancedPlayer;
 
-
-        //GITANADA PARA ASOCIAR A CADA PLAYER UN ID
+        /*//GITANADA PARA ASOCIAR A CADA PLAYER UN ID
         if (gameObject.name == "Player1") { m_Me = Players.PLAYER1; }
         if (gameObject.name == "Player2") { m_Me = Players.PLAYER2; }
         if (gameObject.name == "Player3") { m_Me = Players.PLAYER3; }
-        if (gameObject.name == "Player4") { m_Me = Players.PLAYER4; }
+        if (gameObject.name == "Player4") { m_Me = Players.PLAYER4; }*/
 
 	}
 	
