@@ -5,13 +5,13 @@
 /**
 @file GaleonApplication.cpp
 
-Contiene la implementación de la clase aplicacion para aplicaciones
-basadas en Ogre. Esta clase maneja la ejecución de todo el juego.
+Contiene la implementaciï¿½n de la clase aplicacion para aplicaciones
+basadas en Ogre. Esta clase maneja la ejecuciï¿½n de todo el juego.
 
 @see Application::CGaleonApplication
 @see Application::C3DApplication
 
-@author David Llansó
+@author David Llansï¿½
 @date Septiembre, 2010
 */
 #include "GaleonApplication.h"
@@ -19,6 +19,7 @@ basadas en Ogre. Esta clase maneja la ejecución de todo el juego.
 #include "ExitState.h"
 #include "MenuState.h"
 #include "GameState.h"
+#include "LoadingState.h"
 
 
 namespace Application {
@@ -43,11 +44,14 @@ namespace Application {
 		if (!C3DApplication::init())
 			return false;
 
-		// Creamos los estados. La aplicación se hace responsable de
+		// Creamos los estados. La aplicaciï¿½n se hace responsable de
 		// destruirlos.
 		if(!addState("menu", new CMenuState(this)))
 			return false;
 		
+		if (!addState("loading", new CLoadingState(this)))
+			return false;
+
 		if(!addState("game", new CGameState(this)))
 			return false;
 

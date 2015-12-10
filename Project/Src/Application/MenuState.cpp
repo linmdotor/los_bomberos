@@ -5,12 +5,12 @@
 /**
 @file MenuState.cpp
 
-Contiene la implementación del estado de menú.
+Contiene la implementaciï¿½n del estado de menï¿½.
 
 @see Application::CApplicationState
 @see Application::CMenuState
 
-@author David Llansó
+@author David Llansï¿½
 @date Agosto, 2010
 */
 
@@ -32,10 +32,10 @@ namespace Application {
 	{
 		CApplicationState::init();
 
-		// Cargamos la ventana que muestra el menú
+		// Cargamos la ventana que muestra el menï¿½
 		_menuWindow = CEGUI::WindowManager::getSingletonPtr()->loadLayoutFromFile("Menu.layout");
 		
-		// Asociamos los botones del menú con las funciones que se deben ejecutar.
+		// Asociamos los botones del menï¿½ con las funciones que se deben ejecutar.
 		_menuWindow->getChildElement("Start")->
 			subscribeEvent(CEGUI::PushButton::EventClicked, 
 				CEGUI::SubscriberSlot(&CMenuState::startReleased, this));
@@ -62,7 +62,7 @@ namespace Application {
 	{
 		CApplicationState::activate();
 
-		// Activamos la ventana que nos muestra el menú y activamos el ratón.
+		// Activamos la ventana que nos muestra el menï¿½ y activamos el ratï¿½n.
 		CEGUI::System::getSingletonPtr()->getDefaultGUIContext().setRootWindow(_menuWindow);
 		_menuWindow->setVisible(true);
 		_menuWindow->activate();
@@ -74,7 +74,7 @@ namespace Application {
 
 	void CMenuState::deactivate() 
 	{		
-		// Desactivamos la ventana GUI con el menú y el ratón.
+		// Desactivamos la ventana GUI con el menï¿½ y el ratï¿½n.
 		CEGUI::System::getSingletonPtr()->getDefaultGUIContext().getMouseCursor().hide();
 		_menuWindow->deactivate();
 		_menuWindow->setVisible(false);
@@ -109,7 +109,8 @@ namespace Application {
 			_app->exitRequest();
 			break;
 		case GUI::Key::RETURN:
-			_app->setState("game");
+			//_app->setState("game");
+			_app->setState("loading");
 			break;
 		default:
 			return false;
@@ -147,7 +148,8 @@ namespace Application {
 		
 	bool CMenuState::startReleased(const CEGUI::EventArgs& e)
 	{
-		_app->setState("game");
+		//_app->setState("game");
+		_app->setState("loading");
 		return true;
 
 	} // startReleased
