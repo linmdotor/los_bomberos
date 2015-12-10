@@ -5,7 +5,7 @@ public class Spawn : MonoBehaviour {
 
     public GameObject spawn;
     public float remainingTimeToSpawn = 1.0f;
-    public float m_firePropagation = 2.0f;
+    public float m_timeBeforePropagation = 2.0f;
 
 	// Use this for initialization
 	void Start () {
@@ -19,7 +19,7 @@ public class Spawn : MonoBehaviour {
         {
             spawn = (GameObject)Instantiate(spawn, transform.position, transform.rotation);
             if (spawn.GetComponent<Fire>() != null)
-                spawn.GetComponent<Fire>().m_propagationTime = m_firePropagation;
+				spawn.GetComponent<Fire>().m_propagationTime = m_timeBeforePropagation;
             enabled = false;
         }
 	}
