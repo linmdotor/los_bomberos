@@ -121,7 +121,6 @@
     <ClInclude Include="..\..\Src\Application\BaseApplication.h" />
     <ClInclude Include="..\..\Src\Application\Clock.h" />
     <ClInclude Include="..\..\Src\Application\Documentation.h" />
-    <ClInclude Include="..\..\Src\Application\ExampleLoadingBar.h" />
     <ClInclude Include="..\..\Src\Application\ExitState.h" />
     <ClInclude Include="..\..\Src\Application\GaleonApplication.h" />
     <ClInclude Include="..\..\Src\Application\GameState.h" />
