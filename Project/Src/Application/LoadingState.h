@@ -20,6 +20,10 @@ Contiene la declaraci�n del estado de loading.
 #include "ApplicationState.h"
 #include <string>
 
+#include "OgreResourceGroupManager.h"
+#include "OgreException.h"
+#include "OgreRenderWindow.h"
+
 // Predeclaraci�n de clases para ahorrar tiempo de compilaci�n
 namespace Application 
 {
@@ -42,13 +46,20 @@ namespace Application
 	@author Daniel Parra L�pez
 	@date Diciembre, 2015
 	*/
-	class CLoadingState : public CApplicationState 
+	class CLoadingState : public CApplicationState, public Ogre::ResourceGroupListener
 	{
+	protected:
+		size_t scriptsSize;
+		size_t resourcesSize;
+
+		size_t currentScript;
+		size_t currentResource;
+
 	public:
 		/** 
 		Constructor de la clase 
 		*/
-		CLoadingState(CBaseApplication *app) : CApplicationState(app)
+		CLoadingState(CBaseApplication *app) : CApplicationState(app), scriptsSize(0), resourcesSize(0), currentScript(0), currentResource(0)
 				{}
 
 		/** 
@@ -92,6 +103,18 @@ namespace Application
 		*/
 		virtual void tick(unsigned int msecs);
 
+
+		// ResourceGroupListener callbacks
+		void resourceGroupScriptingStarted(const Ogre::String& groupName, size_t scriptCount);
+		void scriptParseStarted(const Ogre::String& scriptName, bool &skipThisScript);
+		void scriptParseEnded(const Ogre::String& scriptName, bool skipped);
+		void resourceGroupScriptingEnded(const Ogre::String& groupName);
+		void resourceGroupLoadStarted(const Ogre::String& groupName, size_t resourceCount);
+		void resourceLoadStarted(const Ogre::ResourcePtr& resource);
+		void resourceLoadEnded(void);
+		void worldGeometryStageStarted(const Ogre::String& description);
+		void worldGeometryStageEnded(void);
+		void resourceGroupLoadEnded(const Ogre::String& groupName);
 
 	}; // CMenuState
 

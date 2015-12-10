@@ -52,9 +52,6 @@ namespace Application {
 		if (!addState("loading", new CLoadingState(this)))
 			return false;
 
-		if(!addState("game", new CGameState(this)))
-			return false;
-
 		if(!addState("exit", new CExitState(this)))
 			return false;
 

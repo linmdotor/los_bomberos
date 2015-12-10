@@ -5,12 +5,12 @@
 /**
 @file MenuState.h
 
-Contiene la declaración del estado de menú.
+Contiene la declaraciï¿½n del estado de menï¿½.
 
 @see Application::CApplicationState
 @see Application::CMenuState
 
-@author David Llansó
+@author David Llansï¿½
 @date Agosto, 2010
 */
 
@@ -19,7 +19,7 @@ Contiene la declaración del estado de menú.
 
 #include "ApplicationState.h"
 
-// Predeclaración de clases para ahorrar tiempo de compilación
+// Predeclaraciï¿½n de clases para ahorrar tiempo de compilaciï¿½n
 namespace Application 
 {
 	class CBaseApplication;
@@ -34,20 +34,20 @@ namespace CEGUI
 namespace Application 
 {
 	/**
-	Como su nombre indica, esta clase es la clase del menú
-	principal del juego. Es muy sencilla y lo único que hace es cargar
+	Como su nombre indica, esta clase es la clase del menï¿½
+	principal del juego. Es muy sencilla y lo ï¿½nico que hace es cargar
 	un layout de CEGUI al inicio y activarlo y desactivarlo cuando
-	se activa o desactiva el estado (haciéndo visible/invisible también
-	el puntero del ratón). También asocia los eventos de los botones 
-	del menú a las funciones C++ que se deben invocar cuando los botones
+	se activa o desactiva el estado (haciï¿½ndo visible/invisible tambiï¿½n
+	el puntero del ratï¿½n). Tambiï¿½n asocia los eventos de los botones 
+	del menï¿½ a las funciones C++ que se deben invocar cuando los botones
 	son pulsados.
 	<p>
-	Este estado es CEGUI dependiente, lo cual no es deseable, la aplicación
-	debería ser independiente de las tecnologías usadas.
+	Este estado es CEGUI dependiente, lo cual no es deseable, la aplicaciï¿½n
+	deberï¿½a ser independiente de las tecnologï¿½as usadas.
 
 	@ingroup applicationGroup
 
-	@author David Llansó
+	@author David Llansï¿½
 	@date Agosto, 2010
 	*/
 	class CMenuState : public CApplicationState 
@@ -56,7 +56,7 @@ namespace Application
 		/** 
 		Constructor de la clase 
 		*/
-		CMenuState(CBaseApplication *app) : CApplicationState(app)
+		CMenuState(CBaseApplication *app) : CApplicationState(app), m_mainMenu(true)
 				{}
 
 		/** 
@@ -65,118 +65,132 @@ namespace Application
 		virtual ~CMenuState();
 
 		/**
-		Función llamada cuando se crea el estado (se "engancha" en la
-		aplicación, para que inicialice sus elementos.
+		Funciï¿½n llamada cuando se crea el estado (se "engancha" en la
+		aplicaciï¿½n, para que inicialice sus elementos.
 
 		@return true si todo fue bien.
 		*/
 		virtual bool init();
 
 		/**
-		Función llamada cuando se elimina ("desengancha") el
-		estado de la aplicación.
+		Funciï¿½n llamada cuando se elimina ("desengancha") el
+		estado de la aplicaciï¿½n.
 		*/
 		virtual void release();
 
 		/**
-		Función llamada por la aplicación cuando se activa
+		Funciï¿½n llamada por la aplicaciï¿½n cuando se activa
 		el estado.
 		*/
 		virtual void activate();
 
 		/**
-		Función llamada por la aplicación cuando se desactiva
+		Funciï¿½n llamada por la aplicaciï¿½n cuando se desactiva
 		el estado.
 		*/
 		virtual void deactivate();
 
 		/**
-		Función llamada por la aplicación para que se ejecute
+		Funciï¿½n llamada por la aplicaciï¿½n para que se ejecute
 		la funcionalidad del estado.
 
-		@param msecs Número de milisegundos transcurridos desde
-		la última llamada (o desde la áctivación del estado, en caso
+		@param msecs Nï¿½mero de milisegundos transcurridos desde
+		la ï¿½ltima llamada (o desde la ï¿½ctivaciï¿½n del estado, en caso
 		de ser la primera vez...).
 		*/
 		virtual void tick(unsigned int msecs);
 
-		// Métodos de CKeyboardListener
+		// Mï¿½todos de CKeyboardListener
 		
 		/**
-		Método que será invocado siempre que se pulse una tecla. 
-		Será la aplicación quién llame a este método cuando el 
-		estado esté activo. Esta clase NO se registra en el 
-		InputManager sino que es la aplicación quien lo hace y 
+		Mï¿½todo que serï¿½ invocado siempre que se pulse una tecla. 
+		Serï¿½ la aplicaciï¿½n quiï¿½n llame a este mï¿½todo cuando el 
+		estado estï¿½ activo. Esta clase NO se registra en el 
+		InputManager sino que es la aplicaciï¿½n quien lo hace y 
 		delega en los estados.
 
-		@param key Código de la tecla pulsada.
+		@param key Cï¿½digo de la tecla pulsada.
 		@return true si el evento ha sido procesado. En este caso 
-		el gestor no llamará a otros listeners.
+		el gestor no llamarï¿½ a otros listeners.
 		*/
 		virtual bool keyPressed(GUI::TKey key);
 		
 		/**
-		Método que será invocado siempre que se termine la pulsación
-		de una tecla. Será la aplicación quién llame a este método 
-		cuando el estado esté activo. Esta clase NO se registra en
-		el InputManager sino que es la aplicación quien lo hace y 
+		Mï¿½todo que serï¿½ invocado siempre que se termine la pulsaciï¿½n
+		de una tecla. Serï¿½ la aplicaciï¿½n quiï¿½n llame a este mï¿½todo 
+		cuando el estado estï¿½ activo. Esta clase NO se registra en
+		el InputManager sino que es la aplicaciï¿½n quien lo hace y 
 		delega en los estados.
 
-		@param key Código de la tecla pulsada.
+		@param key Cï¿½digo de la tecla pulsada.
 		@return true si el evento ha sido procesado. En este caso 
-		el gestor no llamará a otros listeners.
+		el gestor no llamarï¿½ a otros listeners.
 		*/
 		virtual bool keyReleased(GUI::TKey key);
 
-		// Métodos de CMouseListener
+		// Mï¿½todos de CMouseListener
 		
 		/**
-		Método que será invocado siempre que se mueva el ratón. La
-		aplicación avisa de este evento al estado actual.
+		Mï¿½todo que serï¿½ invocado siempre que se mueva el ratï¿½n. La
+		aplicaciï¿½n avisa de este evento al estado actual.
 
-		@param mouseState Estado del ratón cuando se lanza el evento.
+		@param mouseState Estado del ratï¿½n cuando se lanza el evento.
 		@return true si el evento ha sido procesado. En este caso 
-		el gestor no llamará a otros listeners.
+		el gestor no llamarï¿½ a otros listeners.
 		*/
 		virtual bool mouseMoved(const GUI::CMouseState &mouseState);
 		
 		/**
-		Método que será invocado siempre que se pulse un botón. La
-		aplicación avisa de este evento al estado actual.
+		Mï¿½todo que serï¿½ invocado siempre que se pulse un botï¿½n. La
+		aplicaciï¿½n avisa de este evento al estado actual.
 
-		@param mouseState Estado del ratón cuando se lanza el evento.
+		@param mouseState Estado del ratï¿½n cuando se lanza el evento.
 		@return true si el evento ha sido procesado. En este caso 
-		el gestor no llamará a otros listeners.
+		el gestor no llamarï¿½ a otros listeners.
 		*/
 		virtual bool mousePressed(const GUI::CMouseState &mouseState);
 
 		/**
-		Método que será invocado siempre que se termine la pulsación
-		de un botón. La aplicación avisa de este evento al estado 
+		Mï¿½todo que serï¿½ invocado siempre que se termine la pulsaciï¿½n
+		de un botï¿½n. La aplicaciï¿½n avisa de este evento al estado 
 		actual.
 
-		@param mouseState Estado del ratón cuando se lanza el evento.
+		@param mouseState Estado del ratï¿½n cuando se lanza el evento.
 		@return true si el evento ha sido procesado. En este caso 
-		el gestor no llamará a otros listeners. 
+		el gestor no llamarï¿½ a otros listeners. 
 		*/
 		virtual bool mouseReleased(const GUI::CMouseState &mouseState);
 
 	private:
 
 		/**
-		Ventana CEGUI que muestra el menú.
+		Ventana CEGUI que muestra el menï¿½.
 		*/
 		CEGUI::Window* _menuWindow;
+		/**
+		Ventana CEGUI que muestra el menÃº de pausa.
+		*/
+		CEGUI::Window* _pauseMenuWindow;
 		
 		/**
-		Función que se quiere realizar cuando se pulse el botón start.
-		Simplemente cambia al estado de juego.
+		Controla si estamos mostrando el menÃº principal o no
+		*/
+		bool m_mainMenu;
+		/**
+		Funciï¿½n que se quiere realizar cuando se pulse el botï¿½n start.
+		Simplemente cambia al estado de loading.
 		*/
 		bool startReleased(const CEGUI::EventArgs& e);
 
 		/**
-		Función que se quiere realizar cuando se pulse el botón exit.
-		Simplemente termina la aplicación.
+		Funciï¿½n que se quiere realizar cuando se pulse el botï¿½n continue.
+		Simplemente cambia al estado de juego.
+		*/
+		bool continueReleased(const CEGUI::EventArgs& e);
+
+		/**
+		Funciï¿½n que se quiere realizar cuando se pulse el botï¿½n exit.
+		Simplemente termina la aplicaciï¿½n.
 		*/
 		bool exitReleased(const CEGUI::EventArgs& e);
 

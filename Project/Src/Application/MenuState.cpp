@@ -34,6 +34,7 @@ namespace Application {
 
 		// Cargamos la ventana que muestra el men�
 		_menuWindow = CEGUI::WindowManager::getSingletonPtr()->loadLayoutFromFile("Menu.layout");
+		_pauseMenuWindow = CEGUI::WindowManager::getSingletonPtr()->loadLayoutFromFile("PauseMenu.layout");
 		
 		// Asociamos los botones del men� con las funciones que se deben ejecutar.
 		_menuWindow->getChildElement("Start")->
@@ -43,6 +44,18 @@ namespace Application {
 		_menuWindow->getChildElement("Exit")->
 			subscribeEvent(CEGUI::PushButton::EventClicked, 
 				CEGUI::SubscriberSlot(&CMenuState::exitReleased, this));
+
+		_pauseMenuWindow->getChildElement("Continue")->
+			subscribeEvent(CEGUI::PushButton::EventClicked,
+			CEGUI::SubscriberSlot(&CMenuState::continueReleased, this));
+
+		_pauseMenuWindow->getChildElement("Exit")->
+			subscribeEvent(CEGUI::PushButton::EventClicked,
+			CEGUI::SubscriberSlot(&CMenuState::exitReleased, this));
+
+		_pauseMenuWindow->deactivate();
+		_pauseMenuWindow->setVisible(false);
+
 	
 		return true;
 
@@ -62,10 +75,19 @@ namespace Application {
 	{
 		CApplicationState::activate();
 
-		// Activamos la ventana que nos muestra el men� y activamos el rat�n.
-		CEGUI::System::getSingletonPtr()->getDefaultGUIContext().setRootWindow(_menuWindow);
-		_menuWindow->setVisible(true);
-		_menuWindow->activate();
+		if (m_mainMenu)
+		{
+			// Activamos la ventana que nos muestra el men� y activamos el rat�n.
+			CEGUI::System::getSingletonPtr()->getDefaultGUIContext().setRootWindow(_menuWindow);
+			_menuWindow->setVisible(true);
+			_menuWindow->activate();
+		}
+		else
+		{
+			CEGUI::System::getSingletonPtr()->getDefaultGUIContext().setRootWindow(_pauseMenuWindow);
+			_pauseMenuWindow->setVisible(true);
+			_pauseMenuWindow->activate();
+		}
 		CEGUI::System::getSingletonPtr()->getDefaultGUIContext().getMouseCursor().show();
 
 	} // activate
@@ -76,9 +98,17 @@ namespace Application {
 	{		
 		// Desactivamos la ventana GUI con el men� y el rat�n.
 		CEGUI::System::getSingletonPtr()->getDefaultGUIContext().getMouseCursor().hide();
-		_menuWindow->deactivate();
-		_menuWindow->setVisible(false);
-		
+		if (m_mainMenu)
+		{
+			_menuWindow->deactivate();
+			_menuWindow->setVisible(false);
+		}
+		else
+		{
+			CEGUI::System::getSingletonPtr()->getDefaultGUIContext().setRootWindow(_pauseMenuWindow);
+			_pauseMenuWindow->deactivate();
+			_pauseMenuWindow->setVisible(false);
+		}
 		CApplicationState::deactivate();
 
 	} // deactivate
@@ -109,8 +139,18 @@ namespace Application {
 			_app->exitRequest();
 			break;
 		case GUI::Key::RETURN:
-			//_app->setState("game");
-			_app->setState("loading");
+			if (m_mainMenu)
+			{
+				//@todo: código duplicado, mover a función
+				_app->setState("loading");
+				m_mainMenu = false;
+				_menuWindow->deactivate();
+				_menuWindow->setVisible(false);
+			}
+			else
+			{
+				_app->setState("game");
+			}
 			break;
 		default:
 			return false;
@@ -150,6 +190,17 @@ namespace Application {
 	{
 		//_app->setState("game");
 		_app->setState("loading");
+		m_mainMenu = false;
+		_menuWindow->deactivate();
+		_menuWindow->setVisible(false);
+		return true;
+
+	} // startReleased
+
+	bool CMenuState::continueReleased(const CEGUI::EventArgs& e)
+	{
+		_app->setState("game");
+		//_app->setState("loading");
 		return true;
 
 	} // startReleased
