@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.Assertions;
 
@@ -7,6 +7,13 @@ public delegate void pullOutFire(Fire fire);
 [RequireComponent(typeof(BoxCollider))]
 [RequireComponent(typeof(AudioSource))]
 public class Fire : MonoBehaviour {
+
+    public enum FIRE_TYPES
+    {
+        FIRE_TYPE_NORMAL, FIRE_TYPE_TARGET
+    }
+    public FIRE_TYPES m_type;
+    public Transform m_target;
 
     public pullOutFire m_pullOutFire = null;
     
@@ -24,8 +31,12 @@ public class Fire : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         init();
-        fireManager = FireManager.m_instance;
-        fireManager.addFire(transform.position);
+        if (m_type == FIRE_TYPES.FIRE_TYPE_NORMAL)
+        {
+            
+            fireManager = FireManager.m_instance;
+            fireManager.addFire(transform.position);
+        }
 	}
 
     void init()
@@ -34,16 +45,30 @@ public class Fire : MonoBehaviour {
         aud.Play();
         m_init = true;
         m_nextPropagation = m_propagationTime;
+
+        if (m_type == FIRE_TYPES.FIRE_TYPE_TARGET)
+        {
+            NavMeshAgent agent = GetComponent<NavMeshAgent>();
+            agent.destination = m_target.position;
+        }
     }
+
+
 	// Update is called once per frame
 	void Update () {
         Assert.IsTrue(m_init);
-        m_nextPropagation -= Time.deltaTime;
-        if (m_canBePropagated && m_nextPropagation < 0.0f)
+        if (m_type == FIRE_TYPES.FIRE_TYPE_NORMAL) //lo moveria en distintos updates pero no...
         {
-            m_nextPropagation = m_propagationTime;
-            fireManager.firePropagation(transform.position, m_damegePerPropagationTime);
-            //logica de propagación
+            m_nextPropagation -= Time.deltaTime;
+            if (m_canBePropagated && m_nextPropagation < 0.0f)
+            {
+                m_nextPropagation = m_propagationTime;
+                fireManager.firePropagation(transform.position, m_damegePerPropagationTime);
+                //logica de propagación
+            }
+        }
+        else if (m_type == FIRE_TYPES.FIRE_TYPE_TARGET)
+        {
         }
 	}
     void OnTriggerEnter(Collider other) {
@@ -79,10 +104,17 @@ public class Fire : MonoBehaviour {
     public void OnDead()
     {
         Assert.IsTrue(m_init);
-        fireManager.removeFire(transform.position);
-        gameObject.SetActive(false);
-        if (m_pullOutFire != null) m_pullOutFire(this);
-        //Destroy(gameObject);
+        if (m_type == FIRE_TYPES.FIRE_TYPE_NORMAL)
+        {
+            fireManager.removeFire(transform.position);
+            gameObject.SetActive(false);
+            if (m_pullOutFire != null) m_pullOutFire(this);
+            //Destroy(gameObject);
+        }
+        else if (m_type == FIRE_TYPES.FIRE_TYPE_TARGET)
+        {
+            Destroy(gameObject);
+        }
     }
     
 }
