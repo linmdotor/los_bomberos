@@ -16,7 +16,6 @@ Contiene la implementaci�n del estado de men�.
 
 #include "LoadingState.h"
 #include "GameState.h"
-#include "ExampleLoadingBar.h"
 #include <OGRE\OgreResourceManager.h>
 
 
