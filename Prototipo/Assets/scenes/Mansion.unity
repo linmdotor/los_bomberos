@@ -23501,7 +23501,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493298, guid: 468c7dc3fcef92646adcafb4ca7bf219, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 11425470, guid: 468c7dc3fcef92646adcafb4ca7bf219, type: 2}
       propertyPath: Player
