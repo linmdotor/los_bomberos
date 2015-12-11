@@ -41,7 +41,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 5
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_LightmapsMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -11435,6 +11435,22 @@ Prefab:
     - target: {fileID: 469548, guid: 4b2754d66509d9a4d9c1423b9f69827a, type: 2}
       propertyPath: m_RootOrder
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 11431150, guid: 4b2754d66509d9a4d9c1423b9f69827a, type: 2}
+      propertyPath: m_damage
+      value: 51
+      objectReference: {fileID: 0}
+    - target: {fileID: 1540224, guid: 4b2754d66509d9a4d9c1423b9f69827a, type: 2}
+      propertyPath: maxEnergy
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1540224, guid: 4b2754d66509d9a4d9c1423b9f69827a, type: 2}
+      propertyPath: minEnergy
+      value: .899999976
+      objectReference: {fileID: 0}
+    - target: {fileID: 101606, guid: 4b2754d66509d9a4d9c1423b9f69827a, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4b2754d66509d9a4d9c1423b9f69827a, type: 2}
@@ -41344,6 +41360,30 @@ Prefab:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 188074, guid: 5006df0910ed8d74d8e3857c43254a23, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440090, guid: 5006df0910ed8d74d8e3857c43254a23, type: 2}
+      propertyPath: m_damage
+      value: 101
+      objectReference: {fileID: 0}
+    - target: {fileID: 1508720, guid: 5006df0910ed8d74d8e3857c43254a23, type: 2}
+      propertyPath: maxEnergy
+      value: .0500000007
+      objectReference: {fileID: 0}
+    - target: {fileID: 1508720, guid: 5006df0910ed8d74d8e3857c43254a23, type: 2}
+      propertyPath: minEnergy
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11459856, guid: 5006df0910ed8d74d8e3857c43254a23, type: 2}
+      propertyPath: m_waterSwordCheat
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11459856, guid: 5006df0910ed8d74d8e3857c43254a23, type: 2}
+      propertyPath: m_axeCheat
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 170020, guid: 5006df0910ed8d74d8e3857c43254a23, type: 2}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}

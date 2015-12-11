@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 using GamepadInput;
@@ -118,6 +118,11 @@ public class DualStickMovement : MonoBehaviour
             else
             {
                 gameObject.BroadcastMessage("stopShooting");
+                if (leftStickAxis.magnitude > 0.0f)
+                {
+                    transform.rotation = Quaternion.LookRotation(leftStickAxis, Vector3.up);
+                }
+                
             }
         }
         
