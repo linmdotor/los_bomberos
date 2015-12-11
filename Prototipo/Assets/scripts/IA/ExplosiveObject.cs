@@ -42,6 +42,8 @@ public class ExplosiveObject : MonoBehaviour {
         aux.GetComponent<AudioSource>().PlayOneShot(aud.clip);
         Destroy(aux, 4.0f);
 
+        //Propagamos el fuego (Crear script PropagarFuego, mandar mensaje).
+
         //destruye el objeto
         Destroy(gameObject);
 
