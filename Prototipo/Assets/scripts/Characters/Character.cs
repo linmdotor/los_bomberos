@@ -28,6 +28,7 @@ public class Character : MonoBehaviour {
     private float[] remainingTimeMessages; //solo permite una notificacion por tipo, si varios piden ayuda se reemplaza
     public Axe axe;
     public WaterSword waterSword;
+    public Turret turret;
     public float delayToNextTool = 0.5f;
     private DualStickMovement m_dualStickMovement;
     private States m_states;
@@ -40,6 +41,7 @@ public class Character : MonoBehaviour {
     public bool m_axeCheat = false;
     public bool m_waterSwordCheat = true;
     public bool m_HugeExCheat = false;
+    public bool m_TurretCheat = false;
 
     public float m_resistanceToBurning = 1.0f;
     public float m_resistanceToBurningRegeneration = 1.0f;
@@ -71,6 +73,8 @@ public class Character : MonoBehaviour {
             m_Option = "WaterSword";
         if (m_HugeExCheat)
             m_Option = "HugeEx";
+        if (m_TurretCheat)
+            m_Option = "Turret";
 
         setOption(m_Option);
 
@@ -153,6 +157,10 @@ public class Character : MonoBehaviour {
         {
             //waterSword.enabled = true; //No es necesario, al utilizar la herramienta ya se comprueba
         }
+        else if (m_Option == "Turret")
+        {
+            // Acciones que fuesen necesarias hacer (de momento ninguna)
+        }
     }
 
     void isDead()
@@ -175,6 +183,10 @@ public class Character : MonoBehaviour {
             waterSword.gameObject.SetActive(true);
             waterSword.activeWaterSword(0.5f);
             StartCoroutine(dissableWaterSword());
+        }
+        if (m_Option == "Turret")
+        {
+            turret.activeTurret(transform);
         }
     }
     IEnumerator dissableAxe()
