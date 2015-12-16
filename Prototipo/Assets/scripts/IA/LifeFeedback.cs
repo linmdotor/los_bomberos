@@ -2,39 +2,48 @@
 using System.Collections;
 
 /// <summary>
-/// Creates an indicator for the life
+/// Manages an indicator for the life
+/// 
+/// It needs an indicator attached to the public variable 'm_lifeIndicator'.
+/// 
+/// The script will use the x local scale of the Indicator to show the life
 /// </summary>
+/// <autor>Xarkos</autor>
 [RequireComponent(typeof(Life))]
 public class LifeFeedback : MonoBehaviour {
 
     private Life m_life; // The life script attach to this gameObject
     private float m_maxLife; // The maximum life of this gameObject
 
-    public GameObject m_lifeIndicatorPrefab; // The lifeIndicator prefab
-    private GameObject m_lifeSprite; // The sprite indicator
-    private float m_initScale;
+    public GameObject m_lifeIndicator; // The life Indicator
+    private float m_initScale; // The initial scale.x of the Indicator
 
     void Awake()
     {
         m_life = GetComponent<Life>();
         m_maxLife = m_life.getMaxLife();
+
+        m_lifeIndicator.SetActive(false);
+
+        m_initScale = m_lifeIndicator.transform.localScale.x;
     }
 
     public bool OnDamage(float damage){
 
-        instanciateLifeSprite();
+        m_lifeIndicator.SetActive(true);
 
         // Calculates the life percentage
         float lifePercent = m_life.getLife() / m_maxLife;
 
         // Scales the sprite by the lifePercent
-        Vector3 spriteScale = m_lifeSprite.gameObject.transform.localScale;
-        spriteScale.x *= lifePercent;
-        m_lifeSprite.gameObject.transform.localScale = spriteScale;
+        Vector3 indicatorScale = m_lifeIndicator.transform.localScale;
+        indicatorScale.x = m_initScale * lifePercent;
+        m_lifeIndicator.transform.localScale = indicatorScale;
 
         return true;
     }
 
+    /* Old version: this instantiates the lifeIndicator from a prefab
     private void instanciateLifeSprite()
     {
         if (m_lifeSprite == null)
@@ -48,5 +57,5 @@ public class LifeFeedback : MonoBehaviour {
             // Give values to some variables
             m_initScale = m_lifeSprite.gameObject.transform.localScale.x;
         }
-    }
+    }*/ 
 }
