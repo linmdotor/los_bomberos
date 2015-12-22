@@ -20,7 +20,7 @@ namespace GamepadInput
         {
             KeyCode code = GetKeycode(button, controlIndex);
             bool aux = Input.GetKeyDown(code);
-            if (!aux) //miramos el PC
+            if (!aux && (int)controlIndex < 3) //miramos el PC
             {
                 string xName = "";
                 switch (button)
@@ -81,10 +81,12 @@ namespace GamepadInput
                     yName = "R_YAxis_" + (int)controlIndex;
                     break;
                 case Axis.KeyboardR:
+                    if ((int)controlIndex > 2) break;
                     xName = "R_Horizontal_" + (int)controlIndex;
                     yName = "R_Vertical_" + (int)controlIndex;
                     break;
                 case Axis.KeyboardL:
+                    if ((int)controlIndex > 2) break;
                     xName = "L_Horizontal_" + (int)controlIndex;
                     yName = "L_Vertical_" + (int)controlIndex;
                     break;

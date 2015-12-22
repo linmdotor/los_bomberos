@@ -176,12 +176,14 @@ public class Character : MonoBehaviour {
         {
             axe.gameObject.SetActive(true);
             axe.activeAxe(0.2f);
+            delayToNextTool = 0.2f;
             StartCoroutine(dissableAxe());
         }
         if (m_Option == "WaterSword")
         {
             waterSword.gameObject.SetActive(true);
-            waterSword.activeWaterSword(0.5f);
+            waterSword.activeWaterSword(3.5f);
+            delayToNextTool = 3.5f;
             StartCoroutine(dissableWaterSword());
         }
         if (m_Option == "Turret")
