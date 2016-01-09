@@ -52,7 +52,7 @@ GameObject:
   m_Layer: 0
   m_Name: P_FireTarget
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
@@ -84,7 +84,7 @@ GameObject:
   m_Layer: 0
   m_Name: Target
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
@@ -106,9 +106,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 154084}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.06104279, y: -.199999571, z: 28.4191628}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: .700824857, z: 0, w: .713333488}
+  m_LocalPosition: {x: 13.2200003, y: -1.54999924, z: -4.70999908}
+  m_LocalScale: {x: 1.27445567, y: 1, z: 1}
   m_Children:
   - {fileID: 426334}
   - {fileID: 488926}
@@ -147,7 +147,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 165678}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -23.1100006, y: 0, z: 0}
+  m_LocalPosition: {x: 5.26999998, y: 0, z: 3.47000003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 418120}
@@ -221,8 +221,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 11.7471752, y: 1, z: 1}
+  m_Center: {x: 5.37366009, y: 0, z: 4.20808792e-05}
 --- !u!82 &8204478
 AudioSource:
   m_ObjectHideFlags: 1
@@ -356,7 +356,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 105862}
   m_Enabled: 1
   m_Radius: .5
-  m_Speed: 3.5
+  m_Speed: 6
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
